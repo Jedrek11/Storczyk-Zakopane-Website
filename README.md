@@ -61,22 +61,6 @@ Statyczna, w pełni responsywna strona internetowa dla **Willi Storczyk** — pr
 - **Netlify** — hosting i obsługa formularza kontaktowego
 - **Google Fonts** — Playfair Display + Lato
 
-## Uruchomienie lokalnie
-
-```bash
-# Sklonuj repozytorium
-git clone https://github.com/Jedrek11/Storczyk-Zakopane-Website.git
-
-# Otwórz w przeglądarce
-cd Storczyk-Zakopane-Website
-start index.html
-```
-
-Lub użyj dowolnego lokalnego serwera:
-```bash
-npx serve .
-```
-
 ## Kontakt
 
 - **Adres:** Droga na Bystre 1, 34-500 Zakopane
