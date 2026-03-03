@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – Atrakcje Zakopanego | Willa Storczyk</title>
+  <meta name="description" content="Poznaj najlepsze atrakcje Zakopanego i okolic. Kasprowy Wierch, Krupówki, Gubałówka i wiele więcej, przewodnik od gospodarzy Willi Storczyk.">
+  <meta name="keywords" content="atrakcje Zakopane, co robić w Zakopanem, Kasprowy Wierch, Gubałówka, Krupówki, termy Zakopane, blog Zakopane">
+  <link rel="canonical" href="https://storczykzakopane.pl/blog.html">
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog – Atrakcje Zakopanego | Willa Storczyk">
+  <meta property="og:description" content="Poznaj najlepsze atrakcje Zakopanego i okolic. Kasprowy Wierch, Krupówki, Gubałówka i wiele więcej, przewodnik od gospodarzy Willi Storczyk.">
+  <meta property="og:url" content="https://storczykzakopane.pl/blog.html">
+  <meta property="og:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Willa Storczyk Zakopane">
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog – Atrakcje Zakopanego | Willa Storczyk">
+  <meta name="twitter:description" content="Poznaj najlepsze atrakcje Zakopanego i okolic. Kasprowy Wierch, Krupówki, Gubałówka i wiele więcej, przewodnik od gospodarzy Willi Storczyk.">
+  <meta name="twitter:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #2c4a2c;
+      --cream: #f5f0e8;
+      --cream-light: #faf7f2;
+      --dark: #1a2a1a;
+      --text-mid: #6b7c6b;
+      --gold: #b8963e;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream-light); color: var(--dark); }
+
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      background: rgba(30,42,30,0.96);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+    .nav-brand { display:flex; align-items:center; gap:0.8rem; text-decoration:none; }
+    .nav-logo-img { width:46px; height:46px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.25); }
+    .nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
+    .nav-brand-name { color:#f5f0e8; font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:0.04em; }
+    .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
+    .nav-back { color:rgba(245,240,232,0.85); font-size:0.78rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); padding:0.45rem 1.2rem; border-radius:50px; transition:all 0.3s; }
+    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.4); color:#fff; }
+
+    /* HERO */
+    .blog-hero {
+      background: linear-gradient(rgba(30,42,30,0.55), rgba(30,42,30,0.7)), url('zdj/blog-hero-bg.jpg') center/cover no-repeat;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .blog-hero-label { color: var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
+    .blog-hero h1 { font-family:'Playfair Display', serif; font-size:3rem; color: #f5f0e8; font-weight:400; line-height:1.2; }
+    .blog-hero h1 em { font-style:italic; color: var(--gold); }
+    .blog-hero p { color:rgba(245,240,232,0.7); font-size:1rem; margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7; }
+
+    /* ARTICLES GRID */
+    .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 4rem 0 6rem;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(30,42,30,0.08);
+      border: 1px solid rgba(30,42,30,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(30,42,30,0.15);
+    }
+    .article-thumb {
+      height: 200px;
+      background: var(--forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+    .article-card:hover .article-thumb img { transform: scale(1.05); }
+    .article-thumb-kasprowy { background: linear-gradient(135deg, #2c4a2c 0%, #1a3a2a 50%, #0f2a1f 100%); }
+    .article-thumb-krupowki { background: linear-gradient(135deg, #3d3020 0%, #5a4a2a 50%, #4a3520 100%); }
+    .article-thumb-gubalowka { background: linear-gradient(135deg, #1a3a4a 0%, #2a4a5a 50%, #1a3040 100%); }
+    .article-tag {
+      position:absolute; top:1rem; left:1rem;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #fff;
+      font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      padding: 0.28rem 0.7rem; border-radius:4px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .article-body { padding: 1.5rem; flex:1; display:flex; flex-direction:column; }
+    .article-title { font-family:'Playfair Display', serif; font-size:1.3rem; font-weight:700; color:var(--dark); margin-bottom:0.6rem; line-height:1.3; }
+    .article-excerpt { font-size:0.88rem; color:var(--text-mid); line-height:1.7; flex:1; }
+    .article-cta { margin-top:1.2rem; font-size:0.8rem; font-weight:700; color:var(--forest); letter-spacing:0.08em; text-transform:uppercase; display:flex; align-items:center; gap:0.4rem; }
+    .article-cta svg { transition: transform 0.2s; }
+    .article-card:hover .article-cta svg { transform: translateX(4px); }
+
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .blog-hero h1 { font-size:2rem; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+
+<!-- MOBILE TOP BAR -->
+<div class="mobile-topbar">
+  <a href="javascript:history.back()" class="mobile-topbar-back" aria-label="Wróć">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </a>
+  <a href="index.html" class="mobile-topbar-brand">
+    <img src="zdj/index-img2.webp" alt="Logo" class="mobile-topbar-logo">
+    <span class="mobile-topbar-url">storczykzakopane.pl</span>
+  </a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="zdj/index-img2.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Storczyk</span>
+      <span class="nav-brand-sub">Zakopane</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← Strona główna</a>
+</nav>
+
+<div class="blog-hero">
+  <p class="blog-hero-label">Przewodnik</p>
+  <h1>Atrakcje <em>Zakopanego</em></h1>
+  <p>Odkryj najpiękniejsze miejsca w Tatrach i okolicach. Nasze wskazówki dla Gości Willi Storczyk.</p>
+</div>
+
+<div class="container">
+  <div class="articles-grid">
+
+    <a href="blog-kasprowy-wierch.html" class="article-card">
+      <div class="article-thumb article-thumb-kasprowy">
+        <img src="zdj/blog-kasprowy-wierch-img2.webp" alt="Kasprowy Wierch" loading="lazy">
+        <span class="article-tag">Góry</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Kasprowy Wierch, jak się dostać i co zobaczyć</h2>
+        <p class="article-excerpt">Kolejka linowa na Kasprowy Wierch to jedna z największych atrakcji Zakopanego. Dowiedz się jak dojechać spod Willi Storczyk i co Cię czeka na szczycie.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+    <a href="blog-krupowki.html" class="article-card">
+      <div class="article-thumb article-thumb-krupowki">
+        <img src="zdj/krupowki-zakopane-zima.jpg.webp" alt="Krupówki Zakopane" loading="lazy">
+        <span class="article-tag">Centrum</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Krupówki, serce Zakopanego</h2>
+        <p class="article-excerpt">Deptak Krupówki to wizytówka Zakopanego, restauracje, sklepy z oscypkiem, góralska muzyka i niepowtarzalny klimat. Sprawdź co warto zobaczyć.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+    <a href="blog-gubalowka.html" class="article-card">
+      <div class="article-thumb article-thumb-gubalowka">
+        <img src="zdj/blog-gubalowka-img2.webp" alt="Gubałówka panorama" loading="lazy">
+        <span class="article-tag">Widoki</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Gubałówka, panorama Tatr jakiej nie zapomnisz</h2>
+        <p class="article-excerpt">Kolej linowa na Gubałówkę oferuje zapierający dech widok na całe Zakopane i Tatry. Idealne miejsce na rodzinny spacer o każdej porze roku.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+
+    <a href="blog-komunikacja.html" class="article-card">
+      <div class="article-thumb" style="background: linear-gradient(135deg, #2a3a5a 0%, #1a2a4a 100%);">
+        <img src="zdj/blog-komunikacja-img2.webp" alt="Komunikacja Zakopane" loading="lazy">
+        <span class="article-tag">Transport</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Komunikacja miejska w Zakopanem</h2>
+        <p class="article-excerpt">Autobusy, ceny biletów, miejsca na narty i jak sprawnie poruszać się po Zakopanem bez samochodu. Wszystko co musisz wiedzieć przed przyjazdem.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+    <a href="blog-rowery.html" class="article-card">
+      <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a1a 0%, #2a5a2a 100%);">
+        <img src="zdj/blog-rowery-img2.jpg" alt="Wycieczki rowerowe Tatry" loading="lazy">
+        <span class="article-tag">Rower</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Wycieczki rowerowe w Tatry – 3 legalne szlaki</h2>
+        <p class="article-excerpt">Droga pod Reglami, Dolina Chochołowska i Dolina Gąsienicowa. Jedyne trasy gdzie rower jest dozwolony w TPN, z opisami, opłatami i wskazówkami.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+    <a href="blog-skywalk.html" class="article-card">
+      <div class="article-thumb" style="background: linear-gradient(135deg, #3a1a3a 0%, #5a2a5a 100%);">
+        <img src="zdj/blog-skywalk-img2.webp" alt="SkyWalk Serce Poronina" loading="lazy">
+        <span class="article-tag">Widoki</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">SkyWalk Serce Poronina</h2>
+        <p class="article-excerpt">Platforma widokowa w kształcie serca z panoramą na Tatry. Jedna z najchętniej fotografowanych atrakcji w okolicach Zakopanego. Jak dojechać i co zobaczyć.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+
+    <a href="blog-termy.html" class="article-card">
+      <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a4a 0%, #0f2a3a 50%, #1a4a5a 100%);">
+        <img src="zdj/blog-termy-img2.jpg" alt="Termy Zakopane" loading="lazy">
+        <span class="article-tag">Relaks</span>
+      </div>
+      <div class="article-body">
+        <h2 class="article-title">Termy w okolicach Zakopanego</h2>
+        <p class="article-excerpt">Chochołowskie, Zakopiańskie, Bukowina i Gorący Potok Szaflary. Przewodnik po czterech najlepszych kompleksach termalnych dostępnych z Willi Storczyk.</p>
+        <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<style>
+  .float-rez { position:fixed; bottom:2rem; right:2rem; z-index:999; background:rgba(12,18,12,0.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border:1px solid rgba(255,255,255,0.13); color:rgba(245,240,232,0.95); padding:0.85rem 1.6rem; border-radius:50px; display:flex; align-items:center; justify-content:center; font-family:'Lato',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 24px rgba(0,0,0,0.35); transition:all 0.3s; white-space:nowrap; opacity:0; pointer-events:none; transform:scale(0.7); }
+  .float-rez--visible { opacity:1; pointer-events:auto; transform:scale(1); animation:pulse-rez 2.5s infinite; }
+  .float-rez:hover { background:rgba(30,48,30,0.92) !important; border-color:rgba(255,255,255,0.45); box-shadow:0 0 0 3px rgba(255,255,255,0.12), 0 8px 36px rgba(0,0,0,0.55); color:#fff; }
+  @keyframes pulse-rez { 0%,100%{box-shadow:0 4px 20px rgba(58,92,58,0.5);} 50%{box-shadow:0 4px 32px rgba(58,92,58,0.9);} }
+  .mobile-topbar { display:none; }
+  .bottom-nav { display:none; }
+  @media (max-width:768px) {
+    .mobile-topbar { display:flex; justify-content:center; align-items:center; position:fixed; top:0.5rem; left:50%; transform:translateX(-50%); z-index:997; padding:0.45rem 0.6rem 0.45rem 0.5rem; background:rgba(15,15,15,0.75); backdrop-filter:saturate(180%) blur(22px); -webkit-backdrop-filter:saturate(180%) blur(22px); border-radius:40px; border:1px solid rgba(255,255,255,0.08); }
+    .mobile-topbar-brand { display:flex; align-items:center; gap:0.45rem; text-decoration:none; }
+    .mobile-topbar-logo { width:22px; height:22px; border-radius:50%; object-fit:cover; }
+    .mobile-topbar-url { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
+    .mobile-topbar-back { display:flex; align-items:center; justify-content:center; background:none; border:none; color:rgba(245,240,232,0.7); cursor:pointer; padding:0.3rem; margin-right:0.2rem; border-radius:50%; transition:color 0.2s,background 0.2s; text-decoration:none; }
+    .mobile-topbar-back:hover { color:#f5f0e8; background:rgba(255,255,255,0.1); }
+    nav:not(.bottom-nav) { display:none !important; }
+    .bottom-nav { display:flex; position:fixed; top:auto; bottom:calc(0.5rem + env(safe-area-inset-bottom,0px)); left:0.6rem; right:0.6rem; z-index:9999; background:rgba(15,15,15,0.75); backdrop-filter:saturate(180%) blur(22px); -webkit-backdrop-filter:saturate(180%) blur(22px); padding:0.25rem; justify-content:space-around; align-items:stretch; border:1px solid rgba(255,255,255,0.1); border-radius:40px; }
+    .bottom-nav a, .bottom-nav button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.15rem; color:rgba(245,240,232,0.45); text-decoration:none; font-family:'Lato',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:none; border:none; cursor:pointer; padding:0.5rem 0; transition:color 0.2s,background 0.2s; -webkit-tap-highlight-color:transparent; border-radius:30px; position:relative; flex:1; }
+    .bottom-nav a:hover, .bottom-nav button:hover, .bottom-nav a:active, .bottom-nav button:active { color:rgba(245,240,232,0.9); background:rgba(255,255,255,0.12); }
+    .bottom-nav a.bnav-active { color:#f5f0e8; background:rgba(255,255,255,0.15); }
+    .bottom-nav .bnav-icon { width:20px; height:20px; fill:none; stroke:currentColor; }
+    .bottom-nav .bnav-rez { color:#e8b86d; }
+    .bottom-nav .bnav-rez:hover, .bottom-nav .bnav-rez:active { color:#f0c878; background:rgba(232,184,109,0.15); }
+    .float-rez { display:none !important; }
+    .articles-grid { padding-bottom:5rem !important; }
+  }
+</style>
+<a href="/#kontakt" class="float-rez">Zarezerwuj pobyt</a>
+<script>setTimeout(function(){ var b=document.querySelector('.float-rez'); if(b) b.classList.add('float-rez--visible'); }, 11000);</script>
+
+<nav class="bottom-nav">
+  <a href="index.html">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Dom</span>
+  </a>
+  <a href="tel:+48607312972">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Telefon</span>
+  </a>
+  <a href="index.html#kontakt" class="bnav-rez">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+    <span>Rezerwuj</span>
+  </a>
+  <a href="blog.html" class="bnav-active">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <span>Blog</span>
+  </a>
+  <button onclick="toggleMenu()">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>Menu</span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-brand">
+    <img src="zdj/index-img2.webp" alt="Logo Storczyk" class="mobile-menu-logo">
+    <div class="mobile-menu-brand-text">
+      <span class="mobile-menu-brand-name">Storczyk</span>
+      <span class="mobile-menu-brand-sub">Zakopane</span>
+    </div>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="index.html" onclick="closeMenu()">Strona główna</a>
+    <a href="index.html#o-nas" onclick="closeMenu()">O nas</a>
+    <a href="index.html#lokalizacja" onclick="closeMenu()">Lokalizacja</a>
+    <a href="index.html#pokoje" onclick="closeMenu()">Pokoje</a>
+    <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="index.html#opinie" onclick="closeMenu()">Opinie</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#galeria" onclick="closeMenu()">Galeria</a>
+  </div>
+</div>
+
+<style>
+  .mobile-menu { display:none; position:fixed; top:68px; left:0; right:0; background:var(--forest,#2d4a2d); z-index:999; flex-direction:column; padding:1rem 0; }
+  .mobile-menu.open { display:flex; }
+  @media (max-width:768px) {
+    .mobile-menu {
+      position:fixed !important; inset:0 !important;
+      background:rgba(26,36,26,0.97) !important;
+      backdrop-filter:saturate(180%) blur(24px);
+      -webkit-backdrop-filter:saturate(180%) blur(24px);
+      flex-direction:column !important; align-items:center; justify-content:flex-start;
+      padding:0 1.5rem 5rem !important; gap:0;
+      z-index:9997 !important; border:none !important; box-shadow:none !important;
+      overflow-y:auto; opacity:0; visibility:hidden;
+      transition:opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .mobile-menu.open { display:flex !important; opacity:1 !important; visibility:visible !important; }
+    .mobile-menu a {
+      display:block !important; width:100%; max-width:320px; text-align:center !important;
+      padding:0.85rem 1.5rem !important; border:1px solid rgba(255,255,255,0.15) !important;
+      border-radius:50px !important; font-size:0.88rem !important; letter-spacing:0.06em;
+      color:var(--cream,#f5f0e8); text-decoration:none; font-weight:700; text-transform:uppercase;
+      transition:background 0.2s, border-color 0.2s;
+    }
+    .mobile-menu a:hover { background:rgba(255,255,255,0.1) !important; border-color:rgba(255,255,255,0.35) !important; }
+    .mobile-menu-brand { display:flex; align-items:center; gap:0.7rem; margin-top:2.5rem; margin-bottom:2.2rem; }
+    .mobile-menu-logo { width:40px; height:40px; border-radius:50%; object-fit:cover; }
+    .mobile-menu-brand-text { display:flex; flex-direction:column; }
+    .mobile-menu-brand-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--cream,#f5f0e8); letter-spacing:0.04em; }
+    .mobile-menu-brand-sub { font-family:'Lato',sans-serif; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; color:rgba(245,240,232,0.5); }
+    .mobile-menu-links { display:flex; flex-direction:column; align-items:center; width:100%; gap:0.55rem; }
+  }
+</style>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open')) {
+    closeMenu();
+  } else {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        menu.classList.add('open');
+        if (hamburger) hamburger.classList.add('open');
+      });
+    });
+  }
+}
+
+// Bottom nav active state — page default always stays, Menu toggles separately
+(function() {
+  var menuBtn = document.querySelector('.bottom-nav button');
+  if (menuBtn) {
+    var origToggle = window.toggleMenu;
+    window.toggleMenu = function() {
+      var menu = document.getElementById('mobile-menu');
+      var wasOpen = menu.classList.contains('open');
+      origToggle();
+      if (wasOpen) {
+        menuBtn.classList.remove('bnav-active');
+      } else {
+        menuBtn.classList.add('bnav-active');
+      }
+    };
+    var origClose = window.closeMenu;
+    window.closeMenu = function() {
+      origClose();
+      menuBtn.classList.remove('bnav-active');
+    };
+  }
+})();
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  menu.addEventListener('transitionend', function handler() {
+    if (!menu.classList.contains('open')) {
+      menu.style.display = '';
+    }
+    menu.removeEventListener('transitionend', handler);
+  });
+}
+</script>
+</body>
+</html>
