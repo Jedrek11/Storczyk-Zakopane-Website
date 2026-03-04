@@ -847,6 +847,33 @@
     flex-shrink: 0;
   }
 
+  .rooms-summary {
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border: 1px solid rgba(30,42,30,0.08);
+    border-radius: 50px;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    box-shadow: 0 2px 12px rgba(30,42,30,0.05);
+  }
+  .rooms-summary-item {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+  }
+  .rooms-summary-item strong {
+    color: var(--forest-mid);
+    font-size: 0.95rem;
+  }
+  .rooms-summary-dot {
+    color: rgba(30,42,30,0.15);
+    font-size: 0.82rem;
+  }
+
   /* ── UDOGODNIENIA ── */
   #udogodnienia { background: var(--forest); color: var(--cream); }
   #udogodnienia .section-title { color:var(--cream); }
@@ -1044,12 +1071,17 @@
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.12);
     color: var(--cream);
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
     font-family: 'Lato', sans-serif;
     font-size: 0.95rem;
     border-radius: 10px;
     transition: all 0.3s ease;
     outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(245,240,232,0.6)' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
   }
 
   .form-group input::placeholder,
@@ -1425,6 +1457,8 @@
     }
     .about-grid, .location-grid, .contact-grid { grid-template-columns:1fr; gap:2rem; }
     .rooms-grid { grid-template-columns:1fr; }
+    .rooms-summary { flex-direction:column; gap:0.4rem; border-radius:16px; padding:1rem 1.2rem; align-items:center; }
+    .rooms-summary-dot { display:none; }
     .amenities-grid { grid-template-columns:repeat(2,1fr); }
     .gallery-grid { grid-template-columns:1fr 1fr; }
     .gallery-grid .big { grid-column:span 1; grid-row:span 1; }
@@ -2229,12 +2263,12 @@
 
     </div>
 
-    <div style="margin-top:2rem; padding:1rem 1.5rem; background:white; border:1px solid rgba(30,42,30,0.08); border-radius:50px; display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; align-items:center; box-shadow:0 2px 12px rgba(30,42,30,0.05);">
-      <span style="font-size:0.82rem; color:var(--text-mid); letter-spacing:0.02em;"><strong style="color:var(--forest-mid); font-size:1rem;">3×</strong> Pokój 2-osobowy</span>
-      <span style="color:rgba(30,42,30,0.15); font-size:0.8rem;">•</span>
-      <span style="font-size:0.82rem; color:var(--text-mid); letter-spacing:0.02em;"><strong style="color:var(--forest-mid); font-size:1rem;">1×</strong> Pokój 2/3-osobowy</span>
-      <span style="color:rgba(30,42,30,0.15); font-size:0.8rem;">•</span>
-      <span style="font-size:0.82rem; color:var(--text-mid); letter-spacing:0.02em;"><strong style="color:var(--forest-mid); font-size:1rem;">2×</strong> Pokój 3/4-osobowy</span>
+    <div class="rooms-summary">
+      <span class="rooms-summary-item"><strong>3×</strong> Pokój 2-osobowy</span>
+      <span class="rooms-summary-dot">•</span>
+      <span class="rooms-summary-item"><strong>1×</strong> Pokój 2/3-osobowy</span>
+      <span class="rooms-summary-dot">•</span>
+      <span class="rooms-summary-item"><strong>2×</strong> Pokój 3/4-osobowy</span>
     </div>
 
   </div>
