@@ -548,6 +548,7 @@
     text-transform: uppercase;
     text-decoration: none;
     border: 2px solid rgba(255,255,255,0.45);
+    border-radius: 50px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     display: inline-block;
   }
@@ -610,32 +611,34 @@
     color: var(--forest);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 1.2rem 1.5rem;
-    border: 1.5px solid rgba(45,74,45,0.15);
-    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid rgba(30,42,30,0.07);
+    border-radius: 16px;
     min-width: 120px;
     transition: all 0.3s;
     background: white;
-    box-shadow: 0 2px 12px rgba(30,42,30,0.06);
+    box-shadow: 0 2px 12px rgba(30,42,30,0.05);
     user-select: none;
     cursor: default;
   }
 
   .badge-item:hover {
-    border-color: var(--forest-mid);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30,42,30,0.12);
+    border-color: rgba(30,42,30,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30,42,30,0.1);
   }
 
   .badge-dots { display: none; }
 
   .badge-icon {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--forest);
+    color: var(--forest-mid);
+    background: rgba(30,42,30,0.05);
+    border-radius: 10px;
   }
 
   /* ── SECTIONS ── */
@@ -691,7 +694,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 16px;
   }
 
   .about-images img:first-child {
@@ -732,11 +735,12 @@
     display: flex;
     align-items: flex-start;
     gap: 0.7rem;
-    padding: 0.35rem 0.5rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
     transition: background 0.3s;
   }
 
-  .dist-item:hover { background: rgba(255,255,255,0.05); border-radius: 3px; }
+  .dist-item:hover { background: rgba(255,255,255,0.06); }
   .dist-icon { font-size:1.1rem; min-width:1.5rem; text-align:center; margin-top:0.1rem; }
 
   .dist-info strong {
@@ -752,10 +756,10 @@
   .dist-info span::before { content: " - "; opacity:0.5; }
 
   .map-container {
-    border-radius: 4px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    border: 2px solid var(--mauve);
+    border: 1px solid rgba(255,255,255,0.1);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1733,11 +1737,11 @@
     text-transform: uppercase;
     padding: 0.6rem 1.2rem;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 50px;
     transition: all 0.3s;
   }
 
-  .dist-more-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+  .dist-more-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
   .dist-more-btn svg { transition: transform 0.3s; }
   .dist-more-btn.open svg { transform: rotate(180deg); }
 
@@ -1804,7 +1808,7 @@
     flex-direction: column;
     padding: 1rem 0;
     box-shadow: -8px 8px 24px rgba(0,0,0,0.3);
-    border-radius: 0 0 0 12px;
+    border-radius: 0 0 0 16px;
     transform: translateX(100%);
     visibility: hidden;
     transition: transform 0.3s ease, visibility 0.3s ease;
@@ -1827,14 +1831,15 @@
     pointer-events: auto;
   }
   .mobile-menu a {
-    padding: 0.9rem 2rem;
+    padding: 0.8rem 1.6rem;
+    margin: 0.15rem 0.6rem;
     color: var(--cream);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
     transition: background 0.2s;
   }
   .mobile-menu a:hover { background: rgba(255,255,255,0.08); }
@@ -1893,11 +1898,45 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+  .review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 2px 12px rgba(30,42,30,0.05);
+    border: 1px solid rgba(30,42,30,0.07);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .review-card:hover {
+    box-shadow: 0 6px 20px rgba(30,42,30,0.1);
+    transform: translateY(-2px);
+  }
   .tiktok-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     align-items: start;
+  }
+  .tiktok-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid rgba(30,42,30,0.15);
+    border-radius: 50px;
+    background: rgba(30,42,30,0.04);
+    color: var(--forest);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .tiktok-link-btn:hover {
+    border-color: var(--forest);
+    background: rgba(30,42,30,0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30,42,30,0.1);
   }
   @media (max-width: 768px) {
     .reviews-grid { grid-template-columns: 1fr; }
@@ -2005,7 +2044,7 @@
         <p><p><strong class="price-blink">Cena od 100 zł</strong> od osoby za dobę (zależy od sezonu i liczby osób).</p>
         
         <div class="review-badges" style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0;">
-        <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" style="display:inline-flex; margin-top:1rem; align-items:center; gap:0.7rem; margin-top:1rem; text-decoration:none; background:white; border:1px solid rgba(30,42,30,0.12); border-radius:6px; padding:0.6rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,0.07); transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.13)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.07)'">
+        <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" style="display:inline-flex; margin-top:1rem; align-items:center; gap:0.7rem; text-decoration:none; background:white; border:1px solid rgba(30,42,30,0.07); border-radius:14px; padding:0.6rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)';this.style.transform='translateY(0)'">
           <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           <div>
             <div style="display:flex; align-items:center; gap:0.3rem;">
@@ -2015,7 +2054,7 @@
             <div style="font-size:0.72rem; color:#777; margin-top:1px;">23 opinie · Google</div>
           </div>
         </a>
-        <a href="https://www.zol.pl/noclegi/zakopane/wynajem-pokoi-storczyk/" target="_blank" style="display:inline-flex; align-items:center; gap:0.7rem; margin-top:1rem; text-decoration:none; background:white; border:1px solid rgba(30,42,30,0.12); border-radius:6px; padding:0.6rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,0.07); transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.13)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.07)'">
+        <a href="https://www.zol.pl/noclegi/zakopane/wynajem-pokoi-storczyk/" target="_blank" style="display:inline-flex; align-items:center; gap:0.7rem; margin-top:1rem; text-decoration:none; background:white; border:1px solid rgba(30,42,30,0.07); border-radius:14px; padding:0.6rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)';this.style.transform='translateY(0)'">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <div>
             <div style="font-weight:800; font-size:0.85rem; color:#333;">zol.pl</div>
@@ -2036,7 +2075,7 @@
         <p style="margin-top:1.2rem; font-size:0.95rem;">Planujesz wyjazd? <a href="blog.html" style="color:var(--forest); font-weight:700; text-decoration:underline; text-underline-offset:3px;">Odkryj atrakcje Zakopanego, Tatr i Podhala →</a></p>
       </div>
       <div class="about-images" style="display:flex;flex-direction:column;">
-        <div style="width:100%;height:100%;min-height:480px;overflow:hidden;border-radius:4px;cursor:pointer;" onclick="window.location='#galeria'">
+        <div style="width:100%;height:100%;min-height:480px;overflow:hidden;border-radius:16px;cursor:pointer;" onclick="window.location='#galeria'">
           <img loading="lazy" id="about-slideshow" src="zdj/index-img4.webp" alt="Willa Storczyk" style="width:100%;height:100%;min-height:400px;object-fit:cover;object-position:center;display:block;transition:opacity 0.9s ease;">
         </div>
       </div>
@@ -2116,7 +2155,7 @@
           <div class="dist-item"><span class="dist-icon">🥛</span><div class="dist-info"><strong>Tatrzaski bar mleczny</strong><span>Dobre obiady w rozsądnej cenie</span></div></div>
           <div class="dist-item"><span class="dist-icon">🎿</span><div class="dist-info"><strong>Wypożyczalnia i Serwis (nart oraz rowerów)</strong><span>Sprzęt narciarski i rowery · <a href="https://maps.app.goo.gl/Kawt9CbW6KBc6y7q7" target="_blank" style="color:var(--mauve-pale); text-decoration:none;">Google Maps →</a></span></div></div>
           <div class="dist-item"><span class="dist-icon">⛽</span><div class="dist-info"><strong>Stacja paliw BP</strong><span>Sklep Easy Auchan, czynny 24/7</span></div></div>
-          <div class="dist-item"><span class="dist-icon">🍕</span><div class="dist-info"><strong>La Playa Beach Bar</strong><span>Urządzona w hawajskim stylu restauracja o swobodnej atmosferze serwująca pizze i kolorowe koktajle</span></div></div>
+          <div class="dist-item"><span class="dist-icon">🍕</span><div class="dist-info"><strong>La Playa Beach Bar</strong><span>Pizze i koktajle w swobodnej atmosferze</span></div></div>
           <div class="dist-item"><span class="dist-icon">💊</span><div class="dist-info"><strong>Apteka Bystre</strong><span>W pobliżu willi</span></div></div>
         </div>
 </div>
@@ -2214,13 +2253,16 @@
       </div>
       <span style="font-size:1.1rem; font-weight:700; color:var(--dark);">4,9</span>
       <span style="color:var(--text-mid); font-size:0.9rem;">· 23 opinie w Google</span>
-      <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" style="margin-left:0.5rem; font-size:0.8rem; color:var(--forest); font-weight:700; text-decoration:none; letter-spacing:0.05em;">Zobacz wszystkie →</a>
+      <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" class="tiktok-link-btn" style="margin-left:0.3rem; font-size:0.75rem; padding:0.4rem 1rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Google
+      </a>
     </div>
 
     <div class="reviews-grid">
 
       <!-- Opinia 1 -->
-      <div style="background:white; border-radius:8px; padding:1.8rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); border:1px solid rgba(30,42,30,0.08);">
+      <div class="review-card">
         <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
           <div style="width:42px; height:42px; border-radius:50%; background:var(--forest); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; flex-shrink:0;">T</div>
           <div>
@@ -2233,7 +2275,7 @@
       </div>
 
       <!-- Opinia 2 -->
-      <div style="background:white; border-radius:8px; padding:1.8rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); border:1px solid rgba(30,42,30,0.08);">
+      <div class="review-card">
         <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
           <div style="width:42px; height:42px; border-radius:50%; background:#5a7a5a; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; flex-shrink:0;">Z</div>
           <div>
@@ -2246,7 +2288,7 @@
       </div>
 
       <!-- Opinia 3 -->
-      <div style="background:white; border-radius:8px; padding:1.8rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); border:1px solid rgba(30,42,30,0.08);">
+      <div class="review-card">
         <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
           <div style="width:42px; height:42px; border-radius:50%; background:#3d6b3d; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; flex-shrink:0;">M</div>
           <div>
@@ -2259,7 +2301,7 @@
       </div>
 
       <!-- Opinia 4 -->
-      <div style="background:white; border-radius:8px; padding:1.8rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); border:1px solid rgba(30,42,30,0.08);">
+      <div class="review-card">
         <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
           <div style="width:42px; height:42px; border-radius:50%; background:#4a6741; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; flex-shrink:0;">Ł</div>
           <div>
@@ -2274,8 +2316,9 @@
     </div>
 
     <div style="text-align:center; margin-top:2rem;">
-      <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid rgba(30,42,30,0.2); padding:0.7rem 1.4rem; border-radius:4px; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--forest)'" onmouseout="this.style.borderColor='rgba(30,42,30,0.2)'">
-        Zobacz wszystkie opinie w Google →
+      <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" class="tiktok-link-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Zobacz wszystkie opinie w Google
       </a>
     </div>
   </div>
@@ -2291,7 +2334,7 @@
     <div class="tiktok-grid">
 
       <!-- TikTok 1 -->
-      <div style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.08);">
+      <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.07);">
         <blockquote class="tiktok-embed" data-autoplay="false" cite="https://www.tiktok.com/@storczykzakopane/video/7575221490572905750" data-video-id="7575221490572905750" style="max-width:100%; min-width:100%; margin:0;">
           <section>
             <a target="_blank" title="@storczykzakopane" href="https://www.tiktok.com/@storczykzakopane?refer=embed">@storczykzakopane</a>
@@ -2303,7 +2346,7 @@
       </div>
 
       <!-- TikTok 2 -->
-      <div style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.08);">
+      <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.07);">
         <blockquote class="tiktok-embed" data-autoplay="false" cite="https://www.tiktok.com/@storczykzakopane/video/7540299192439180546" data-video-id="7540299192439180546" style="max-width:100%; min-width:100%; margin:0;">
           <section>
             <a target="_blank" title="@storczykzakopane" href="https://www.tiktok.com/@storczykzakopane?refer=embed">@storczykzakopane</a>
@@ -2314,7 +2357,7 @@
       </div>
 
       <!-- TikTok 3 -->
-      <div style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.08);">
+      <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(30,42,30,0.08); border:1px solid rgba(30,42,30,0.07);">
         <blockquote class="tiktok-embed" data-autoplay="false" cite="https://www.tiktok.com/@storczykzakopane/video/7531377626577980694" data-video-id="7531377626577980694" style="max-width:100%; min-width:100%; margin:0;">
           <section>
             <a target="_blank" title="@storczykzakopane" href="https://www.tiktok.com/@storczykzakopane?refer=embed">@storczykzakopane</a>
@@ -2328,11 +2371,9 @@
 
     
     <!-- Social links -->
-    <div style="margin-top:2.5rem; display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
-      <a href="https://www.tiktok.com/@storczykzakopane" target="_blank"
-         style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid rgba(30,42,30,0.2); padding:0.6rem 1.2rem; border-radius:4px; transition:all 0.2s;"
-         onmouseover="this.style.borderColor='var(--forest)'" onmouseout="this.style.borderColor='rgba(30,42,30,0.2)'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.84 1.56V6.82a4.85 4.85 0 01-1.07-.13z"/></svg>
+    <div style="margin-top:2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://www.tiktok.com/@storczykzakopane" target="_blank" class="tiktok-link-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.84 1.56V6.82a4.85 4.85 0 01-1.07-.13z"/></svg>
         TikTok storczykzakopane
       </a>
     </div>
