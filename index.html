@@ -3128,11 +3128,35 @@ function toggleFaq(btn) {
     var messageInput = document.getElementById('wiadomosc');
     var successMsg = document.getElementById('form-success');
     var errorMsg = document.getElementById('form-error');
+    var captchaWrapper = form.querySelector('[data-netlify-recaptcha="true"]');
 
     function showError(message){
       errorMsg.textContent = message;
       errorMsg.style.display = 'block';
       successMsg.style.display = 'none';
+    }
+
+    function setCaptchaErrorState(isError){
+      if(!captchaWrapper) return;
+      captchaWrapper.style.border = isError ? '1px solid rgba(224, 128, 128, 0.95)' : '';
+      captchaWrapper.style.borderRadius = isError ? '8px' : '';
+      captchaWrapper.style.padding = isError ? '0.35rem' : '';
+    }
+
+    function isRecaptchaVerified(){
+      var tokenField = form.querySelector('textarea[name="g-recaptcha-response"], input[name="g-recaptcha-response"]');
+      if(tokenField && tokenField.value && tokenField.value.trim()){
+        return true;
+      }
+      if(typeof grecaptcha !== 'undefined' && typeof grecaptcha.getResponse === 'function'){
+        try {
+          var response = grecaptcha.getResponse();
+          return !!(response && response.trim());
+        } catch (_) {
+          return false;
+        }
+      }
+      return false;
     }
 
     if(arrivalInput && departureInput){
@@ -3152,6 +3176,7 @@ function toggleFaq(btn) {
       e.preventDefault();
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
+      setCaptchaErrorState(false);
 
       if(!nameInput.value.trim()){
         showError('Podaj imię i nazwisko.');
@@ -3183,6 +3208,11 @@ function toggleFaq(btn) {
       }
       if(departureInput.value < arrivalInput.value){
         showError('Termin wyjazdu nie może być wcześniejszy niż termin przyjazdu.');
+        return;
+      }
+      if(!isRecaptchaVerified()){
+        setCaptchaErrorState(true);
+        showError('Zaznacz "Nie jestem robotem". Bez tego formularz nie zostanie wysłany.');
         return;
       }
 
@@ -3309,6 +3339,7 @@ function toggleFaq(btn) {
 </script>
 </body>
 </html>
+
 
 
 
