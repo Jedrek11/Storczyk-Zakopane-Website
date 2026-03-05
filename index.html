@@ -2669,9 +2669,9 @@
           </div>
           <div class="form-group">
             <label for="osoby">Liczba osób</label>
-            <select name="osoby" id="osoby"><option>1 osoba</option><option selected>2 osoby</option><option>3 osoby</option><option>4 osoby</option><option>Więcej, napiszę w wiadomości</option></select>
+            <select name="osoby" id="osoby" required aria-required="true"><option value="" selected disabled>Wybierz liczbę osób</option><option value="1 osoba">1 osoba</option><option value="2 osoby">2 osoby</option><option value="3 osoby">3 osoby</option><option value="4 osoby">4 osoby</option><option value="Więcej, napiszę w wiadomości">Więcej, napiszę w wiadomości</option></select>
           </div>
-          <div class="form-group"><label for="wiadomosc">Wiadomość (opcjonalnie)</label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..."></textarea></div>
+          <div class="form-group"><label for="wiadomosc">Wiadomość</label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..." required aria-required="true" minlength="10"></textarea></div>
           <div data-netlify-recaptcha="true" style="margin-bottom:1rem;"></div>
           <button type="submit" class="btn-form" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie</button>
           <p id="form-success" style="display:none;color:rgba(245,240,232,0.9);text-align:center;margin-top:1rem;font-size:0.95rem;">✓ Dziękujemy! Wkrótce się odezwiemy.</p>
@@ -3102,9 +3102,12 @@ function toggleFaq(btn) {
   (function(){
     var form = document.getElementById('booking-form');
     if(!form) return;
+    var nameInput = document.getElementById('imie');
     var emailInput = document.getElementById('email');
     var arrivalInput = document.getElementById('przyjazd');
     var departureInput = document.getElementById('wyjazd');
+    var peopleSelect = document.getElementById('osoby');
+    var messageInput = document.getElementById('wiadomosc');
     var successMsg = document.getElementById('form-success');
     var errorMsg = document.getElementById('form-error');
 
@@ -3132,6 +3135,10 @@ function toggleFaq(btn) {
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
 
+      if(!nameInput.value.trim()){
+        showError('Podaj imię i nazwisko.');
+        return;
+      }
       if(!emailInput.value.trim()){
         showError('Podaj adres e-mail.');
         return;
@@ -3146,6 +3153,14 @@ function toggleFaq(btn) {
       }
       if(!departureInput.value){
         showError('Wybierz termin wyjazdu.');
+        return;
+      }
+      if(!peopleSelect.value){
+        showError('Wybierz liczbę osób.');
+        return;
+      }
+      if(messageInput.value.trim().length < 10){
+        showError('Wiadomość musi mieć co najmniej 10 znaków.');
         return;
       }
       if(departureInput.value < arrivalInput.value){
@@ -3276,4 +3291,7 @@ function toggleFaq(btn) {
 </script>
 </body>
 </html>
+
+
+
 
