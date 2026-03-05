@@ -2661,11 +2661,11 @@
           <div class="form-group"><label for="imie">Imię i nazwisko</label><input type="text" name="imie" id="imie" placeholder="Jan Kowalski" required aria-required="true"></div>
           <div class="form-row">
             <div class="form-group"><label for="telefon">Telefon</label><input type="tel" name="telefon" id="telefon" placeholder="+48 000 000 000"></div>
-            <div class="form-group"><label for="email">E-mail</label><input type="email" name="email" id="email" placeholder="jan@example.com"></div>
+            <div class="form-group"><label for="email">E-mail</label><input type="email" name="email" id="email" placeholder="jan@example.com" required aria-required="true"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label for="przyjazd">Przyjazd</label><input type="date" name="przyjazd" id="przyjazd"></div>
-            <div class="form-group"><label for="wyjazd">Wyjazd</label><input type="date" name="wyjazd" id="wyjazd"></div>
+            <div class="form-group"><label for="przyjazd">Przyjazd</label><input type="date" name="przyjazd" id="przyjazd" required aria-required="true"></div>
+            <div class="form-group"><label for="wyjazd">Wyjazd</label><input type="date" name="wyjazd" id="wyjazd" required aria-required="true"></div>
           </div>
           <div class="form-group">
             <label for="osoby">Liczba osób</label>
@@ -3102,8 +3102,57 @@ function toggleFaq(btn) {
   (function(){
     var form = document.getElementById('booking-form');
     if(!form) return;
+    var emailInput = document.getElementById('email');
+    var arrivalInput = document.getElementById('przyjazd');
+    var departureInput = document.getElementById('wyjazd');
+    var successMsg = document.getElementById('form-success');
+    var errorMsg = document.getElementById('form-error');
+
+    function showError(message){
+      errorMsg.textContent = message;
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+    }
+
+    if(arrivalInput && departureInput){
+      arrivalInput.addEventListener('change', function(){
+        if(arrivalInput.value){
+          departureInput.min = arrivalInput.value;
+          if(departureInput.value && departureInput.value < arrivalInput.value){
+            departureInput.value = '';
+          }
+        } else {
+          departureInput.min = '';
+        }
+      });
+    }
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      if(!emailInput.value.trim()){
+        showError('Podaj adres e-mail.');
+        return;
+      }
+      if(!emailInput.checkValidity()){
+        showError('Podaj poprawny adres e-mail.');
+        return;
+      }
+      if(!arrivalInput.value){
+        showError('Wybierz termin przyjazdu.');
+        return;
+      }
+      if(!departureInput.value){
+        showError('Wybierz termin wyjazdu.');
+        return;
+      }
+      if(departureInput.value < arrivalInput.value){
+        showError('Termin wyjazdu nie może być wcześniejszy niż termin przyjazdu.');
+        return;
+      }
+
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Wysyłanie…';
@@ -3113,11 +3162,12 @@ function toggleFaq(btn) {
         body: new URLSearchParams(new FormData(form)).toString()
       }).then(function(){
         form.reset();
-        document.getElementById('form-success').style.display = 'block';
-        document.getElementById('form-error').style.display = 'none';
+        departureInput.min = '';
+        successMsg.style.display = 'block';
+        errorMsg.style.display = 'none';
         btn.style.display = 'none';
       }).catch(function(){
-        document.getElementById('form-error').style.display = 'block';
+        showError('Wystąpił błąd. Zadzwoń: 607 312 972');
         btn.disabled = false;
         btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
       });
@@ -3226,3 +3276,4 @@ function toggleFaq(btn) {
 </script>
 </body>
 </html>
+
