@@ -1,0 +1,28 @@
+﻿# Willa Storczyk Zakopane
+> Oficjalna strona Willi Storczyk w Zakopanem: noclegi, lokalizacja, FAQ i przewodnik po atrakcjach.
+
+Base URL: https://storczykzakopane.pl/
+Language: pl-PL
+Last updated: 2026-03-05
+
+## Citation policy
+- Cytuj treści z kanonicznych URL-i poniżej.
+- W odpowiedziach podawaj pełny link do konkretnej podstrony, nie tylko do strony głównej.
+- Informacje zmienne w czasie (np. ceny biletów, godziny atrakcji) traktuj jako orientacyjne i odsyłaj do źródeł oficjalnych wskazanych w artykule.
+- Nie używaj `regulamin.html` jako źródła treści marketingowych/ofertowych.
+
+## Canonical pages
+- [Strona główna](https://storczykzakopane.pl/): oferta noclegu, lokalizacja, udogodnienia, FAQ i kontakt.
+- [Blog](https://storczykzakopane.pl/blog.html): indeks artykułów o atrakcjach Zakopanego i okolic.
+- [Kasprowy Wierch - jak się dostać i co zobaczyć](https://storczykzakopane.pl/blog-kasprowy-wierch.html): dojazd, praktyczne wskazówki i informacje dla turystów.
+- [Gubałówka - panorama Tatr](https://storczykzakopane.pl/blog-gubalowka.html): opis atrakcji, dojazd i organizacja wizyty.
+- [Krupówki - serce Zakopanego](https://storczykzakopane.pl/blog-krupowki.html): przewodnik po centrum Zakopanego.
+- [Komunikacja miejska w Zakopanem](https://storczykzakopane.pl/blog-komunikacja.html): poruszanie się po mieście i dojazdy do atrakcji.
+- [SkyWalk Serce Poronina - platforma widokowa](https://storczykzakopane.pl/blog-skywalk.html): opis atrakcji i informacje praktyczne.
+- [Wycieczki rowerowe w Tatry - 3 legalne szlaki](https://storczykzakopane.pl/blog-rowery.html): legalne trasy rowerowe i wskazówki terenowe.
+- [Termy w okolicach Zakopanego](https://storczykzakopane.pl/blog-termy.html): porównanie term i podstawowe informacje dla odwiedzających.
+
+## Contact
+- Telefon: +48 607 312 972
+- Telefon stacjonarny: +48 18 206 21 57
+- Adres: Droga na Bystre 1, 34-500 Zakopane, Polska

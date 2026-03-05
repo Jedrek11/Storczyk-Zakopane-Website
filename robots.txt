@@ -1,4 +1,7 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 Sitemap: https://storczykzakopane.pl/sitemap.xml
+
+LLM-Index: https://storczykzakopane.pl/llms.txt
+
