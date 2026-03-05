@@ -1,4 +1,4 @@
-﻿# Willa Storczyk Zakopane
+# Willa Storczyk Zakopane
 > Oficjalna strona Willi Storczyk w Zakopanem: noclegi, lokalizacja, FAQ i przewodnik po atrakcjach.
 
 Base URL: https://storczykzakopane.pl/
