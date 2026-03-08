@@ -1437,6 +1437,19 @@
     section[id] { scroll-margin-top: 3.5rem; }
     #booking-form { scroll-margin-top: 3.5rem; }
     .about-grid, .location-grid, .contact-grid { grid-template-columns:1fr; gap:2rem; }
+    #kontakt { padding-left: 1rem; padding-right: 1rem; overflow-x: clip; }
+    #kontakt .container { max-width: 100%; }
+    .contact-grid > * { min-width: 0; }
+    .contact-form {
+      width: 100%;
+      max-width: 100%;
+      padding: 1.1rem;
+      border-radius: 14px;
+    }
+    #booking-form [data-netlify-recaptcha="true"] {
+      width: 100%;
+      overflow: hidden;
+    }
     .rooms-grid { grid-template-columns:1fr; }
     .rooms-summary { flex-direction:column; gap:0.4rem; border-radius:16px; padding:1rem 1.2rem; align-items:center; }
     .rooms-summary-dot { display:none; }
@@ -1470,6 +1483,21 @@
     .hero-ctas a { width: 90%; }
   }
 
+  @media (max-width: 420px) {
+    #booking-form [data-netlify-recaptcha="true"] {
+      transform: scale(0.93);
+      transform-origin: left top;
+      width: 304px;
+      margin-bottom: -0.45rem !important;
+    }
+  }
+
+  @media (max-width: 360px) {
+    #booking-form [data-netlify-recaptcha="true"] {
+      transform: scale(0.86);
+      margin-bottom: -0.9rem !important;
+    }
+  }
   @media (max-width: 903px) {
     .badge-hide-tablet { display: none; }
   }
