@@ -336,5 +336,46 @@ function closeMenu() {
   });
 }
 </script>
+<script>
+/* polish-typography-nbsp */
+(function () {
+  function applyPolishTypography(root) {
+    if (!root || !window.NodeFilter) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    textNodes.forEach(function (node) {
+      var original = node.nodeValue;
+      var updated = original
+        .replace(/(^|[\s\u00A0])([AaIiOoUuWwZz])\s+(?=\S)/g, '$1$2\u00A0')
+        .replace(/(^|[\s\u00A0])(np|itd|itp|m\.in)\.\s+(?=\S)/gi, '$1$2.\u00A0');
+
+      if (updated !== original) node.nodeValue = updated;
+    });
+  }
+
+  function run() {
+    applyPolishTypography(document.body);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run, { once: true });
+  } else {
+    run();
+  }
+})();
+</script>
 </body>
 </html>
