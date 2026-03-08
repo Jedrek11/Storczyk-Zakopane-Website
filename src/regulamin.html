@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulamin i Polityka Prywatności – Willa Storczyk Zakopane</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #2c4a2c;
+      --cream: #f5f0e8;
+      --cream-light: #faf7f2;
+      --dark: #1a2a1a;
+      --text-mid: #6b7c6b;
+      --mauve-light: #5C8A5C;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Lato', 'Georgia', serif; background: var(--cream-light); color: var(--dark); line-height: 1.8; }
+
+    /* DESKTOP NAV */
+    .desktop-nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      background: rgba(30,42,30,0.96);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+    .nav-brand { display:flex; align-items:center; gap:0.8rem; text-decoration:none; }
+    .nav-logo-img { width:46px; height:46px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.25); }
+    .nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
+    .nav-brand-name { color:#f5f0e8; font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:0.04em; }
+    .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
+    .nav-back { color:rgba(245,240,232,0.85); font-family:'Lato',sans-serif; font-size:0.78rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); padding:0.45rem 1.2rem; border-radius:50px; transition:all 0.3s; }
+    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.4); color:#fff; }
+
+    /* MOBILE TOPBAR (wyspa) */
+    .mobile-topbar { display:none; }
+
+    /* MOBILE BOTTOM NAV */
+    .bottom-nav { display:none; }
+
+    @media (max-width:768px) {
+      .mobile-topbar {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:fixed;
+        top:0.5rem;
+        left:50%;
+        transform:translateX(-50%);
+        z-index:997;
+        padding:0.45rem 1.1rem;
+        background:rgba(15,15,15,0.75);
+        backdrop-filter:saturate(180%) blur(22px);
+        -webkit-backdrop-filter:saturate(180%) blur(22px);
+        border-radius:40px;
+        border:1px solid rgba(255,255,255,0.08);
+      }
+      .mobile-topbar-brand {
+        display:flex;
+        align-items:center;
+        gap:0.45rem;
+        text-decoration:none;
+      }
+      .mobile-topbar-logo {
+        width:22px;
+        height:22px;
+        border-radius:50%;
+        object-fit:cover;
+      }
+      .mobile-topbar-url {
+        font-family:'Lato',sans-serif;
+        font-size:0.68rem;
+        font-weight:700;
+        color:rgba(245,240,232,0.9);
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .mobile-topbar-back {
+        display:flex; align-items:center; justify-content:center;
+        background:none; border:none; color:rgba(245,240,232,0.7);
+        cursor:pointer; padding:0.3rem; margin-right:0.2rem;
+        border-radius:50%; transition:color 0.2s,background 0.2s;
+        text-decoration:none;
+      }
+      .mobile-topbar-back:hover { color:#f5f0e8; background:rgba(255,255,255,0.1); }
+
+      .desktop-nav { display:none !important; }
+
+      .container { padding: 4.5rem 0.6rem 6rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      p, ul li { text-align: left !important; font-size: 0.9rem; }
+
+      .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+        left: 0.6rem;
+        right: 0.6rem;
+        z-index: 9999;
+        background: rgba(15,15,15,0.75);
+        backdrop-filter: saturate(180%) blur(22px);
+        -webkit-backdrop-filter: saturate(180%) blur(22px);
+        padding: 0.25rem;
+        justify-content: space-around;
+        align-items: stretch;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 40px;
+      }
+      .bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.15rem;
+        padding: 0.45rem 0.5rem 0.35rem;
+        border-radius: 32px;
+        text-decoration: none;
+        color: rgba(245,240,232,0.55);
+        font-family: 'Lato', sans-serif;
+        font-size: 0.58rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        transition: color 0.15s, background 0.15s;
+        -webkit-tap-highlight-color: transparent;
+        flex: 1;
+      }
+      .bottom-nav a:hover,
+      .bottom-nav a:active { color: rgba(245,240,232,0.9); }
+      .bottom-nav .bnav-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      .bottom-nav .bnav-home {
+        color: rgba(245,240,232,0.9);
+      }
+      .bottom-nav .bnav-rez {
+        background: var(--mauve-light); color: white; border-radius: 32px;
+      }
+
+      h1 { font-size: 1.5rem; }
+      .section-card { padding: 1.5rem 1.2rem; }
+    }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 5.5rem 2rem 5rem; }
+
+    h1 { font-family:'Playfair Display',serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--forest); }
+    h1 em { font-style: italic; }
+    .divider { width: 48px; height: 3px; background: var(--forest); margin: 1rem 0 2.5rem; }
+    h2 { font-size: 1.15rem; font-weight: 700; color: var(--forest); margin: 2.5rem 0 0.8rem; letter-spacing:0.03em; }
+    p { margin-bottom: 1rem; color: #333; font-size:0.95rem; text-align: justify; }
+    ul { margin: 0.5rem 0 1rem 1.5rem; }
+    ul li { margin-bottom: 0.4rem; font-size:0.95rem; color:#333; text-align: justify; }
+    strong { color: var(--dark); }
+    a { color: var(--forest); }
+    .badge { display:inline-block; background: var(--forest); color: #f5f0e8; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.2rem 0.7rem; border-radius:3px; margin-bottom:0.5rem; }
+    .section-card { background:white; border-radius:8px; padding:2rem 2.5rem; margin-bottom:2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); border:1px solid rgba(30,42,30,0.08); }
+    .update-date { color: var(--text-mid); font-size:0.8rem; margin-bottom:2rem; }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+
+<!-- MOBILE TOP BAR (wyspa) -->
+<div class="mobile-topbar">
+  <a href="javascript:history.back()" class="mobile-topbar-back" aria-label="Wróć">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </a>
+  <a href="index.html" class="mobile-topbar-brand">
+    <img src="zdj/index-img2.webp" alt="Logo" class="mobile-topbar-logo">
+    <span class="mobile-topbar-url">storczykzakopane.pl</span>
+  </a>
+</div>
+
+<!-- DESKTOP NAV -->
+<nav class="desktop-nav">
+  <a href="index.html" class="nav-brand">
+    <img src="zdj/index-img2.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Storczyk</span>
+      <span class="nav-brand-sub">Zakopane</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← Strona główna</a>
+</nav>
+
+<div class="container">
+
+  <h1>Regulamin <em>i Polityka Prywatności</em></h1>
+  <div class="divider"></div>
+  <p class="update-date">Ostatnia aktualizacja: luty 2026 &nbsp;&middot;&nbsp; Willa Storczyk, Droga na Bystre 1, 34-500 Zakopane</p>
+
+  <!-- REGULAMIN -->
+  <div class="section-card">
+    <span class="badge">Regulamin</span>
+    <h2>§1 Informacje ogólne</h2>
+    <p>Niniejszy regulamin określa zasady wynajmu pokoi w obiekcie <strong>Willa Storczyk</strong>, ul. Droga na Bystre 1, 34-500 Zakopane, prowadzonym przez osobę fizyczną. Dokonanie rezerwacji jest równoznaczne z akceptacją niniejszego regulaminu.</p>
+
+    <h2>§2 Rezerwacja</h2>
+    <ul>
+      <li>Rezerwacji można dokonać telefonicznie pod numerem <strong>607 312 972</strong> lub <strong>18 206 21 57</strong>, drogą mailową na adres <strong><a href="mailto:storczykzakopane@gmail.com">storczykzakopane@gmail.com</a></strong> lub za pośrednictwem formularza kontaktowego na stronie.</li>
+      <li>Przy rezerwacji prosimy o podanie: liczby osób, daty przyjazdu i wyjazdu oraz numeru kontaktowego.</li>
+      <li>Rezerwacja potwierdzana jest na dwa sposoby:
+        <ul style="margin-top:0.4rem;">
+          <li>Po wpłacie <strong>zaliczki</strong>, jej wysokość ustalana jest indywidualnie. Zaliczka <strong>nie podlega zwrotowi</strong> w przypadku rezygnacji.</li>
+          <li>Bez zaliczki, po potwierdzeniu rezerwacji przez właściciela.</li>
+        </ul>
+      </li>
+      <li>W przypadku rezygnacji z rezerwacji prosimy o jak najszybszy kontakt telefoniczny.</li>
+    </ul>
+
+    <h2>§3 Meldunek i wymeldowanie</h2>
+    <ul>
+      <li>Pokoje dostępne są od godziny <strong>14:00</strong> w dniu przyjazdu.</li>
+      <li>Wymeldowanie następuje do godziny <strong>11:00</strong> w dniu wyjazdu.</li>
+      <li>Wcześniejszy przyjazd lub późniejszy wyjazd możliwy jest po wcześniejszym uzgodnieniu z właścicielem.</li>
+    </ul>
+
+    <h2>§4 Ceny i płatności</h2>
+    <ul>
+      <li>Cena wynajmu wynosi <strong>od 100 zł od osoby za dobę</strong> i zależy od sezonu oraz liczby osób.</li>
+      <li>W cenie zawarte są: taksa klimatyczna, bezpłatne Wi-Fi oraz parking.</li>
+      <li>Płatność gotówką lub przelewem bankowym.</li>
+      <li>Ceny podane są w złotych polskich (PLN).</li>
+    </ul>
+
+    <h2>§5 Zasady pobytu</h2>
+    <ul>
+      <li><strong>Bezwzględnie zabrania się palenia tytoniu wewnątrz budynku</strong>, obiekt jest drewniany, co stwarza poważne zagrożenie pożarowe. Palenie dozwolone jest wyłącznie w wyznaczonych miejscach na zewnątrz.</li>
+      <li>Cisza nocna obowiązuje od godziny <strong>22:00 do 7:00</strong>.</li>
+      <li>Goście ponoszą odpowiedzialność materialną za wszelkie uszkodzenia wyposażenia obiektu.</li>
+      <li>Właściciel zastrzega sobie prawo do odmowy dalszego pobytu Gościom, którzy rażąco naruszają zasady regulaminu.</li>
+      <li>Za zgodą właściciela możliwy jest pobyt ze zwierzętami domowymi.</li>
+    </ul>
+
+    <h2>§6 Parking</h2>
+    <p>Obiekt dysponuje bezpłatnym parkingiem na terenie posesji. Właściciel nie ponosi odpowiedzialności za uszkodzenia lub kradzież pojazdu.</p>
+
+    <h2>§7 Reklamacje</h2>
+    <p>Wszelkie uwagi i reklamacje należy zgłaszać niezwłocznie właścicielowi w czasie pobytu. Reklamacje zgłaszane po zakończeniu pobytu mogą nie zostać uwzględnione.</p>
+  </div>
+
+  <!-- POLITYKA PRYWATNOSCI -->
+  <div class="section-card">
+    <span class="badge">Polityka Prywatności</span>
+    <h2>1. Kto zbiera dane</h2>
+    <p>Właściciel Willi Storczyk, Droga na Bystre 1, 34-500 Zakopane, tel. <strong>607 312 972</strong>.</p>
+
+    <h2>2. Co zbieramy i po co</h2>
+    <p>Gdy piszesz przez formularz lub maila, otrzymujemy Twoje imię, numer telefonu i adres email. Używamy tych danych wyłącznie do potwierdzenia i obsługi rezerwacji. Nic więcej.</p>
+
+    <h2>3. Czy przekazujemy dane dalej</h2>
+    <p>Nie. Twoje dane <strong>nie są nikomu sprzedawane ani udostępniane</strong>. Trafiają tylko do nas i służą wyłącznie do kontaktu z Tobą w sprawie pobytu.</p>
+
+    <h2>4. Jak długo przechowujemy dane</h2>
+    <p>Tyle ile potrzeba do obsługi rezerwacji. Po zakończeniu pobytu i rozliczeniu Twoje dane są usuwane.</p>
+
+    <h2>5. Pliki cookies</h2>
+    <p>Strona korzysta z plików cookies wyłącznie w celu zapamiętania Twojego wyboru dotyczącego zgody na cookies. Strona używa zewnętrznych usług: Google Fonts (czcionki) oraz TikTok (osadzone filmy), które mogą stosować własne pliki cookies. Nie korzystamy z Google Analytics ani żadnych narzędzi śledzących.</p>
+
+    <h2>6. Prawa użytkownika</h2>
+    <p>Jeśli skontaktowałeś się z nami przez formularz lub mailowo, Twoje dane (imię, telefon, email) trafiają wyłącznie do nas. Masz prawo w każdej chwili poprosić o ich usunięcie, wystarczy napisać maila na <strong><a href="mailto:storczykzakopane@gmail.com">storczykzakopane@gmail.com</a></strong> lub zadzwonić pod numer <strong>607 312 972</strong>, a usuniemy Twoje dane. W razie wątpliwości dotyczących swoich danych możesz też skontaktować się z UODO (uodo.gov.pl).</p>
+
+    <h2>7. Pytania</h2>
+    <p>Jeśli masz jakiekolwiek pytania dotyczące swoich danych, zadzwoń pod <strong>607 312 972</strong> lub napisz na <strong><a href="mailto:storczykzakopane@gmail.com">storczykzakopane@gmail.com</a></strong>.</p>
+  </div>
+
+</div>
+
+<!-- PARTIAL:bottom-nav-regulamin -->
+
+</body>
+</html>

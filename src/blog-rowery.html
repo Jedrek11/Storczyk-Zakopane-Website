@@ -99,15 +99,7 @@
 </head>
 <body>
 <!-- MOBILE TOP BAR -->
-<div class="mobile-topbar">
-  <a href="javascript:history.back()" class="mobile-topbar-back" aria-label="Wróć">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-  </a>
-  <a href="index.html" class="mobile-topbar-brand">
-    <img src="zdj/index-img2.webp" alt="Logo" class="mobile-topbar-logo">
-    <span class="mobile-topbar-url">storczykzakopane.pl</span>
-  </a>
-</div>
+<!-- PARTIAL:mobile-topbar -->
 
 <nav>
   <a href="index.html" class="nav-brand">
@@ -255,86 +247,11 @@
 </style>
 <a href="/#kontakt" class="float-rez">Zarezerwuj pobyt</a>
 <script>setTimeout(function(){ var b=document.querySelector('.float-rez'); if(b) b.classList.add('float-rez--visible'); }, 11000);</script>
-<nav class="bottom-nav">
-  <a href="index.html">
-    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span>Dom</span>
-  </a>
-  <a href="tel:+48607312972">
-    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    <span>Telefon</span>
-  </a>
-  <a href="index.html#kontakt" class="bnav-rez">
-    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
-    <span>Rezerwuj</span>
-  </a>
-  <a href="blog.html" class="bnav-active">
-    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-    <span>Blog</span>
-  </a>
-  <button onclick="toggleMenu()">
-    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    <span>Menu</span>
-  </button>
-</nav>
+<!-- PARTIAL:bottom-nav-blog -->
 
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mobile-menu-brand">
-    <img src="zdj/index-img2.webp" alt="Logo Storczyk" class="mobile-menu-logo">
-    <div class="mobile-menu-brand-text">
-      <span class="mobile-menu-brand-name">storczykzakopane.pl</span>
-    </div>
-  </div>
-  <div class="mobile-menu-links">
-    <a href="index.html" onclick="closeMenu()">Strona główna</a>
-    <a href="index.html#o-nas" onclick="closeMenu()">O nas</a>
-    <a href="index.html#lokalizacja" onclick="closeMenu()">Lokalizacja</a>
-    <a href="index.html#pokoje" onclick="closeMenu()">Pokoje</a>
-    <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
-    <a href="blog.html" onclick="closeMenu()">Blog</a>
-    <a href="index.html#opinie" onclick="closeMenu()">Opinie</a>
-    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-    <a href="index.html#galeria" onclick="closeMenu()">Galeria</a>
-  </div>
-</div>
+<!-- PARTIAL:mobile-menu-blog -->
 
-<style>
-  .mobile-menu { display:flex; position:fixed; top:68px; right:0; bottom:auto; left:auto; width:280px; background:rgba(26,36,26,0.88); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); z-index:999; flex-direction:column; padding:1rem 0; box-shadow:-8px 8px 24px rgba(0,0,0,0.3); border-radius:0 0 0 16px; transform:translateX(100%); visibility:hidden; transition:transform 0.3s ease, visibility 0.3s ease; }
-  .mobile-menu.open { transform:translateX(0); visibility:visible; }
-  @media (max-width:768px) {
-    .mobile-menu {
-      position:fixed !important;
-      inset:0 !important;
-      width:100% !important;
-      height:100% !important;
-      transform:none !important;
-      background:rgba(30,30,30,0.70) !important;
-      backdrop-filter:saturate(180%) blur(24px);
-      -webkit-backdrop-filter:saturate(180%) blur(24px);
-      flex-direction:column !important; align-items:center; justify-content:flex-start;
-      padding:0 1.5rem 5rem !important; gap:0;
-      z-index:9997 !important; border:none !important; box-shadow:none !important;
-      border-radius:0 !important;
-      overflow-y:auto; opacity:0; visibility:hidden;
-      transition:opacity 0.35s ease, visibility 0.35s ease;
-    }
-    .mobile-menu.open { display:flex !important; opacity:1 !important; visibility:visible !important; transform:none !important; }
-    .mobile-menu a {
-      display:block !important; width:100%; max-width:320px; text-align:center !important;
-      padding:0.85rem 1.5rem !important; border:1px solid rgba(255,255,255,0.15) !important;
-      border-radius:50px !important; font-size:0.88rem !important; letter-spacing:0.06em;
-      color:var(--cream,#f5f0e8); text-decoration:none; font-weight:700; text-transform:uppercase;
-      transition:background 0.2s, border-color 0.2s;
-    }
-    .mobile-menu a:hover { background:rgba(255,255,255,0.1) !important; border-color:rgba(255,255,255,0.35) !important; }
-    .mobile-menu-brand { display:flex !important; flex-direction:row; align-items:center; gap:0.55rem; margin-top:3rem; margin-bottom:2.5rem; padding:0.45rem 1.1rem; background:rgba(15,15,15,0.6); backdrop-filter:saturate(180%) blur(22px); -webkit-backdrop-filter:saturate(180%) blur(22px); border-radius:40px; border:1px solid rgba(255,255,255,0.08); text-decoration:none; }
-    .mobile-menu-logo { width:26px; height:26px; border-radius:50%; object-fit:cover; }
-    .mobile-menu-brand-text { display:flex; flex-direction:column; }
-    .mobile-menu-brand-name { font-family:'Lato',sans-serif; font-size:0.72rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
-    .mobile-menu-brand-sub { display:none; }
-    .mobile-menu-links { display:flex; flex-direction:column; align-items:center; width:100%; gap:0.55rem; }
-  }
-</style>
+<!-- PARTIAL:mobile-menu-css -->
 
 <script>
 function toggleMenu() {

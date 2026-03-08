@@ -1,0 +1,12 @@
+{
+  "name": "storczyk-zakopane",
+  "version": "1.0.0",
+  "description": "Willa Storczyk Zakopane — statyczna strona z systemem partials",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node watch.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
