@@ -346,7 +346,7 @@ function closeMenu() {
         if (!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         var parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
-        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp')) {
+        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp, .tiktok-embed, .tiktok-embed *')) {
           return NodeFilter.FILTER_REJECT;
         }
         return NodeFilter.FILTER_ACCEPT;
