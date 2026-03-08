@@ -2365,7 +2365,8 @@
   <div class="container">
     <h2 class="section-title">Aktualności <em>Tatry i Zakopane</em></h2>
     <div class="section-divider"></div>
-    <p style="color:var(--text-mid); margin-bottom:3rem; max-width:600px; line-height:1.8;">Śledź nas na TikToku i Facebooku, na bieżąco pokazujemy co dzieje się w Zakopanem i Tatrach!</p>
+    <p style="color:var(--text-mid); margin-bottom:0.8rem; max-width:600px; line-height:1.8;">Śledź nas na TikToku i Facebooku, na bieżąco pokazujemy co dzieje się w Zakopanem i Tatrach!</p>
+    <p style="color:#6a7466; margin-bottom:2.2rem; max-width:760px; font-size:0.92rem; line-height:1.7;">Jeśli film nie uruchamia się w Twojej przeglądarce, kliknij przycisk <strong>Otwórz na TikToku</strong> pod kafelkiem.</p>
 
     <div class="tiktok-grid">
 
@@ -2379,6 +2380,9 @@
             <a title="tatry" target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/tag/tatry?refer=embed">#tatry</a>
           </section>
         </blockquote>
+        <div style="padding:0.65rem 0.8rem 0.9rem; border-top:1px solid rgba(30,42,30,0.09); background:#fff; text-align:center;">
+          <a href="https://www.tiktok.com/@storczykzakopane/video/7575221490572905750" target="_blank" rel="noopener noreferrer" class="tiktok-link-btn" style="font-size:0.72rem; padding:0.42rem 0.95rem; letter-spacing:0.03em; text-transform:none;">Otwórz na TikToku</a>
+        </div>
       </div>
 
       <!-- TikTok 2 -->
@@ -2390,6 +2394,9 @@
             <a title="tatry" target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/tag/tatry?refer=embed">#tatry</a>
           </section>
         </blockquote>
+        <div style="padding:0.65rem 0.8rem 0.9rem; border-top:1px solid rgba(30,42,30,0.09); background:#fff; text-align:center;">
+          <a href="https://www.tiktok.com/@storczykzakopane/video/7540299192439180546" target="_blank" rel="noopener noreferrer" class="tiktok-link-btn" style="font-size:0.72rem; padding:0.42rem 0.95rem; letter-spacing:0.03em; text-transform:none;">Otwórz na TikToku</a>
+        </div>
       </div>
 
       <!-- TikTok 3 -->
@@ -2401,6 +2408,9 @@
             <a title="tatry" target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/tag/tatry?refer=embed">#tatry</a>
           </section>
         </blockquote>
+        <div style="padding:0.65rem 0.8rem 0.9rem; border-top:1px solid rgba(30,42,30,0.09); background:#fff; text-align:center;">
+          <a href="https://www.tiktok.com/@storczykzakopane/video/7531377626577980694" target="_blank" rel="noopener noreferrer" class="tiktok-link-btn" style="font-size:0.72rem; padding:0.42rem 0.95rem; letter-spacing:0.03em; text-transform:none;">Otwórz na TikToku</a>
+        </div>
       </div>
 
     </div>
@@ -3329,7 +3339,7 @@ function toggleFaq(btn) {
     // Zastąp TikTok embedy komunikatem
     var embeds = document.querySelectorAll('.tiktok-embed');
     embeds.forEach(function(embed) {
-      var wrapper = embed.parentElement;
+      var wrapper = embed;
       wrapper.innerHTML = '<div style="padding:3rem 1.5rem; text-align:center; color:#888; font-size:0.85rem; line-height:1.6;"><p style="margin:0 0 0.5rem;">🎬 Treść TikTok zablokowana</p><p style="margin:0; font-size:0.78rem;">Zaakceptuj pliki cookies, aby wyświetlić filmy.</p><button onclick="acceptCookies();location.reload();" style="margin-top:0.8rem; background:var(--mauve-light); color:white; border:none; padding:0.4rem 1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;">Włącz cookies</button></div>';
     });
   }
@@ -3345,7 +3355,7 @@ function toggleFaq(btn) {
         if (!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         var parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
-        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp, .tiktok-embed, .tiktok-embed *')) {
+        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp, .tiktok-embed, .tiktok-embed *, .tiktok-link-btn')) {
           return NodeFilter.FILTER_REJECT;
         }
         return NodeFilter.FILTER_ACCEPT;
