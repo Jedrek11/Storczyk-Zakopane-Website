@@ -660,6 +660,36 @@
     gap: 1rem;
   }
 
+  
+  .about-slideshow-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .about-slideshow-frame {
+    position: relative;
+    width: 100%;
+    height: clamp(420px, 52vw, 620px);
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+
+  #about-slideshow.about-slideshow-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0;
+    transition: opacity 0.9s ease;
+    will-change: opacity;
+    transform: translateZ(0);
+  }
+
   .about-images img {
     width: 100%;
     height: 200px;
@@ -1437,6 +1467,7 @@
     section[id] { scroll-margin-top: 3.5rem; }
     #booking-form { scroll-margin-top: 3.5rem; }
     .about-grid, .location-grid, .contact-grid { grid-template-columns:1fr; gap:2rem; }
+    .about-slideshow-frame { height: clamp(340px, 105vw, 520px); }
     #kontakt { padding-left: 1rem; padding-right: 1rem; overflow-x: clip; }
     #kontakt .container { max-width: 100%; }
     .contact-grid > * { min-width: 0; }
@@ -2117,9 +2148,11 @@
         <p style="margin-top:1.2rem; font-size:0.95rem;">Planujesz wyjazd? <a href="blog.html" style="color:var(--forest); font-weight:700; text-decoration:underline; text-underline-offset:3px;">Odkryj atrakcje Zakopanego, Tatr i Podhala →</a></p>
       </div>
       <div class="about-images" style="display:flex;flex-direction:column;">
-        <div style="width:100%;height:100%;min-height:480px;overflow:hidden;border-radius:16px;cursor:pointer;" onclick="window.location='#galeria'">
-          <img loading="lazy" id="about-slideshow" src="zdj/index-img4.webp" alt="Willa Storczyk" style="width:100%;height:100%;min-height:400px;object-fit:cover;object-position:center;display:block;transition:opacity 0.9s ease;">
-        </div>
+        <a href="#galeria" class="about-slideshow-link">
+          <div class="about-slideshow-frame">
+            <img loading="lazy" id="about-slideshow" class="about-slideshow-img" src="zdj/index-img4.webp" alt="Willa Storczyk">
+          </div>
+        </a>
       </div>
     </div>
   </div>
