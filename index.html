@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -670,16 +670,21 @@
   .about-slideshow-frame {
     position: relative;
     width: 100%;
-    min-height: 420px;
+    height: clamp(420px, 88vw, 700px);
     overflow: hidden;
     border-radius: 16px;
-    background: transparent;
+    background: #edf1ea;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #about-slideshow.about-slideshow-img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
+    max-height: 100%;
     display: block;
     border-radius: 16px;
     transition: opacity 0.9s ease;
@@ -3008,55 +3013,9 @@ function toggleDistances(btn) {
   ];
   var current = 0;
 
-  function preloadMeta(src) {
-    return new Promise(function(resolve) {
-      var tmp = new Image();
-      tmp.onload = function() {
-        if (tmp.naturalWidth > 0 && tmp.naturalHeight > 0) {
-          resolve({ w: tmp.naturalWidth, h: tmp.naturalHeight });
-        } else {
-          resolve(null);
-        }
-      };
-      tmp.onerror = function() { resolve(null); };
-      tmp.src = src;
-    });
-  }
-
-  function calcStableHeight(frame, maxRatio) {
-    if (!frame || !maxRatio) return;
-    var frameWidth = frame.clientWidth || frame.getBoundingClientRect().width;
-    if (!frameWidth) return;
-
-    var rawHeight = Math.round(frameWidth * maxRatio);
-    var maxByViewport = window.innerWidth <= 768
-      ? Math.round(window.innerHeight * 0.72)
-      : 760;
-
-    frame.style.minHeight = Math.min(rawHeight, maxByViewport) + 'px';
-  }
-
   function startSlideshow() {
     var img = document.getElementById('about-slideshow');
-    if (!img) return;
-
-    var frame = img.closest('.about-slideshow-frame');
-    var initialSrc = img.getAttribute('src') || '';
-    var toMeasure = initialSrc ? [initialSrc].concat(slides) : slides.slice();
-
-    Promise.all(toMeasure.map(preloadMeta)).then(function(list) {
-      var ratios = list
-        .filter(Boolean)
-        .map(function(item) { return item.h / item.w; });
-      var maxRatio = ratios.length ? Math.max.apply(null, ratios) : (4 / 3);
-
-      function applySize() {
-        calcStableHeight(frame, maxRatio);
-      }
-
-      applySize();
-      window.addEventListener('resize', applySize, { passive: true });
-    });
+    if (!img || !slides.length) return;
 
     setInterval(function() {
       img.style.opacity = '0';
