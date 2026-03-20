@@ -21,22 +21,27 @@
 
     /* DESKTOP NAV */
     .desktop-nav {
-      position: fixed; top:0; left:0; right:0; z-index:1000;
-      background: rgba(30,42,30,0.96);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      padding: 0 2rem;
+      position: fixed; top:0.8rem; left:50%; transform:translateX(-50%); z-index:1000;
+      background: rgba(20,32,20,0.45);
+      backdrop-filter: saturate(180%) blur(24px); -webkit-backdrop-filter: saturate(180%) blur(24px);
+      padding: 0 1.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      height: 60px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+      width: calc(100% - 2rem); max-width: 1340px; box-sizing: border-box;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
     }
     .nav-brand { display:flex; align-items:center; gap:0.8rem; text-decoration:none; }
-    .nav-logo-img { width:46px; height:46px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.25); }
+    .nav-logo-img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.2); transition:border-color 0.3s; }
+    .nav-brand:hover .nav-logo-img { border-color:rgba(245,240,232,0.5); }
     .nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
     .nav-brand-name { color:#f5f0e8; font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:0.04em; }
     .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
-    .nav-back { color:rgba(245,240,232,0.85); font-family:'Lato',sans-serif; font-size:0.78rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); padding:0.45rem 1.2rem; border-radius:50px; transition:all 0.3s; }
-    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.4); color:#fff; }
+    .nav-page-label { position:absolute; left:50%; transform:translateX(-50%); color:rgba(245,240,232,0.6); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; }
+    .nav-back { color:rgba(245,240,232,0.85); font-family:'Lato',sans-serif; font-size:0.72rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); padding:0.4rem 1rem; border-radius:50px; transition:all 0.3s; }
+    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); color:#fff; }
 
     /* MOBILE TOPBAR (wyspa) */
     .mobile-topbar { display:none; }
@@ -45,49 +50,11 @@
     .bottom-nav { display:none; }
 
     @media (max-width:768px) {
-      .mobile-topbar {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        position:fixed;
-        top:0.5rem;
-        left:50%;
-        transform:translateX(-50%);
-        z-index:997;
-        padding:0.45rem 1.1rem;
-        background:rgba(15,15,15,0.75);
-        backdrop-filter:saturate(180%) blur(22px);
-        -webkit-backdrop-filter:saturate(180%) blur(22px);
-        border-radius:40px;
-        border:1px solid rgba(255,255,255,0.08);
-      }
-      .mobile-topbar-brand {
-        display:flex;
-        align-items:center;
-        gap:0.45rem;
-        text-decoration:none;
-      }
-      .mobile-topbar-logo {
-        width:22px;
-        height:22px;
-        border-radius:50%;
-        object-fit:cover;
-      }
-      .mobile-topbar-url {
-        font-family:'Lato',sans-serif;
-        font-size:0.68rem;
-        font-weight:700;
-        color:rgba(245,240,232,0.9);
-        letter-spacing:0.08em;
-        text-transform:uppercase;
-      }
-      .mobile-topbar-back {
-        display:flex; align-items:center; justify-content:center;
-        background:none; border:none; color:rgba(245,240,232,0.7);
-        cursor:pointer; padding:0.3rem; margin-right:0.2rem;
-        border-radius:50%; transition:color 0.2s,background 0.2s;
-        text-decoration:none;
-      }
+      .mobile-topbar { display:flex; justify-content:center; align-items:center; position:fixed; top:0.5rem; left:50%; transform:translateX(-50%); z-index:997; padding:0.45rem 0.6rem 0.45rem 0.5rem; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); border-radius:40px; border:1px solid rgba(255,255,255,0.12); }
+      .mobile-topbar-brand { display:flex; align-items:center; gap:0.45rem; text-decoration:none; }
+      .mobile-topbar-logo { width:26px; height:26px; border-radius:50%; object-fit:cover; }
+      .mobile-topbar-url { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
+      .mobile-topbar-back { display:flex; align-items:center; justify-content:center; background:none; border:none; color:rgba(245,240,232,0.7); cursor:pointer; padding:0.3rem; margin-right:0.2rem; border-radius:50%; transition:color 0.2s,background 0.2s; text-decoration:none; }
       .mobile-topbar-back:hover { color:#f5f0e8; background:rgba(255,255,255,0.1); }
 
       .desktop-nav { display:none !important; }
@@ -96,54 +63,13 @@
       .section-card { padding: 1.5rem 1rem; }
       p, ul li { text-align: left !important; font-size: 0.9rem; }
 
-      .bottom-nav {
-        display: flex;
-        position: fixed;
-        bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
-        left: 0.6rem;
-        right: 0.6rem;
-        z-index: 9999;
-        background: rgba(15,15,15,0.75);
-        backdrop-filter: saturate(180%) blur(22px);
-        -webkit-backdrop-filter: saturate(180%) blur(22px);
-        padding: 0.25rem;
-        justify-content: space-around;
-        align-items: stretch;
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 40px;
-      }
-      .bottom-nav a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.15rem;
-        padding: 0.45rem 0.5rem 0.35rem;
-        border-radius: 32px;
-        text-decoration: none;
-        color: rgba(245,240,232,0.55);
-        font-family: 'Lato', sans-serif;
-        font-size: 0.58rem;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        transition: color 0.15s, background 0.15s;
-        -webkit-tap-highlight-color: transparent;
-        flex: 1;
-      }
-      .bottom-nav a:hover,
-      .bottom-nav a:active { color: rgba(245,240,232,0.9); }
-      .bottom-nav .bnav-icon {
-        width: 22px;
-        height: 22px;
-        flex-shrink: 0;
-      }
-      .bottom-nav .bnav-home {
-        color: rgba(245,240,232,0.9);
-      }
-      .bottom-nav .bnav-rez {
-        background: var(--mauve-light); color: white; border-radius: 32px;
-      }
+      .bottom-nav { display:flex; position:fixed; top:auto; bottom:calc(0.5rem + env(safe-area-inset-bottom,0px)); left:0.6rem; right:0.6rem; z-index:9999; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); padding:0.25rem; justify-content:space-around; align-items:stretch; border:1px solid rgba(255,255,255,0.1); border-radius:40px; }
+      .bottom-nav a, .bottom-nav button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.15rem; color:rgba(245,240,232,0.45); text-decoration:none; font-family:'Lato',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:none; border:none; cursor:pointer; padding:0.5rem 0; transition:color 0.2s,background 0.2s; -webkit-tap-highlight-color:transparent; border-radius:30px; position:relative; flex:1; }
+      .bottom-nav a:hover, .bottom-nav button:hover, .bottom-nav a:active, .bottom-nav button:active { color:rgba(245,240,232,0.9); background:rgba(255,255,255,0.12); }
+      .bottom-nav a.bnav-active { color:#f5f0e8; background:rgba(255,255,255,0.15); }
+      .bottom-nav .bnav-icon { width:20px; height:20px; fill:none; stroke:currentColor; }
+      .bottom-nav .bnav-rez { color:#e8b86d; }
+      .bottom-nav .bnav-rez:hover, .bottom-nav .bnav-rez:active { color:#f0c878; background:rgba(232,184,109,0.15); }
 
       h1 { font-size: 1.5rem; }
       .section-card { padding: 1.5rem 1.2rem; }
@@ -190,6 +116,7 @@
       <span class="nav-brand-sub">Zakopane</span>
     </div>
   </a>
+  <span class="nav-page-label">Regulamin</span>
   <a href="index.html" class="nav-back">← Strona główna</a>
 </nav>
 

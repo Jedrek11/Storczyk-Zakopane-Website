@@ -554,7 +554,7 @@
   /* ── TYPEWRITER ── */
   .tw-cursor {
     display: inline-block;
-    color: var(--gold);
+    color: var(--forest);
     font-style: normal;
     font-weight: 300;
     animation: blink 0.75s step-end infinite;
@@ -701,18 +701,6 @@
     transition: opacity 0.9s ease;
     will-change: opacity;
     transform: translateZ(0);
-  }
-
-  .about-images img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-
-  .about-images img:first-child {
-    grid-column: 1 / -1;
-    height: 260px;
   }
 
   /* ── LOKALIZACJA ── */
@@ -1229,7 +1217,8 @@
   /* ── FLOAT REZERWUJ ── */
   .float-phone {
     position: fixed;
-    bottom: 2rem; right: 2rem;
+    bottom: 2rem;
+    right: max(1rem, calc((100vw - 1340px) / 2));
     z-index: 999;
     background: #6b8f5e;
     color: var(--cream-warm);
@@ -1551,14 +1540,6 @@
       margin-bottom: -0.9rem !important;
     }
   }
-  @media (max-width: 903px) {
-    .badge-hide-tablet { display: none; }
-  }
-
-  @media (min-width: 904px) and (max-width: 1100px) {
-    .badge-hide-md { display: none; }
-  }
-
   @media (max-width: 640px) {
     #badges-carousel {
       display: block;
@@ -1809,11 +1790,6 @@
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
-  @media (max-width: 600px) {
-
-  }
-
-
   /* ── DISTANCES SHOW MORE ── */
   .dist-hidden { display: none; }
   .dist-hidden.visible { display: flex; }
@@ -1902,53 +1878,50 @@
   .mobile-menu {
     display: flex;
     position: fixed;
-    top: 68px;
-    right: 0;
+    top: 4.5rem;
+    right: 1rem;
     bottom: auto;
     left: auto;
-    width: 280px;
-    background: rgba(26, 36, 26, 0.88);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    width: 220px;
+    background: rgba(20,32,20,0.5);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
     z-index: 999;
     flex-direction: column;
-    padding: 1rem 0;
-    box-shadow: -8px 8px 24px rgba(0,0,0,0.3);
-    border-radius: 0 0 0 16px;
-    transform: translateX(100%);
+    padding: 0.8rem 0.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    border-radius: 20px;
+    border: none;
+    transform: translateY(-12px) scale(0.95);
+    transform-origin: top right;
+    opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease, visibility 0.25s ease;
   }
   .mobile-menu.open {
-    transform: translateX(0);
+    transform: translateY(0) scale(1);
+    opacity: 1;
     visibility: visible;
   }
   .mobile-menu::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0);
-    z-index: -1;
-    pointer-events: none;
-    transition: background 0.3s ease;
-  }
-  .mobile-menu.open::before {
-    background: rgba(0,0,0,0.4);
-    pointer-events: auto;
+    content: none;
   }
   .mobile-menu a {
-    padding: 0.8rem 1.6rem;
-    margin: 0.15rem 0.6rem;
-    color: var(--cream);
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    margin: 0.08rem 0;
+    color: rgba(245,240,232,0.7);
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 10px;
-    transition: background 0.2s;
+    border-radius: 30px;
+    transition: all 0.2s;
   }
-  .mobile-menu a:hover { background: rgba(255,255,255,0.08); }
+  .mobile-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(245,240,232,1);
+  }
   .mobile-menu-brand {
     display: none;
   }
@@ -1967,36 +1940,6 @@
     .mobile-menu .mobile-only { display: block; }
   }
 
-
-  /* ── HAMBURGER ── */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-  }
-  .desktop-burger {
-    display: none !important;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--cream);
-    border-radius: 2px;
-    transition: all 0.15s;
-  }
-  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  @media (max-width: 960px) {
-    nav { padding: 0 0.8rem; }
-    .nav-phone span { display: none; }
-  }
 
   .reviews-grid {
     display: grid;
@@ -2050,7 +1993,6 @@
     #opinie, #aktualnosci, #faq { padding-left: 1.2rem !important; padding-right: 1.2rem !important; padding-top: 3rem !important; padding-bottom: 3rem !important; }
     .section-title { font-size: 1.5rem; }
     .review-card { padding: 1.2rem; }
-    .rating-summary { gap: 1rem; flex-wrap: wrap; }
     .amenity { min-height: 100px; padding: 1.2rem 0.8rem; }
     .review-badges { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0.6rem !important; }
     .review-badges a { margin-top: 0 !important; }
@@ -2913,17 +2855,6 @@ function lbNext() {
   showImage();
 }
 
-function updateDots() {
-  const dotsContainer = document.getElementById('lb-dots');
-  dotsContainer.innerHTML = '';
-  currentGallery.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'lb-dot' + (i === currentIndex ? ' active' : '');
-    d.onclick = () => { currentIndex = i; showImage(); };
-    dotsContainer.appendChild(d);
-  });
-}
-
 let currentScale = 1, pinchStartDist = 0, pinchLastScale = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -3165,12 +3096,10 @@ function toggleFaq(btn) {
 (function(){
   var nav = document.querySelector('nav');
   if(!nav) return;
-  var last = 0;
   window.addEventListener('scroll', function(){
     var y = window.pageYOffset || document.documentElement.scrollTop;
     if(y > 60) nav.classList.add('nav-scrolled');
     else nav.classList.remove('nav-scrolled');
-    last = y;
   }, {passive:true});
 })();
 </script>
@@ -3178,7 +3107,6 @@ function toggleFaq(btn) {
 <script>
 (function(){
   var btn = document.querySelector('.float-phone');
-  var navPhone = document.querySelector('.nav-phone');
   var lokalizacja = document.getElementById('lokalizacja');
   var kontakt = document.getElementById('kontakt');
   function checkPhone(){
@@ -3210,7 +3138,6 @@ function toggleFaq(btn) {
   // Typewriter – Twoje [słowo]
   (function(){
     var el = document.getElementById('typewriter');
-    var cursor = document.querySelector('.tw-cursor');
     if(!el) return;
 
     var words = ['wytchnienie', 'miejsce', 'schronienie', 'zacisze'];
