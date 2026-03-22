@@ -1,59 +1,80 @@
-# Jak edytować wspólne elementy strony
+# Jak edytować stronę Willi Storczyk
 
-## Struktura
+## Szybki start
+
+```bash
+npm run watch        # Uruchom auto-rebuild (buduje przy każdym zapisie)
+# Edytuj pliki w src/ lub partials/ → strona przebudowuje się automatycznie
+# Ctrl+C aby zatrzymać
+```
+
+## Struktura plików
 
 ```
-partials/          ← TUTAJ edytujesz wspólne elementy
+src/               ← szablony stron (treść)
+  index.html, blog.html, blog-*.html, regulamin.html
+
+partials/          ← wspólne elementy (menu, nawigacja)
   mobile-menu-index.html    — menu na stronie głównej
   mobile-menu-blog.html     — menu na stronach bloga
-  mobile-menu-css.html      — style CSS menu (blogi)
-  mobile-topbar.html        — górny pasek na stronach bloga
+  mobile-menu-styles.html   — style CSS menu
+  mobile-topbar.html        — górny pasek (blog)
   bottom-nav-index.html     — dolna nawigacja (strona główna)
   bottom-nav-blog.html      — dolna nawigacja (blog i artykuły)
   bottom-nav-regulamin.html — dolna nawigacja (regulamin)
 
-src/               ← szablony stron (NIE edytuj bezpośrednio .html w katalogu głównym)
-  index.html, blog.html, blog-*.html, regulamin.html
+assets/css/main.css  ← główne style strony
+assets/js/main.js    ← cały JavaScript strony
 
-build.js           ← skrypt składający strony
-watch.js           ← automatyczne budowanie przy zmianach
+config.json          ← dane kontaktowe, URL-e (używane w szablonach jako {{contact.phoneMobile}} itp.)
+
+scripts/             ← narzędzia
+  build.js           — buduje strony z src/ + partials/ + config.json
+  watch.js           — auto-rebuild przy zmianach
+  new-blog.js        — generator nowych artykułów blogowych
 ```
 
 ## Jak zmienić wspólny element (np. menu)
 
-1. Edytuj odpowiedni plik w folderze `partials/`
+1. Edytuj odpowiedni plik w `partials/`
 2. Uruchom build:
+   ```bash
+   npm run build
    ```
-   node build.js
-   ```
-3. Gotowe — wszystkie strony zostały zaktualizowane!
 
-## Jak zmienić treść konkretnej strony (np. tekst artykułu)
+## Jak zmienić treść strony (np. tekst artykułu)
 
-1. Edytuj plik w folderze `src/` (np. `src/blog-kasprowy-wierch.html`)
+1. Edytuj plik w `src/` (np. `src/blog-kasprowy-wierch.html`)
 2. Uruchom build:
+   ```bash
+   npm run build
    ```
-   node build.js
-   ```
 
-## Tryb automatyczny (watch)
+## Jak zmienić style lub JavaScript
 
-Zamiast ręcznie uruchamiać `node build.js` po każdej zmianie,
-możesz uruchomić tryb watch — buduje automatycznie przy każdym zapisie:
+- **CSS:** edytuj `assets/css/main.css`
+- **JS:** edytuj `assets/js/main.js`
+- Nie trzeba buildu — te pliki są ładowane bezpośrednio
 
+## Jak zmienić dane kontaktowe
+
+Edytuj `config.json` — build automatycznie podmieni wartości `{{contact.phoneMobile}}`, `{{urls.baseUrl}}` itp. we wszystkich stronach.
+
+## Jak dodać nowy artykuł blogowy
+
+```bash
+node scripts/new-blog.js
 ```
-node watch.js
-```
 
-Ctrl+C aby zatrzymać.
-
-## Wymagania
-
-- Node.js (https://nodejs.org) — wersja 14 lub nowsza
-- Nie są potrzebne żadne dodatkowe pakiety (npm install nie jest wymagane)
+Skrypt przeprowadzi Cię przez tworzenie nowego artykułu krok po kroku.
 
 ## WAŻNE
 
-- **Nie edytuj bezpośrednio plików .html w katalogu głównym** — są one generowane automatycznie
-  przez `build.js` i zostaną nadpisane przy następnym buildzie
-- Edytuj zawsze w `src/` (treść strony) lub `partials/` (wspólne elementy)
+- **Nie edytuj plików .html w katalogu głównym** — są generowane automatycznie i zostaną nadpisane przy buildzie
+- Edytuj zawsze w `src/` (treść) lub `partials/` (wspólne elementy)
+- `assets/css/main.css` i `assets/js/main.js` edytuj bezpośrednio (nie są przetwarzane przez build)
+
+## Wymagania
+
+- Node.js >= 14 (https://nodejs.org)
+- Brak zewnętrznych zależności (nie trzeba `npm install`)

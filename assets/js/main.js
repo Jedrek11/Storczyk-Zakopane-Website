@@ -1,0 +1,575 @@
+const galleries = {
+  'room-2os': [
+    'zdj/gallery/slide-pokoj-poddasze.webp',
+    'zdj/gallery/slide-pokoj-twin.webp',
+  ],
+  'room-23os': [
+    'zdj/gallery/slide-pokoj-sofa.webp',
+    'zdj/okolica/dekoracja-okno-choinka.jpg',
+  ],
+  'room-34os': [
+    'zdj/gallery/slide-pokoj-drewniany.webp',
+    'zdj/gallery/slide-pokoj-drewniany-2.webp',
+    'zdj/gallery/slide-pokoj-twin-lampki.webp',
+    'zdj/gallery/slide-sofa-pojedyncza.webp',
+    'zdj/gallery/slide-pokoj-trojka.webp',
+    'zdj/gallery/slide-lazienka.webp',
+  ],
+};
+
+let currentGallery = [];
+let currentIndex = 0;
+
+function openLightbox(galleryId, startIndex) {
+  currentGallery = galleries[galleryId];
+  currentIndex = startIndex;
+  showImage();
+  document.getElementById('lb-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lb-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+
+
+function lbPrev() {
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  showImage();
+}
+
+function lbNext() {
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  showImage();
+}
+
+let currentScale = 1, pinchStartDist = 0, pinchLastScale = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Populate galeria gallery from DOM
+  const galleryImgs = document.querySelectorAll('.gallery-grid img');
+  galleries['galeria'] = Array.from(galleryImgs).map(img => img.src);
+  galleryImgs.forEach((img, i) => {
+    img.addEventListener('click', () => openLightbox('galeria', i));
+  });
+
+  const overlay = document.getElementById('lb-overlay');
+  const lbImg = document.getElementById('lb-main-img');
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      // lewa połowa = poprzednie, prawa = następne, nigdy nie zamyka
+      if (e.clientX < window.innerWidth / 2) lbPrev();
+      else lbNext();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') lbNext();
+    if (e.key === 'ArrowLeft') lbPrev();
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Swipe navigation
+  let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  overlay.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }
+  }, {passive: true});
+  overlay.addEventListener('touchend', (e) => {
+    if (currentScale > 1.05) return; // don't swipe when zoomed
+    if (e.changedTouches.length === 1) {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const dt = Date.now() - touchStartTime;
+      if (dt < 400 && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 45) {
+        if (dx < 0) lbNext(); else lbPrev();
+      }
+    }
+  }, {passive: true});
+
+  // Pinch-to-zoom
+  lbImg.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      pinchStartDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      pinchLastScale = currentScale;
+    }
+  }, {passive: false});
+  lbImg.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      currentScale = Math.min(4, Math.max(1, pinchLastScale * (dist / pinchStartDist)));
+      lbImg.style.transform = 'scale(' + currentScale + ')';
+    }
+  }, {passive: false});
+  lbImg.addEventListener('touchend', (e) => {
+    if (currentScale < 1.08) {
+      currentScale = 1;
+      lbImg.style.transform = '';
+    }
+  }, {passive: true});
+});
+
+
+function showImage() {
+  const img = document.getElementById('lb-main-img');
+  currentScale = 1;
+  img.style.transform = '';
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = currentGallery[currentIndex];
+    img.style.opacity = '1';
+  }, 150);
+  document.getElementById('lb-counter').textContent = (currentIndex+1) + ' / ' + currentGallery.length;
+  const dotsContainer = document.getElementById('lb-dots');
+  dotsContainer.innerHTML = '';
+  currentGallery.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'lb-dot' + (i === currentIndex ? ' active' : '');
+    d.onclick = () => { currentIndex = i; showImage(); };
+    dotsContainer.appendChild(d);
+  });
+}
+
+function toggleDistances(btn) {
+  const hidden = document.querySelectorAll('.dist-hidden');
+  const isOpen = btn.classList.contains('open');
+  hidden.forEach(el => el.classList.toggle('visible', !isOpen));
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span').textContent = isOpen ? 'Pokaż więcej' : 'Pokaż mniej';
+}
+
+(function() {
+  var slides = [
+    'zdj/gallery/slide-panorama-tatry.webp',
+    'zdj/gallery/slide-willa-dach.webp',
+    'zdj/gallery/slide-ogrod-jelen.webp'
+  ];
+  var current = 0;
+
+  function startSlideshow() {
+    var img = document.getElementById('about-slideshow');
+    if (!img || !slides.length) return;
+
+    setInterval(function() {
+      img.style.opacity = '0';
+      setTimeout(function() {
+        current = (current + 1) % slides.length;
+        img.src = slides[current];
+        img.style.opacity = '1';
+      }, 900);
+    }, 6000);
+  }
+
+  document.addEventListener('DOMContentLoaded', startSlideshow);
+})();
+
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open')) {
+    closeMenu();
+  } else {
+    menu.classList.add('open');
+    hamburger.classList.add('open');
+  }
+}
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+
+// Bottom nav active state — page default always stays, Menu toggles separately
+(function() {
+  var menuBtn = document.querySelector('.bottom-nav button');
+  if (menuBtn) {
+    var origToggle = window.toggleMenu;
+    window.toggleMenu = function() {
+      var menu = document.getElementById('mobile-menu');
+      var wasOpen = menu.classList.contains('open');
+      origToggle();
+      if (wasOpen) {
+        menuBtn.classList.remove('bnav-active');
+      } else {
+        menuBtn.classList.add('bnav-active');
+      }
+    };
+    var origClose = window.closeMenu;
+    window.closeMenu = function() {
+      origClose();
+      menuBtn.classList.remove('bnav-active');
+    };
+  }
+})();
+
+// Close menu when clicking overlay area
+document.getElementById('mobile-menu').addEventListener('click', function(e) {
+  if (e.target === this) closeMenu();
+});
+
+function toggleFaq(btn) {
+  var answer = btn.nextElementSibling;
+  var isOpen = btn.classList.contains("open");
+  document.querySelectorAll(".faq-q").forEach(function(b) {
+    b.classList.remove("open");
+    b.nextElementSibling.classList.remove("open");
+  });
+  if (!isOpen) {
+    btn.classList.add("open");
+    answer.classList.add("open");
+  }
+}
+
+(function() {
+  var carousel = document.getElementById('badges-carousel');
+  if (!carousel) return;
+  var items = carousel.querySelectorAll('.badge-item');
+  var dotsEl = document.getElementById('badge-dots');
+  var dots = dotsEl ? dotsEl.querySelectorAll('.badge-dot') : [];
+  var current = 0;
+  var timer;
+
+  function showSlide(n) {
+    items[current].classList.remove('active');
+    if (dots[current]) dots[current].classList.remove('active');
+    current = ((n % items.length) + items.length) % items.length;
+    items[current].classList.add('active');
+    if (dots[current]) dots[current].classList.add('active');
+  }
+
+  showSlide(0);
+
+  Array.prototype.forEach.call(dots, function(dot, idx) {
+    dot.addEventListener('click', function() {
+      clearInterval(timer);
+      showSlide(idx);
+      timer = setInterval(function() { showSlide(current + 1); }, 2800);
+    });
+  });
+
+  timer = setInterval(function() { showSlide(current + 1); }, 2800);
+})();
+
+// Nav scroll effect
+(function(){
+  var nav = document.querySelector('nav');
+  if(!nav) return;
+  window.addEventListener('scroll', function(){
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if(scrollY > 60) nav.classList.add('nav-scrolled');
+    else nav.classList.remove('nav-scrolled');
+  }, {passive:true});
+})();
+
+(function(){
+  var floatPhoneBtn = document.querySelector('.float-phone');
+  var lokalizacja = document.getElementById('lokalizacja');
+  var kontakt = document.getElementById('kontakt');
+  function checkPhone(){
+    if(!floatPhoneBtn || !lokalizacja) return;
+    var showFrom = lokalizacja.offsetTop;
+    var hideFrom = kontakt ? kontakt.offsetTop : Infinity;
+    if(window.scrollY < showFrom || window.scrollY >= hideFrom){
+      floatPhoneBtn.classList.add('float-phone--hidden');
+    } else {
+      floatPhoneBtn.classList.remove('float-phone--hidden');
+    }
+  }
+  window.addEventListener('scroll', checkPhone, {passive:true});
+  window.addEventListener('load', checkPhone);
+
+  // Glow button every 30s
+  (function(){
+    function triggerGlow(){
+      var rezBtn = document.querySelector('.btn-rez');
+      if(!rezBtn) return;
+      rezBtn.classList.remove('glow');
+      void rezBtn.offsetWidth; // reflow
+      rezBtn.classList.add('glow');
+      rezBtn.addEventListener('animationend', function(){ rezBtn.classList.remove('glow'); }, {once:true});
+    }
+    setTimeout(function startGlowCycle(){ triggerGlow(); setInterval(triggerGlow, 30000); }, 30000);
+  })();
+
+  // Typewriter – Twoje [słowo]
+  (function(){
+    var typewriterEl = document.getElementById('typewriter');
+    if(!typewriterEl) return;
+
+    var words = ['wytchnienie', 'miejsce', 'schronienie', 'zacisze'];
+    var wordIndex = 2; // start at 'schronienie'
+    var currentWord = 'schronienie';
+    var charIndex = currentWord.length;
+
+    function sleep(ms){ return new Promise(function(resolve){ setTimeout(resolve, ms); }); }
+
+    async function cycleTypewriterWords(){
+      await sleep(2200);
+
+      while(true){
+        // Kasuj aktualne slowo
+        while(charIndex > 0){
+          charIndex--;
+          typewriterEl.textContent = currentWord.slice(0, charIndex);
+          await sleep(55);
+        }
+
+        await sleep(250);
+        wordIndex = (wordIndex + 1) % words.length;
+        currentWord = words[wordIndex];
+
+        // Pisz nowe slowo
+        while(charIndex < currentWord.length){
+          charIndex++;
+          typewriterEl.textContent = currentWord.slice(0, charIndex);
+          await sleep(85);
+        }
+
+        await sleep(5000);
+      }
+    }
+
+    cycleTypewriterWords();
+  })();
+
+  // Formularz kontaktowy – Netlify Forms (AJAX)
+  (function(){
+    var form = document.getElementById('booking-form');
+    if(!form) return;
+    var nameInput = document.getElementById('imie');
+    var emailInput = document.getElementById('email');
+    var arrivalInput = document.getElementById('przyjazd');
+    var departureInput = document.getElementById('wyjazd');
+    var peopleSelect = document.getElementById('osoby');
+    var messageInput = document.getElementById('wiadomosc');
+    var successMsg = document.getElementById('form-success');
+    var errorMsg = document.getElementById('form-error');
+    var captchaWrapper = form.querySelector('[data-netlify-recaptcha="true"]');
+
+    function showError(message){
+      errorMsg.textContent = message;
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+    }
+
+    function setCaptchaErrorState(isError){
+      if(!captchaWrapper) return;
+      captchaWrapper.style.border = isError ? '1px solid rgba(224, 128, 128, 0.95)' : '';
+      captchaWrapper.style.borderRadius = isError ? '8px' : '';
+      captchaWrapper.style.padding = isError ? '0.35rem' : '';
+    }
+
+    function isRecaptchaVerified(){
+      var tokenField = form.querySelector('textarea[name="g-recaptcha-response"], input[name="g-recaptcha-response"]');
+      if(tokenField && tokenField.value && tokenField.value.trim()){
+        return true;
+      }
+      if(typeof grecaptcha !== 'undefined' && typeof grecaptcha.getResponse === 'function'){
+        try {
+          var response = grecaptcha.getResponse();
+          return !!(response && response.trim());
+        } catch (_) {
+          return false;
+        }
+      }
+      return false;
+    }
+
+    if(arrivalInput && departureInput){
+      arrivalInput.addEventListener('change', function(){
+        if(arrivalInput.value){
+          departureInput.min = arrivalInput.value;
+          if(departureInput.value && departureInput.value < arrivalInput.value){
+            departureInput.value = '';
+          }
+        } else {
+          departureInput.min = '';
+        }
+      });
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+      setCaptchaErrorState(false);
+
+      if(!nameInput.value.trim()){
+        showError('Podaj imię i nazwisko.');
+        return;
+      }
+      if(!emailInput.value.trim()){
+        showError('Podaj adres e-mail.');
+        return;
+      }
+      if(!emailInput.checkValidity()){
+        showError('Podaj poprawny adres e-mail.');
+        return;
+      }
+      if(!arrivalInput.value){
+        showError('Wybierz termin przyjazdu.');
+        return;
+      }
+      if(!departureInput.value){
+        showError('Wybierz termin wyjazdu.');
+        return;
+      }
+      if(!peopleSelect.value){
+        showError('Wybierz liczbę osób.');
+        return;
+      }
+      if(messageInput.value.trim().length < 10){
+        showError('Wiadomość musi mieć co najmniej 10 znaków.');
+        return;
+      }
+      if(departureInput.value < arrivalInput.value){
+        showError('Termin wyjazdu nie może być wcześniejszy niż termin przyjazdu.');
+        return;
+      }
+      if(!isRecaptchaVerified()){
+        setCaptchaErrorState(true);
+        showError('Zaznacz "Nie jestem robotem". Bez tego formularz nie zostanie wysłany.');
+        return;
+      }
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie…';
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function(){
+        form.reset();
+        departureInput.min = '';
+        successMsg.style.display = 'block';
+        errorMsg.style.display = 'none';
+        submitBtn.style.display = 'none';
+      }).catch(function(){
+        showError('Wystąpił błąd. Zadzwoń: {{contact.phoneMobileDisplay}}');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
+      });
+    });
+  })();
+
+  // Dzwonienie ikonki telefonu co 4 sekundy
+  (function(){
+    function triggerRing(){
+      var navPhoneBtn = document.querySelector('.nav-phone');
+      if(!navPhoneBtn) return;
+      navPhoneBtn.classList.add('ringing');
+      setTimeout(function(){ navPhoneBtn.classList.remove('ringing'); }, 800);
+    }
+    setTimeout(function(){ triggerRing(); setInterval(triggerRing, 4000); }, 2000);
+  })();
+
+  // Attract animation na przycisku Zarezerwuj – co 5 sekund
+  (function(){
+    function triggerAttract(){
+      var floatBtn = document.querySelector('.float-phone');
+      if(!floatBtn || floatBtn.classList.contains('float-phone--hidden')) return;
+      floatBtn.classList.remove('attract');
+      void floatBtn.offsetWidth;
+      floatBtn.classList.add('attract');
+      floatBtn.addEventListener('animationend', function(){ floatBtn.classList.remove('attract'); }, {once:true});
+    }
+    setTimeout(function(){ triggerAttract(); setInterval(triggerAttract, 5000); }, 4000);
+  })();
+
+  checkPhone();
+})();
+
+(function() {
+  var consent = localStorage.getItem('cookie-consent');
+  if (!consent) {
+    // Pokaż banner po krótkim opóźnieniu
+    setTimeout(function() {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }, 800);
+  } else if (consent === 'rejected') {
+    // Zablokuj TikTok embed jeśli odrzucono
+    blockTikTok();
+  }
+
+  window.acceptCookies = function() {
+    localStorage.setItem('cookie-consent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  };
+
+  window.rejectCookies = function() {
+    localStorage.setItem('cookie-consent', 'rejected');
+    document.getElementById('cookie-banner').style.display = 'none';
+    blockTikTok();
+  };
+
+  function blockTikTok() {
+    // Usuń TikTok embed script
+    var ttScript = document.querySelector('script[src*="tiktok.com/embed"]');
+    if (ttScript) ttScript.remove();
+    // Zastąp TikTok embedy komunikatem
+    var embeds = document.querySelectorAll('.tiktok-embed');
+    embeds.forEach(function(embed) {
+      var wrapper = embed;
+      wrapper.innerHTML = '<div style="padding:3rem 1.5rem; text-align:center; color:#888; font-size:0.85rem; line-height:1.6;"><p style="margin:0 0 0.5rem;">🎬 Treść TikTok zablokowana</p><p style="margin:0; font-size:0.78rem;">Zaakceptuj pliki cookies, aby wyświetlić filmy.</p><button onclick="acceptCookies();location.reload();" style="margin-top:0.8rem; background:var(--mauve-light); color:white; border:none; padding:0.4rem 1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;">Włącz cookies</button></div>';
+    });
+  }
+})();
+
+/* polish-typography-nbsp */
+(function () {
+  function applyPolishTypography(root) {
+    if (!root || !window.NodeFilter) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('script, style, textarea, input, select, option, code, pre, kbd, samp, .tiktok-embed, .tiktok-embed *, .tiktok-link-btn')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    textNodes.forEach(function (node) {
+      var original = node.nodeValue;
+      var updated = original
+        .replace(/(^|[\s\u00A0])([AaIiOoUuWwZz])\s+(?=\S)/g, '$1$2\u00A0')
+        .replace(/(^|[\s\u00A0])(np|itd|itp|m\.in)\.\s+(?=\S)/gi, '$1$2.\u00A0');
+
+      if (updated !== original) node.nodeValue = updated;
+    });
+  }
+
+  function initPolishTypography() {
+    applyPolishTypography(document.body);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPolishTypography, { once: true });
+  } else {
+    initPolishTypography();
+  }
+})();
+
+AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 180 });
