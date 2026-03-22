@@ -392,59 +392,61 @@
 
   /* ── BADGES ── */
   .badges {
-    background: var(--cream-warm);
-    padding: 2.5rem 2rem;
+    background: var(--forest);
+    padding: 1.4rem 1rem;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    border-bottom: 1px solid rgba(30,42,30,0.08);
+    gap: 0;
+    flex-wrap: nowrap;
   }
 
   .badge-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.7rem;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--forest);
-    letter-spacing: 0.12em;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 1.4rem 1.5rem;
-    border: 1px solid rgba(30,42,30,0.07);
-    border-radius: 16px;
-    min-width: 120px;
-    transition: all 0.3s;
-    background: white;
-    box-shadow: 0 2px 12px rgba(30,42,30,0.05);
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    position: relative;
     user-select: none;
     cursor: default;
+    transition: opacity 0.3s;
+  }
+
+  .badge-item:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: rgba(237,232,220,0.2);
   }
 
   .badge-item:hover {
-    border-color: rgba(30,42,30,0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30,42,30,0.1);
+    opacity: 0.8;
   }
 
   .badge-dots { display: none; }
 
   .badge-icon {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--forest-mid);
-    background: rgba(30,42,30,0.05);
-    border-radius: 10px;
+    color: var(--sage-light);
   }
 
   .badge-icon img {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     display: block;
+    filter: brightness(0) invert(0.8) sepia(0.3) hue-rotate(70deg);
   }
 
   /* ── SECTIONS ── */
@@ -1324,7 +1326,7 @@
     .gallery-grid { grid-template-columns:1fr 1fr; }
     .gallery-grid .big { grid-column:span 1; grid-row:span 1; }
     .form-row { grid-template-columns:1fr; }
-    .badges { gap:1rem; }
+    .badges { gap:0; padding: 1.2rem 1rem; }
     footer { padding-bottom: 6rem; }
     .float-phone {
       font-size: 0.72rem;
@@ -1367,48 +1369,42 @@
   }
   @media (max-width: 640px) {
     #badges-carousel {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      min-height: 185px;
-      padding: 1.5rem 1rem 2.8rem;
+      min-height: 70px;
+      padding: 0.8rem 1rem;
+      gap: 0.5rem;
     }
     #badges-carousel .badge-item {
-      display: flex;
-      position: absolute;
-      top: 1.5rem;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
+      display: none;
+      justify-content: center;
       width: fit-content;
       min-width: 200px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      transform: none;
+    }
+    #badges-carousel .badge-item::after {
+      display: none;
     }
     #badges-carousel .badge-item.active {
-      opacity: 1;
-      pointer-events: auto;
+      display: flex;
     }
     .badge-dots {
       display: flex;
       justify-content: center;
       gap: 8px;
-      position: absolute;
-      bottom: 0.9rem;
-      left: 0;
-      right: 0;
     }
     .badge-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: rgba(45,74,45,0.2);
+      background: rgba(237,232,220,0.25);
       transition: background 0.3s;
       cursor: pointer;
     }
     .badge-dot.active {
-      background: var(--forest, #2d4a2d);
+      background: var(--sage-light);
     }
   }
 
@@ -1491,13 +1487,14 @@
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0.92);
+    z-index: 99999;
+    background: rgba(0,0,0,0.95);
     align-items: center;
     justify-content: center;
     flex-direction: column;
     user-select: none;
     -webkit-user-select: none;
+    padding: 1rem 0 0.5rem;
   }
   .lb-overlay.active { display: flex; }
   .lb-img-wrap {
@@ -1510,11 +1507,19 @@
   }
   .lb-img {
     max-width: 90vw;
-    max-height: 80vh;
+    max-height: 55vh;
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 10px 60px rgba(0,0,0,0.6);
-    transition: opacity 0.25s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+  }
+  .lb-img.lb-img-fade {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  @media (min-width: 769px) {
+    .lb-img { max-height: 70vh; }
   }
   .lb-tap-prev, .lb-tap-next {
     position: absolute;
@@ -1554,7 +1559,7 @@
     color: white;
     font-size: 2.2rem;
     cursor: pointer;
-    z-index: 10000;
+    z-index: 100000;
     line-height: 1;
     opacity: 0.8;
     transition: opacity 0.2s;
@@ -1568,17 +1573,36 @@
   }
   .lb-dots {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-top: 0.8rem;
+    max-width: 90vw;
+    overflow-x: auto;
+    padding: 0.3rem 0;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  .lb-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+  .lb-dots::-webkit-scrollbar { display: none; }
+  @media (max-width: 768px) {
+    .lb-counter { display: none; }
+    .lb-dots { margin-top: 0.4rem; }
+  }
+  .lb-thumb {
+    width: 52px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.2s;
+    opacity: 0.45;
+    transition: opacity 0.2s, border-color 0.2s;
+    border: 2px solid transparent;
+    flex-shrink: 0;
   }
-  .lb-dot.active { background: white; }
+  .lb-thumb:hover { opacity: 0.75; }
+  .lb-thumb.active {
+    opacity: 1;
+    border-color: white;
+  }
   .room-img { cursor: pointer; }
   .gallery-grid img { cursor: pointer; }
   .room-img-wrap {
