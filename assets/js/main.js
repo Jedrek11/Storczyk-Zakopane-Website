@@ -507,7 +507,15 @@ function toggleFaq(btn) {
   if (!consent) {
     // Pokaż banner po krótkim opóźnieniu
     setTimeout(function() {
-      document.getElementById('cookie-banner').style.display = 'block';
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'block';
+      if (window.innerWidth <= 768) {
+        banner.style.bottom = 'calc(4.5rem + env(safe-area-inset-bottom, 0px))';
+        banner.style.borderRadius = '16px';
+        banner.style.margin = '0 0.6rem';
+        banner.style.left = '0';
+        banner.style.right = '0';
+      }
     }, 800);
   } else if (consent === 'rejected') {
     // Zablokuj TikTok embed jeśli odrzucono
