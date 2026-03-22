@@ -26,6 +26,8 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
+const ROOT = path.join(__dirname, '..');
+
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const ask = (q) => new Promise(r => rl.question(q, r));
 
@@ -53,7 +55,7 @@ async function main() {
     rl.close(); return;
   }
 
-  const filePath = path.join(__dirname, 'src', `blog-${slug}.html`);
+  const filePath = path.join(ROOT, 'src', `blog-${slug}.html`);
   if (fs.existsSync(filePath)) {
     console.log(C.red(`  ✗ Plik blog-${slug}.html już istnieje!`));
     rl.close(); return;
@@ -73,8 +75,8 @@ async function main() {
   const gradientColor = await ask(C.gold('  Kolor gradientu karty ') + C.dim('(np. #2c4a2c lub Enter = domyślny)') + C.gold(': '));
 
   const today = new Date().toISOString().split('T')[0];
-  const url = `https://storczykzakopane.pl/blog-${slug}.html`;
-  const titleFull = `${title} | Willa Storczyk Zakopane`;
+  const url = `{{urls.baseUrl}}/blog-${slug}.html`;
+  const titleFull = `${title} | {{business.nameFull}}`;
 
   // Wyciągnij część tytułu przed kursywą
   const titleBefore = titleEm ? title.replace(titleEm, '').replace(/[,–\-]\s*$/, '').trim() : title;
@@ -105,26 +107,26 @@ async function main() {
     "dateModified": "${today}",
     "author": {
       "@type": "Organization",
-      "name": "Willa Storczyk Zakopane",
-      "url": "https://storczykzakopane.pl"
+      "name": "{{business.nameFull}}",
+      "url": "{{urls.baseUrl}}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Willa Storczyk Zakopane",
-      "url": "https://storczykzakopane.pl"
+      "name": "{{business.nameFull}}",
+      "url": "{{urls.baseUrl}}"
     },
     "keywords": "${escHtml(keywords)}",
     "inLanguage": "pl",
     "image": {
       "@type": "ImageObject",
-      "url": "https://storczykzakopane.pl/zdj/${heroImg}",
+      "url": "{{urls.baseUrl}}/zdj/blog/${heroImg}",
       "caption": "${escHtml(title)}"
     },
     "articleBody": "${escHtml(desc)}",
     "isPartOf": {
       "@type": "Blog",
       "name": "Przewodnik po Zakopanem – Willa Storczyk",
-      "url": "https://storczykzakopane.pl/blog.html"
+      "url": "{{urls.baseUrl}}/blog.html"
     }
   }
   </script>
@@ -133,8 +135,8 @@ async function main() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://storczykzakopane.pl"},
-      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://storczykzakopane.pl/blog.html"},
+      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "{{urls.baseUrl}}"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "{{urls.baseUrl}}/blog.html"},
       {"@type": "ListItem", "position": 3, "name": "${escHtml(title)}"}
     ]
   }
@@ -149,16 +151,16 @@ async function main() {
   <meta property="og:title" content="${escHtml(titleFull)}">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <meta property="og:image" content="{{urls.baseUrl}}/assets/willa-storczyk.webp">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:site_name" content="Willa Storczyk Zakopane">
+  <meta property="og:site_name" content="{{business.nameFull}}">
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escHtml(titleFull)}">
   <meta name="twitter:description" content="${escHtml(desc)}">
-  <meta name="twitter:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="twitter:image" content="{{urls.baseUrl}}/assets/willa-storczyk.webp">
+
+  <link href="/fonts/google-fonts.css" rel="stylesheet">
   <style>
     :root { --forest:#2c4a2c; --cream:#f5f0e8; --cream-light:#faf7f2; --dark:#1a2a1a; --text-mid:#6b7c6b; --gold:#b8963e; }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -171,7 +173,7 @@ async function main() {
     .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
     .nav-back { color:rgba(245,240,232,0.85); font-size:0.78rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); padding:0.45rem 1.2rem; border-radius:50px; transition:all 0.3s; }
     .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.4); color:#fff; }
-    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.72)),url('zdj/${heroImg}') center/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; }
+    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.72)),url('zdj/blog/${heroImg}') center/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; }
     .article-hero-label { color:var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
     .article-hero h1 { font-family:'Playfair Display',serif; font-size:2.8rem; color:#f5f0e8; font-weight:400; line-height:1.2; max-width:700px; margin:0 auto; }
     .article-hero h1 em { font-style:italic; color:var(--gold); }
@@ -196,7 +198,7 @@ async function main() {
 
 <nav>
   <a href="index.html" class="nav-brand">
-    <img src="zdj/index-img2.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
     <div class="nav-brand-text">
       <span class="nav-brand-name">Storczyk</span>
       <span class="nav-brand-sub">Zakopane</span>
@@ -212,7 +214,7 @@ async function main() {
 
 <div style="max-width:900px; margin:0 auto; padding:2rem 2rem 0;">
   <figure style="margin:0; border-radius:8px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.15);">
-    <img src="zdj/${heroImg}" alt="${escHtml(title)}" style="width:100%; height:420px; object-fit:cover; display:block;">
+    <img src="zdj/blog/${heroImg}" alt="${escHtml(title)}" style="width:100%; height:420px; object-fit:cover; display:block;">
     <figcaption style="background:white; padding:0.6rem 1rem; font-size:0.78rem; color:#888; text-align:right;">
       Fot. ${escHtml(photoCredit || 'Willa Storczyk')}
     </figcaption>
@@ -277,7 +279,7 @@ async function main() {
 
 <!-- PARTIAL:mobile-menu-blog -->
 
-<!-- PARTIAL:mobile-menu-css -->
+<!-- PARTIAL:mobile-menu-styles -->
 
 <script>
 function toggleMenu() {
@@ -331,7 +333,7 @@ function closeMenu() {
   const cardHtml = `
     <a href="blog-${slug}.html" class="article-card">
       <div class="article-thumb" ${gradient}>
-        <img src="zdj/${thumbImg || heroImg}" alt="${escHtml(title)}" loading="lazy">
+        <img src="zdj/blog/${thumbImg || heroImg}" alt="${escHtml(title)}" loading="lazy">
         <span class="article-tag">${escHtml(tag)}</span>
       </div>
       <div class="article-body">
@@ -346,7 +348,7 @@ function closeMenu() {
   console.log(C.green(`  ✓ Utworzono: src/blog-${slug}.html`));
 
   // ─── Dodaj kartę do blog.html ────────────
-  const blogPath = path.join(__dirname, 'src', 'blog.html');
+  const blogPath = path.join(ROOT, 'src', 'blog.html');
   let blogHtml = fs.readFileSync(blogPath, 'utf8');
 
   // Wstaw przed zamknięciem </div> articles-grid
@@ -363,7 +365,7 @@ function closeMenu() {
   console.log(C.cyan('  ⏳ Buduję stronę...'));
   const { execSync } = require('child_process');
   try {
-    const out = execSync('node build.js', { cwd: __dirname, encoding: 'utf8' });
+    const out = execSync('node scripts/build.js', { cwd: ROOT, encoding: 'utf8' });
     console.log(out.split('\n').map(l => '  ' + l).join('\n'));
   } catch (e) {
     console.log(C.red('  ✗ Błąd buildu: ' + e.message));
@@ -378,8 +380,8 @@ function closeMenu() {
   console.log(`  1. Otwórz ${C.cyan(`src/blog-${slug}.html`)}`);
   console.log(`  2. Znajdź komentarz ${C.dim('<!-- TUTAJ WPISZ TREŚĆ ARTYKUŁU -->')}`);
   console.log(`  3. Dodaj nagłówki ${C.dim('<h2>')} i akapity ${C.dim('<p>')}`);
-  console.log(`  4. Wrzuć zdjęcia do ${C.dim('zdj/')}`);
-  console.log(`  5. Odpal ${C.cyan('node build.js')}`);
+  console.log(`  4. Wrzuć zdjęcia do ${C.dim('zdj/blog/')}`);
+  console.log(`  5. Odpal ${C.cyan('node scripts/build.js')}`);
   console.log(C.green('  ═══════════════════════════════════════'));
   console.log('');
 

@@ -19,13 +19,13 @@
   <meta property="og:url" content="https://storczykzakopane.pl/">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="Willa Storczyk Zakopane">
-  <meta property="og:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <meta property="og:image" content="https://storczykzakopane.pl/assets/willa-storczyk.webp">
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Willa Storczyk – Wynajem Pokoi Zakopane Centrum">
   <meta name="twitter:description" content="Przytulne pokoje w centrum Zakopanego. Bezpłatny parking, Wi-Fi, taksa klimatyczna w cenie. Blisko Krupówek i Kasprowego Wierchu. Od 100 zł/os./dobę.">
-  <meta name="twitter:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <meta name="twitter:image" content="https://storczykzakopane.pl/assets/willa-storczyk.webp">
 
   <!-- SCHEMA.ORG – dane strukturalne dla Google -->
   <script type="application/ld+json">
@@ -62,13 +62,13 @@
     "paymentAccepted": "Cash, Bank Transfer",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://storczykzakopane.pl/logo.webp",
+      "url": "https://storczykzakopane.pl/assets/logo.webp",
       "width": 1024,
       "height": 1024
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://storczykzakopane.pl/willa-storczyk.webp",
+      "url": "https://storczykzakopane.pl/assets/willa-storczyk.webp",
       "caption": "Willa Storczyk – drewniana willa w centrum Zakopanego"
     },
     "mainEntity": [
@@ -85,7 +85,7 @@
       "https://maps.app.goo.gl/RG8Byvs9u7my1c5TV",
       "https://www.facebook.com/share/1KkBXUvRLa/",
       "https://www.tiktok.com/@storczykzakopane",
-      "https://www.instagram.com/storczykzakopane",
+      "https://www.instagram.com/storczykzakopane/",
       "https://www.zol.pl/noclegi/zakopane/wynajem-pokoi-storczyk/"
     ]
   }
@@ -169,9 +169,8 @@
     ]
   }
   </script>
-<link rel="preload" as="image" href="zdj/index-img1.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="zdj/gallery/hero-bg.webp">
+<link href="/fonts/google-fonts.css" rel="stylesheet">
 <style>
   :root {
     --dark:       #1E2A1E;
@@ -378,7 +377,7 @@
     inset: 0;
     background:
       linear-gradient(to bottom, rgba(30,42,30,0.25) 0%, rgba(30,42,30,0.55) 55%, rgba(30,42,30,0.88) 100%),
-      url('zdj/index-img1.webp') center/cover no-repeat;
+      url('zdj/gallery/hero-bg.webp') center/cover no-repeat;
     animation: slowZoom 22s ease-in-out infinite alternate;
   }
 
@@ -2001,14 +2000,14 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="/assets/css/aos.css">
 </head>
 <body>
 
 <!-- MOBILE TOP BAR -->
 <div class="mobile-topbar">
   <a href="#start" class="mobile-topbar-brand">
-    <img src="zdj/index-img2.webp" alt="Logo" class="mobile-topbar-logo">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo" class="mobile-topbar-logo">
     <span class="mobile-topbar-url">storczykzakopane.pl</span>
   </a>
 </div>
@@ -2016,7 +2015,7 @@
 <!-- NAV -->
 <nav>
   <a href="#start" class="nav-brand">
-    <img src="zdj/index-img2.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
     <div class="nav-brand-text">
       <span class="nav-brand-name">Storczyk</span>
       <span class="nav-brand-sub">Zakopane</span>
@@ -2036,7 +2035,7 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-brand">
-    <img src="zdj/index-img2.webp" alt="Logo Storczyk" class="mobile-menu-logo">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk" class="mobile-menu-logo">
     <div class="mobile-menu-brand-text">
       <span class="mobile-menu-brand-name">storczykzakopane.pl</span>
     </div>
@@ -2058,7 +2057,7 @@
 <section class="hero" id="start">
   <div class="hero-bg"></div>
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="hero-mobile.mp4" type="video/mp4">
+    <source src="assets/hero-mobile.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
   <svg class="mountain-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -2066,7 +2065,7 @@
     <path d="M0,120 L0,100 L200,85 L400,95 L600,75 L800,90 L1000,78 L1200,92 L1440,82 L1440,120 Z" fill="var(--cream-warm)"/>
   </svg>
   <div class="hero-content">
-    <img src="zdj/index-img3.webp" alt="Logo Storczyk" class="hero-logo" data-aos="zoom-in" data-aos-duration="900">
+    <img src="zdj/gallery/hero-logo.webp" alt="Logo Storczyk" class="hero-logo" data-aos="zoom-in" data-aos-duration="900">
     <p class="hero-eyebrow" data-aos-off="fade-down" data-aos-delay="200">Droga na Bystre 1 · Zakopane</p>
     <h1 data-aos-off="fade-up" data-aos-delay="400" aria-label="Twoje miejsce w sercu Tatr! Noclegi Zakopane – Willa Storczyk"><span class="tw-line">Twoje <em id="typewriter">schronienie</em><span class="tw-cursor" aria-hidden="true">|</span></span>w sercu Tatr!</h1>
     <p class="hero-sub" data-aos-off="fade-up" data-aos-delay="600">Przytulna drewniana willa blisko szlaków, Kasprowego Wierchu i Krupówek.<br> Pokoje gościnne z łazienkami 2, 3 i 4 osobowe.</p>
@@ -2124,7 +2123,7 @@
       <div class="about-images" style="display:flex;flex-direction:column;" data-aos-off="fade-left" data-aos-delay="150">
         <a href="#galeria" class="about-slideshow-link">
           <div class="about-slideshow-frame">
-            <img loading="lazy" id="about-slideshow" class="about-slideshow-img" src="zdj/index-img4.webp" alt="Willa Storczyk">
+            <img loading="lazy" id="about-slideshow" class="about-slideshow-img" src="zdj/gallery/about-panorama.webp" alt="Willa Storczyk">
           </div>
         </a>
       </div>
@@ -2155,15 +2154,15 @@
     Wi-Fi gratis
   </div>
   <div class="badge-item">
-    <span class="badge-icon"><img src="cablecar.svg" alt="Ikona kolejki linowej do Kuźnic" loading="lazy"></span>
+    <span class="badge-icon"><img src="assets/icons/cablecar.svg" alt="Ikona kolejki linowej do Kuźnic" loading="lazy"></span>
     20 min do Kuźnic
   </div>
   <div class="badge-item">
-    <span class="badge-icon"><img src="ski-jumping-svgrepo-com.svg" alt="Ikona skoczni narciarskiej" loading="lazy"></span>
+    <span class="badge-icon"><img src="assets/icons/ski-jumping-svgrepo-com.svg" alt="Ikona skoczni narciarskiej" loading="lazy"></span>
     10 min Wielka Krokiew
   </div>
   <div class="badge-item">
-    <span class="badge-icon"><img src="full-shoping-cart-svgrepo-com.svg" alt="Ikona zakupów przy Krupówkach" loading="lazy"></span>
+    <span class="badge-icon"><img src="assets/icons/icon-shopping-cart.svg" alt="Ikona zakupów przy Krupówkach" loading="lazy"></span>
     Blisko Krupówek
   </div>
   <div class="badge-dots" id="badge-dots">
@@ -2241,7 +2240,7 @@
 
       <div class="room-card" data-aos-off="fade-up" data-aos-delay="0">
         <div class="room-img-wrap" onclick="openLightbox('room-2os', 0)">
-          <img loading="lazy" class="room-img" src="zdj/index-img5.webp" alt="Pokój 2-osobowy">
+          <img loading="lazy" class="room-img" src="zdj/gallery/room-2os.webp" alt="Pokój 2-osobowy">
           <div class="room-img-overlay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7l-2-4H10L8 7"/><circle cx="12" cy="14" r="3"/></svg>Galeria zdjęć</div>
         </div>
         <div class="room-body">
@@ -2258,7 +2257,7 @@
 
       <div class="room-card" data-aos-off="fade-up" data-aos-delay="150">
         <div class="room-img-wrap" onclick="openLightbox('room-23os', 0)">
-          <img loading="lazy" class="room-img" src="zdj/index-img6.webp" alt="Pokój 3-osobowy">
+          <img loading="lazy" class="room-img" src="zdj/gallery/room-3os.webp" alt="Pokój 3-osobowy">
           <div class="room-img-overlay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7l-2-4H10L8 7"/><circle cx="12" cy="14" r="3"/></svg>Galeria zdjęć</div>
         </div>
         <div class="room-body">
@@ -2275,7 +2274,7 @@
 
       <div class="room-card" data-aos-off="fade-up" data-aos-delay="300">
         <div class="room-img-wrap" onclick="openLightbox('room-34os', 0)">
-          <img loading="lazy" class="room-img" src="zdj/index-img7.webp" alt="Pokój 4-osobowy">
+          <img loading="lazy" class="room-img" src="zdj/gallery/room-4os.webp" alt="Pokój 4-osobowy">
           <div class="room-img-overlay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7l-2-4H10L8 7"/><circle cx="12" cy="14" r="3"/></svg>Galeria zdjęć</div>
         </div>
         <div class="room-body">
@@ -2645,41 +2644,41 @@
   <div class="container">
     <div class="gallery-wrap" data-aos-off="zoom-in-up" data-aos-duration="800">
     <div class="gallery-grid">
-      <img loading="lazy" class="big" src="zdj/index-img8.webp" alt="Pokój 1">
-      <img loading="lazy" src="zdj/index-img9.webp" alt="Jeleń w ogrodzie">
-      <img loading="lazy" src="zdj/index-img10.webp" alt="Korytarz z dekoracjami">
-      <img loading="lazy" src="zdj/index-img11.webp" alt="Pokój z sofą">
-      <img loading="lazy" src="zdj/index-img12.webp" alt="Pokój 3-osobowy">
-      <img loading="lazy" src="zdj/index-img13.webp" alt="Pokój 1 widok">
-      <img loading="lazy" src="zdj/index-img14.webp" alt="Korytarz">
-      <img loading="lazy" src="zdj/index-img15.webp" alt="Pokój 2">
+      <img loading="lazy" class="big" src="zdj/gallery/gallery-pokoj-drewniany.webp" alt="Pokój 1">
+      <img loading="lazy" src="zdj/gallery/gallery-ogrod-jelen.webp" alt="Jeleń w ogrodzie">
+      <img loading="lazy" src="zdj/gallery/gallery-korytarz-dekoracje.webp" alt="Korytarz z dekoracjami">
+      <img loading="lazy" src="zdj/gallery/gallery-pokoj-sofa.webp" alt="Pokój z sofą">
+      <img loading="lazy" src="zdj/gallery/gallery-pokoj-poddasze.webp" alt="Pokój 3-osobowy">
+      <img loading="lazy" src="zdj/gallery/gallery-pokoj-drewniany-2.webp" alt="Pokój 1 widok">
+      <img loading="lazy" src="zdj/gallery/gallery-jadalnia.webp" alt="Korytarz">
+      <img loading="lazy" src="zdj/gallery/gallery-pokoj-poddasze-2.webp" alt="Pokój 2">
     <!-- Zdjęcia z gór i okolicy – widoczne tylko w lightboxie -->
-    <img loading="lazy" style="display:none" src="zdj/photo_1_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_2_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_3_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_4_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_5_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_6_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_7_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_8_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_9_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_10_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_11_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_12_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_13_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_14_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_15_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_16_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_17_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_18_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_19_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_20_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_21_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_22_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_23_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_24_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_25_2026-03-03_14-06-28.jpg" alt="Tatry">
-    <img loading="lazy" style="display:none" src="zdj/photo_26_2026-03-03_14-06-28.jpg" alt="Tatry">
+    <img loading="lazy" style="display:none" src="zdj/okolica/zorza-widok-osoba.jpg" alt="Zorza polarna nad Zakopanem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/zorza-ulica-bystre.jpg" alt="Zorza z ulicy Droga na Bystre">
+    <img loading="lazy" style="display:none" src="zdj/okolica/zorza-bulwary-zielona.jpg" alt="Zorza zielona nad Zakopanem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/zorza-nad-willa.jpg" alt="Zorza nad Willą Storczyk">
+    <img loading="lazy" style="display:none" src="zdj/okolica/dekoracja-okno-choinka.jpg" alt="Świąteczna dekoracja">
+    <img loading="lazy" style="display:none" src="zdj/okolica/dekoracja-choinki-filc.jpg" alt="Dekoracja świąteczna">
+    <img loading="lazy" style="display:none" src="zdj/okolica/tatry-szczyty-lato.jpg" alt="Szczyty Tatr latem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/tatry-las-snieg.jpg" alt="Tatrzański las w śniegu">
+    <img loading="lazy" style="display:none" src="zdj/okolica/rowery-snieg-lawka.jpg" alt="Rowery pod śniegiem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/widok-giewont-jesien.jpg" alt="Widok na Giewont jesienią">
+    <img loading="lazy" style="display:none" src="zdj/okolica/trop-niedzwiedzia.jpg" alt="Trop niedźwiedzia">
+    <img loading="lazy" style="display:none" src="zdj/okolica/hala-gasienicowa-lato.jpg" alt="Hala Gąsienicowa latem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/kamienie-rzeka.jpg" alt="Kamienne wieżyczki nad rzeką">
+    <img loading="lazy" style="display:none" src="zdj/okolica/panorama-zakopane-lato.jpg" alt="Panorama Zakopanego">
+    <img loading="lazy" style="display:none" src="zdj/okolica/widok-giewont-jesien-2.jpg" alt="Widok na Giewont">
+    <img loading="lazy" style="display:none" src="zdj/okolica/skituring-noc.jpg" alt="Skituring nocą">
+    <img loading="lazy" style="display:none" src="zdj/okolica/szlak-snieg-noc.jpg" alt="Zaśnieżony szlak nocą">
+    <img loading="lazy" style="display:none" src="zdj/okolica/wodospad-tatry.jpg" alt="Wodospad w Tatrach">
+    <img loading="lazy" style="display:none" src="zdj/okolica/kasprowy-narciarze.jpg" alt="Narciarze pod Kasprowym">
+    <img loading="lazy" style="display:none" src="zdj/okolica/zakopane-zima-noc.jpg" alt="Zakopane zimową nocą">
+    <img loading="lazy" style="display:none" src="zdj/okolica/auto-pod-sniegiem.jpg" alt="Auto zasypane śniegiem">
+    <img loading="lazy" style="display:none" src="zdj/okolica/szczyty-tatry-slonce.jpg" alt="Szczyty Tatr w słońcu">
+    <img loading="lazy" style="display:none" src="zdj/okolica/ulica-snieg-noc.jpg" alt="Zaśnieżona ulica nocą">
+    <img loading="lazy" style="display:none" src="zdj/okolica/kasprowy-noc-swiatla.jpg" alt="Kasprowy Wierch nocą">
+    <img loading="lazy" style="display:none" src="zdj/okolica/dolina-pieciu-stawow.jpg" alt="Dolina Pięciu Stawów">
+    <img loading="lazy" style="display:none" src="zdj/okolica/lis-nad-stawem.jpg" alt="Lis nad stawem w Tatrach">
     <button class="gallery-open-btn" onclick="openLightbox('galeria', 0)" title="Przeglądaj wszystkie zdjęcia"><span>+</span></button>
     </div>
   </div>
@@ -2761,7 +2760,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <img loading="lazy" src="zdj/index-img16.webp" alt="Logo" class="footer-logo-img">
+    <img loading="lazy" src="zdj/gallery/footer-logo.webp" alt="Logo" class="footer-logo-img">
     <span class="footer-name">Storczyk Zakopane</span>
   </div>
   <p class="footer-address">Droga na Bystre 1, 34-500 Zakopane<br>tel. 607 312 972 · 18 206 21 57</p>
@@ -2778,7 +2777,7 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.84 1.56V6.82a4.85 4.85 0 01-1.07-.13z"/></svg>
       TikTok
     </a>
-    <a href="https://www.instagram.com/storczykzakopane" target="_blank" rel="noopener noreferrer" class="social-btn">
+    <a href="https://www.instagram.com/storczykzakopane/" target="_blank" rel="noopener noreferrer" class="social-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       Instagram
     </a>
@@ -2810,20 +2809,20 @@
 <script>
 const galleries = {
   'room-2os': [
-    'zdj/index-img17.webp',
-    'zdj/index-img18.webp',
+    'zdj/gallery/slide-pokoj-poddasze.webp',
+    'zdj/gallery/slide-pokoj-twin.webp',
   ],
   'room-23os': [
-    'zdj/index-img19.webp',
-    'zdj/photo_5_2026-03-03_14-06-28.jpg',
+    'zdj/gallery/slide-pokoj-sofa.webp',
+    'zdj/okolica/dekoracja-okno-choinka.jpg',
   ],
   'room-34os': [
-    'zdj/index-img20.webp',
-    'zdj/index-img21.webp',
-    'zdj/index-img22.webp',
-    'zdj/index-img23.webp',
-    'zdj/index-img24.webp',
-    'zdj/index-img25.webp',
+    'zdj/gallery/slide-pokoj-drewniany.webp',
+    'zdj/gallery/slide-pokoj-drewniany-2.webp',
+    'zdj/gallery/slide-pokoj-twin-lampki.webp',
+    'zdj/gallery/slide-sofa-pojedyncza.webp',
+    'zdj/gallery/slide-pokoj-trojka.webp',
+    'zdj/gallery/slide-lazienka.webp',
   ],
 };
 
@@ -2971,9 +2970,9 @@ function toggleDistances(btn) {
 <script>
 (function() {
   var slides = [
-    'zdj/index-img26.webp',
-    'zdj/index-img27.webp',
-    'zdj/index-img28.webp'
+    'zdj/gallery/slide-panorama-tatry.webp',
+    'zdj/gallery/slide-willa-dach.webp',
+    'zdj/gallery/slide-ogrod-jelen.webp'
   ];
   var current = 0;
 
@@ -3097,8 +3096,8 @@ function toggleFaq(btn) {
   var nav = document.querySelector('nav');
   if(!nav) return;
   window.addEventListener('scroll', function(){
-    var y = window.pageYOffset || document.documentElement.scrollTop;
-    if(y > 60) nav.classList.add('nav-scrolled');
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if(scrollY > 60) nav.classList.add('nav-scrolled');
     else nav.classList.remove('nav-scrolled');
   }, {passive:true});
 })();
@@ -3106,17 +3105,17 @@ function toggleFaq(btn) {
 
 <script>
 (function(){
-  var btn = document.querySelector('.float-phone');
+  var floatPhoneBtn = document.querySelector('.float-phone');
   var lokalizacja = document.getElementById('lokalizacja');
   var kontakt = document.getElementById('kontakt');
   function checkPhone(){
-    if(!btn || !lokalizacja) return;
+    if(!floatPhoneBtn || !lokalizacja) return;
     var showFrom = lokalizacja.offsetTop;
     var hideFrom = kontakt ? kontakt.offsetTop : Infinity;
     if(window.scrollY < showFrom || window.scrollY >= hideFrom){
-      btn.classList.add('float-phone--hidden');
+      floatPhoneBtn.classList.add('float-phone--hidden');
     } else {
-      btn.classList.remove('float-phone--hidden');
+      floatPhoneBtn.classList.remove('float-phone--hidden');
     }
   }
   window.addEventListener('scroll', checkPhone, {passive:true});
@@ -3125,47 +3124,47 @@ function toggleFaq(btn) {
   // Glow button every 30s
   (function(){
     function triggerGlow(){
-      var btn = document.querySelector('.btn-rez');
-      if(!btn) return;
-      btn.classList.remove('glow');
-      void btn.offsetWidth; // reflow
-      btn.classList.add('glow');
-      btn.addEventListener('animationend', function(){ btn.classList.remove('glow'); }, {once:true});
+      var rezBtn = document.querySelector('.btn-rez');
+      if(!rezBtn) return;
+      rezBtn.classList.remove('glow');
+      void rezBtn.offsetWidth; // reflow
+      rezBtn.classList.add('glow');
+      rezBtn.addEventListener('animationend', function(){ rezBtn.classList.remove('glow'); }, {once:true});
     }
-    setTimeout(function loop(){ triggerGlow(); setInterval(triggerGlow, 30000); }, 30000);
+    setTimeout(function startGlowCycle(){ triggerGlow(); setInterval(triggerGlow, 30000); }, 30000);
   })();
 
   // Typewriter – Twoje [słowo]
   (function(){
-    var el = document.getElementById('typewriter');
-    if(!el) return;
+    var typewriterEl = document.getElementById('typewriter');
+    if(!typewriterEl) return;
 
     var words = ['wytchnienie', 'miejsce', 'schronienie', 'zacisze'];
-    var current = 2; // start at 'schronienie'
+    var wordIndex = 2; // start at 'schronienie'
     var currentWord = 'schronienie';
     var charIndex = currentWord.length;
 
-    function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+    function sleep(ms){ return new Promise(function(resolve){ setTimeout(resolve, ms); }); }
 
-    async function run(){
+    async function cycleTypewriterWords(){
       await sleep(2200);
 
       while(true){
         // Kasuj aktualne slowo
         while(charIndex > 0){
           charIndex--;
-          el.textContent = currentWord.slice(0, charIndex);
+          typewriterEl.textContent = currentWord.slice(0, charIndex);
           await sleep(55);
         }
 
         await sleep(250);
-        current = (current + 1) % words.length;
-        currentWord = words[current];
+        wordIndex = (wordIndex + 1) % words.length;
+        currentWord = words[wordIndex];
 
         // Pisz nowe slowo
         while(charIndex < currentWord.length){
           charIndex++;
-          el.textContent = currentWord.slice(0, charIndex);
+          typewriterEl.textContent = currentWord.slice(0, charIndex);
           await sleep(85);
         }
 
@@ -3173,7 +3172,7 @@ function toggleFaq(btn) {
       }
     }
 
-    run();
+    cycleTypewriterWords();
   })();
 
   // Formularz kontaktowy – Netlify Forms (AJAX)
@@ -3276,9 +3275,9 @@ function toggleFaq(btn) {
         return;
       }
 
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Wysyłanie…';
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie…';
       fetch('/', {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -3288,11 +3287,11 @@ function toggleFaq(btn) {
         departureInput.min = '';
         successMsg.style.display = 'block';
         errorMsg.style.display = 'none';
-        btn.style.display = 'none';
+        submitBtn.style.display = 'none';
       }).catch(function(){
         showError('Wystąpił błąd. Zadzwoń: 607 312 972');
-        btn.disabled = false;
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
       });
     });
   })();
@@ -3300,10 +3299,10 @@ function toggleFaq(btn) {
   // Dzwonienie ikonki telefonu co 4 sekundy
   (function(){
     function triggerRing(){
-      var btn = document.querySelector('.nav-phone');
-      if(!btn) return;
-      btn.classList.add('ringing');
-      setTimeout(function(){ btn.classList.remove('ringing'); }, 800);
+      var navPhoneBtn = document.querySelector('.nav-phone');
+      if(!navPhoneBtn) return;
+      navPhoneBtn.classList.add('ringing');
+      setTimeout(function(){ navPhoneBtn.classList.remove('ringing'); }, 800);
     }
     setTimeout(function(){ triggerRing(); setInterval(triggerRing, 4000); }, 2000);
   })();
@@ -3311,12 +3310,12 @@ function toggleFaq(btn) {
   // Attract animation na przycisku Zarezerwuj – co 5 sekund
   (function(){
     function triggerAttract(){
-      var btn = document.querySelector('.float-phone');
-      if(!btn || btn.classList.contains('float-phone--hidden')) return;
-      btn.classList.remove('attract');
-      void btn.offsetWidth;
-      btn.classList.add('attract');
-      btn.addEventListener('animationend', function(){ btn.classList.remove('attract'); }, {once:true});
+      var floatBtn = document.querySelector('.float-phone');
+      if(!floatBtn || floatBtn.classList.contains('float-phone--hidden')) return;
+      floatBtn.classList.remove('attract');
+      void floatBtn.offsetWidth;
+      floatBtn.classList.add('attract');
+      floatBtn.addEventListener('animationend', function(){ floatBtn.classList.remove('attract'); }, {once:true});
     }
     setTimeout(function(){ triggerAttract(); setInterval(triggerAttract, 5000); }, 4000);
   })();
@@ -3427,18 +3426,18 @@ function toggleFaq(btn) {
     });
   }
 
-  function run() {
+  function initPolishTypography() {
     applyPolishTypography(document.body);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run, { once: true });
+    document.addEventListener('DOMContentLoaded', initPolishTypography, { once: true });
   } else {
-    run();
+    initPolishTypography();
   }
 })();
 </script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="/assets/js/aos.js"></script>
 <script>
   AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 180 });
 </script>

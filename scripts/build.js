@@ -6,9 +6,25 @@
 const fs   = require('fs');
 const path = require('path');
 
-const ROOT     = __dirname;
+const ROOT     = path.join(__dirname, '..');
 const SRC_DIR  = path.join(ROOT, 'src');
 const PART_DIR = path.join(ROOT, 'partials');
+const CONFIG   = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
+
+// ── Spłaszcz config do mapy klucz→wartość ────────────────────────
+function flattenConfig(obj, prefix) {
+  const result = {};
+  for (const [k, v] of Object.entries(obj)) {
+    const key = prefix ? `${prefix}.${k}` : k;
+    if (typeof v === 'object' && v !== null) {
+      Object.assign(result, flattenConfig(v, key));
+    } else {
+      result[key] = String(v);
+    }
+  }
+  return result;
+}
+const CONFIG_MAP = flattenConfig(CONFIG);
 
 // ── Wczytaj wszystkie partials ─────────────────────────────────────
 function loadPartials() {
@@ -24,11 +40,19 @@ function loadPartials() {
 
 // ── Zastąp markery zawartością partials ───────────────────────────
 function processTemplate(content, partials) {
-  return content.replace(/<!-- PARTIAL:([^\s]+) -->/g, (match, name) => {
+  // 1. Partials
+  let result = content.replace(/<!-- PARTIAL:([^\s]+) -->/g, (match, name) => {
     if (partials[name] !== undefined) return partials[name];
     console.warn(`  ⚠  Partial "${name}" nie znaleziony — marker pozostawiony`);
     return match;
   });
+  // 2. Config: {{klucz.podklucz}}
+  result = result.replace(/\{\{([a-zA-Z_.]+)\}\}/g, (match, key) => {
+    if (CONFIG_MAP[key] !== undefined) return CONFIG_MAP[key];
+    console.warn(`  ⚠  Config "${key}" nie znaleziony — marker pozostawiony`);
+    return match;
+  });
+  return result;
 }
 
 // ── Główna funkcja build ───────────────────────────────────────────

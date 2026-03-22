@@ -7,7 +7,7 @@ const fs   = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const ROOT     = __dirname;
+const ROOT     = path.join(__dirname, '..');
 const SRC_DIR  = path.join(ROOT, 'src');
 const PART_DIR = path.join(ROOT, 'partials');
 
@@ -18,7 +18,7 @@ function runBuild(changed) {
   debounce = setTimeout(() => {
     console.log(`\n🔄 Zmiana wykryta: ${changed} — buduję...`);
     try {
-      execSync('node build.js', { cwd: ROOT, stdio: 'inherit' });
+      execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
     } catch (e) {
       // błąd już wydrukowany przez build.js
     }
@@ -37,7 +37,7 @@ function watchDir(dir) {
 // Uruchom build przy starcie
 console.log('🔨 Budowanie początkowe...');
 try {
-  execSync('node build.js', { cwd: ROOT, stdio: 'inherit' });
+  execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
 } catch (e) {
   process.exit(1);
 }

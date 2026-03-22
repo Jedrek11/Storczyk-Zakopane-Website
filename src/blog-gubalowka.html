@@ -8,31 +8,31 @@
     "@type": "BlogPosting",
     "headline": "Gubałówka – panorama Tatr jakiej nie zapomnisz",
     "description": "Gubałówka kolejka linowa Zakopane, widoki na Tatry, godziny, ceny, atrakcje na szczycie. Jak dojechać z centrum.",
-    "url": "https://storczykzakopane.pl/blog-gubalowka.html",
+    "url": "{{urls.baseUrl}}/blog-gubalowka.html",
     "datePublished": "2025-12-28",
     "dateModified": "2026-02-25",
     "author": {
       "@type": "Organization",
       "name": "Willa Storczyk Zakopane",
-      "url": "https://storczykzakopane.pl"
+      "url": "{{urls.baseUrl}}"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Willa Storczyk Zakopane",
-      "url": "https://storczykzakopane.pl"
+      "url": "{{urls.baseUrl}}"
     },
     "keywords": "Gubałówka, kolejka linowa Zakopane, panorama Tatr",
     "inLanguage": "pl",
     "image": {
       "@type": "ImageObject",
-      "url": "https://storczykzakopane.pl/zdj/blog-gubalowka-img1.webp",
+      "url": "{{urls.baseUrl}}/zdj/blog/blog-gubalowka-img1.webp",
       "caption": "Gubałówka – panorama Tatr z platformy widokowej"
     },
     "articleBody": "Gubałówka to szczyt z najpiękniejszą panoramą Tatr w Zakopanem. Na szczyt wjeżdża kolej funikularna z Krupówek. Widoki, atrakcje na szczycie, ceny biletów i jak dojechać z Willi Storczyk.",
     "isPartOf": {
       "@type": "Blog",
       "name": "Przewodnik po Zakopanem – Willa Storczyk",
-      "url": "https://storczykzakopane.pl/blog.html"
+      "url": "{{urls.baseUrl}}/blog.html"
     }
   }
   </script>
@@ -41,8 +41,8 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://storczykzakopane.pl"},
-      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://storczykzakopane.pl/blog.html"},
+      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "{{urls.baseUrl}}"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "{{urls.baseUrl}}/blog.html"},
       {"@type": "ListItem", "position": 3, "name": "Gubałówka"}
     ]
   }
@@ -51,22 +51,21 @@
   <title>Gubałówka – panorama Tatr | Willa Storczyk Zakopane</title>
   <meta name="description" content="Gubałówka kolejka linowa Zakopane, widoki na Tatry, godziny, ceny, atrakcje na szczycie. Jak dojechać z centrum.">
   <meta name="keywords" content="Gubałówka, kolejka linowa Zakopane, panorama Tatr, atrakcje Gubałówka, widoki Zakopane">
-  <link rel="canonical" href="https://storczykzakopane.pl/blog-gubalowka.html">
+  <link rel="canonical" href="{{urls.baseUrl}}/blog-gubalowka.html">
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Gubałówka – panorama Tatr | Willa Storczyk Zakopane">
   <meta property="og:description" content="Gubałówka kolejka linowa Zakopane, widoki na Tatry, godziny, ceny, atrakcje na szczycie. Jak dojechać z centrum.">
-  <meta property="og:url" content="https://storczykzakopane.pl/blog-gubalowka.html">
-  <meta property="og:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
+  <meta property="og:url" content="{{urls.baseUrl}}/blog-gubalowka.html">
+  <meta property="og:image" content="{{urls.baseUrl}}/assets/willa-storczyk.webp">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="Willa Storczyk Zakopane">
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gubałówka – panorama Tatr | Willa Storczyk Zakopane">
   <meta name="twitter:description" content="Gubałówka kolejka linowa Zakopane, widoki na Tatry, godziny, ceny, atrakcje na szczycie. Jak dojechać z centrum.">
-  <meta name="twitter:image" content="https://storczykzakopane.pl/willa-storczyk.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="twitter:image" content="{{urls.baseUrl}}/assets/willa-storczyk.webp">
+  <link href="/fonts/google-fonts.css" rel="stylesheet">
   <style>
     :root { --forest:#2c4a2c; --cream:#f5f0e8; --cream-light:#faf7f2; --dark:#1a2a1a; --text-mid:#6b7c6b; --gold:#b8963e; }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -80,7 +79,7 @@
     .nav-page-label { position:absolute; left:50%; transform:translateX(-50%); color:rgba(245,240,232,0.6); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; } .nav-right { display:flex; align-items:center; gap:0.6rem; } .nav-social { display:flex; gap:0.4rem; align-items:center; } .nav-social a { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); transition:all 0.3s; color:rgba(245,240,232,0.5); text-decoration:none; } .nav-social a:hover { background:rgba(255,255,255,0.18); color:rgba(245,240,232,1); border-color:rgba(255,255,255,0.3); transform:translateY(-1px); } .nav-social svg { width:14px; height:14px; fill:currentColor; }
     .nav-back { color:rgba(245,240,232,0.85); font-size:0.72rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); padding:0.4rem 1rem; border-radius:50px; transition:all 0.3s; }
     .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); color:#fff; }
-    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.72)),url('zdj/blog-gubalowka-img2.webp') center/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; }
+    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.72)),url('zdj/blog/blog-gubalowka-img2.webp') center/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; }
     .article-hero-label { color:var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
     .article-hero h1 { font-family:'Playfair Display',serif; font-size:2.8rem; color:#f5f0e8; font-weight:400; line-height:1.2; max-width:700px; margin:0 auto; }
     .article-hero h1 em { font-style:italic; color:var(--gold); }
@@ -105,14 +104,14 @@
 
 <nav>
   <a href="index.html" class="nav-brand">
-    <img src="zdj/index-img2.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
     <div class="nav-brand-text">
       <span class="nav-brand-name">Storczyk</span>
       <span class="nav-brand-sub">Zakopane</span>
     </div>
   </a>
   <span class="nav-page-label">Atrakcje</span>
-  <div class="nav-right"><span class="nav-social"><a href="https://www.facebook.com/profile.php?id=61576000020623" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.tiktok.com/@storczykzakopane" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a><a href="https://www.instagram.com/storczykzakopane/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></span><a href="blog.html" class="nav-back">← Blog</a></div>
+  <div class="nav-right"><span class="nav-social"><a href="{{urls.facebook}}" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="{{urls.tiktok}}" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a><a href="{{urls.instagram}}" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></span><a href="blog.html" class="nav-back">← Blog</a></div>
 </nav>
 <div class="article-hero">
   <p class="article-hero-label">Widoki · Rodziny</p>
@@ -122,7 +121,7 @@
 
 <div style="max-width:900px; margin:0 auto; padding:2rem 2rem 0;">
   <figure style="margin:0; border-radius:8px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.15);">
-    <img src="zdj/blog-gubalowka-img2.webp" alt="Gubałówka, panorama Zakopanego i Tatr" style="width:100%; height:420px; object-fit:cover; display:block;">
+    <img src="zdj/blog/blog-gubalowka-img2.webp" alt="Gubałówka, panorama Zakopanego i Tatr" style="width:100%; height:420px; object-fit:cover; display:block;">
     <figcaption style="background:white; padding:0.6rem 1rem; font-size:0.78rem; color:#888; text-align:right;">
       Fot. Marcin Szkodziński
     </figcaption>
@@ -158,7 +157,7 @@
   <h2>Zobaczcie sami</h2>
   <p>Nagraliśmy dla Was krótki filmik, który pokazuje widoki z Gubałówki i okolic. Zapraszamy też na nasz profil TikTok gdzie wrzucamy więcej materiałów z Zakopanego.</p>
   <div style="display:flex; justify-content:center; margin:2rem 0;">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@storczykzakopane/video/7531377626577980694" data-video-id="7531377626577980694" style="max-width:400px; min-width:300px;">
+    <blockquote class="tiktok-embed" cite="{{urls.tiktok}}/video/7531377626577980694" data-video-id="7531377626577980694" style="max-width:400px; min-width:300px;">
       <section></section>
     </blockquote>
   </div>
@@ -201,7 +200,7 @@
 
 <!-- PARTIAL:mobile-menu-blog -->
 
-<!-- PARTIAL:mobile-menu-css -->
+<!-- PARTIAL:mobile-menu-styles -->
 
 <script>
 function toggleMenu() {
