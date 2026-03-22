@@ -203,7 +203,7 @@
     inset: 0;
     background:
       linear-gradient(to bottom, rgba(30,42,30,0.25) 0%, rgba(30,42,30,0.55) 55%, rgba(30,42,30,0.88) 100%),
-      url('zdj/gallery/hero-bg.webp') center/cover no-repeat;
+      url('/zdj/gallery/hero-bg.webp') center/cover no-repeat;
     animation: slowZoom 22s ease-in-out infinite alternate;
   }
 
@@ -379,7 +379,7 @@
   /* ── TYPEWRITER ── */
   .tw-cursor {
     display: inline-block;
-    color: var(--forest);
+    color: var(--mauve-pale);
     font-style: normal;
     font-weight: 300;
     animation: blink 0.75s step-end infinite;
