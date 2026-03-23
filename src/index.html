@@ -827,10 +827,10 @@
       </div>
       <div id="formularz" class="contact-form" data-aos-off="fade-left" data-aos-delay="150">
         <p class="form-title">Wyślij zapytanie</p>
-        <form id="booking-form" name="kontakt" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-netlify-recaptcha="true" novalidate>
+        <form id="booking-form" name="kontakt" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="kontakt">
           <input type="hidden" name="_subject" value="Nowa wiadomość ze strony storczykzakopane.pl">
-          <input type="hidden" name="bot-field" style="display:none">
+          <p style="position:absolute;left:-9999px;"><label>Nie wypełniaj: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-group"><label for="imie">Imię i nazwisko</label><input type="text" name="imie" id="imie" placeholder="Jan Kowalski" required aria-required="true"></div>
           <div class="form-row">
             <div class="form-group"><label for="telefon">Telefon</label><input type="tel" name="telefon" id="telefon" placeholder="+48 000 000 000"></div>
@@ -845,7 +845,6 @@
             <select name="osoby" id="osoby" required aria-required="true"><option value="" selected disabled>Wybierz liczbę osób</option><option value="1 osoba">1 osoba</option><option value="2 osoby">2 osoby</option><option value="3 osoby">3 osoby</option><option value="4 osoby">4 osoby</option><option value="Więcej, napiszę w wiadomości">Więcej, napiszę w wiadomości</option></select>
           </div>
           <div class="form-group"><label for="wiadomosc">Wiadomość</label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..." required aria-required="true" minlength="10"></textarea></div>
-          <div data-netlify-recaptcha="true" style="margin-bottom:1rem;"></div>
           <button type="submit" class="btn-form" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie</button>
           <p id="form-success" style="display:none;color:rgba(245,240,232,0.9);text-align:center;margin-top:1rem;font-size:0.95rem;">✓ Dziękujemy! Wkrótce się odezwiemy.</p>
           <p id="form-error" style="display:none;color:#e08080;text-align:center;margin-top:1rem;font-size:0.95rem;">Wystąpił błąd. Zadzwoń: {{contact.phoneMobileDisplay}}</p>
