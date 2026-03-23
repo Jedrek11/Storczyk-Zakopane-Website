@@ -50,7 +50,7 @@ let currentScale = 1, pinchStartDist = 0, pinchLastScale = 1;
 document.addEventListener('DOMContentLoaded', () => {
   // Populate galeria gallery from DOM
   const galleryImgs = document.querySelectorAll('.gallery-grid img');
-  galleries['galeria'] = Array.from(galleryImgs).map(img => img.src);
+  galleries['galeria'] = Array.from(galleryImgs).map(img => img.src || img.dataset.src);
   galleryImgs.forEach((img, i) => {
     img.addEventListener('click', () => openLightbox('galeria', i));
   });
