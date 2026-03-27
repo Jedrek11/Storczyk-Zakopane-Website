@@ -1899,3 +1899,135 @@
   .faq-a { display:none; padding:0 1.4rem 1.2rem; }
   .faq-a p { color:#555; font-size:0.9rem; line-height:1.8; margin:0; }
   .faq-a.open { display:block; }
+
+  /* ══════════════════════════════════════════════════════════════
+     REVEAL ANIMATIONS — custom Intersection Observer system
+     ══════════════════════════════════════════════════════════════ */
+
+  /* Base state: hidden before reveal */
+  [data-reveal] {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Revealed state */
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  /* ── Animation variants ── */
+  [data-reveal="fade-up"]          { transform: translate3d(0, 40px, 0); transition-duration: 0.8s; }
+  [data-reveal="fade-down"]        { transform: translate3d(0, -30px, 0); transition-duration: 0.8s; }
+  [data-reveal="fade-right"]       { transform: translate3d(-50px, 0, 0); transition-duration: 0.9s; }
+  [data-reveal="fade-left"]        { transform: translate3d(50px, 0, 0); transition-duration: 0.9s; }
+  [data-reveal="zoom-in"]          { transform: scale(0.92); transition-duration: 0.7s; }
+  [data-reveal="zoom-in-up"]       { transform: translate3d(0, 40px, 0) scale(0.95); transition-duration: 0.9s; }
+
+  /* ── Stagger delays via data-delay ── */
+  [data-reveal][data-delay="80"]   { transition-delay: 0.08s; }
+  [data-reveal][data-delay="100"]  { transition-delay: 0.1s; }
+  [data-reveal][data-delay="150"]  { transition-delay: 0.15s; }
+  [data-reveal][data-delay="160"]  { transition-delay: 0.16s; }
+  [data-reveal][data-delay="200"]  { transition-delay: 0.2s; }
+  [data-reveal][data-delay="240"]  { transition-delay: 0.24s; }
+  [data-reveal][data-delay="300"]  { transition-delay: 0.3s; }
+  [data-reveal][data-delay="320"]  { transition-delay: 0.32s; }
+  [data-reveal][data-delay="400"]  { transition-delay: 0.4s; }
+  [data-reveal][data-delay="480"]  { transition-delay: 0.48s; }
+  [data-reveal][data-delay="500"]  { transition-delay: 0.5s; }
+  [data-reveal][data-delay="560"]  { transition-delay: 0.56s; }
+  [data-reveal][data-delay="600"]  { transition-delay: 0.6s; }
+  [data-reveal][data-delay="800"]  { transition-delay: 0.8s; }
+
+  /* ── Hero section: sequential stagger via CSS ── */
+  .hero-content .hero-logo         { animation-delay: 0s; }
+  .hero-content .hero-eyebrow      { opacity: 0; animation: heroReveal 1s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s both; }
+  .hero-content h1                 { opacity: 0; animation: heroReveal 1s cubic-bezier(0.25,0.46,0.45,0.94) 0.5s both; }
+  .hero-content .hero-sub          { opacity: 0; animation: heroReveal 1s cubic-bezier(0.25,0.46,0.45,0.94) 0.7s both; }
+  .hero-content .hero-ctas         { opacity: 0; animation: heroReveal 1s cubic-bezier(0.25,0.46,0.45,0.94) 0.9s both; }
+
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Hero parallax subtle effect ── */
+  .hero-bg, .hero-video {
+    transition: transform 0.1s linear;
+  }
+
+  /* ── Section divider animation ── */
+  .section-divider {
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+  }
+
+  /* ── Enhanced hover effects — premium feel ── */
+
+  /* Room cards: subtle lift + shadow */
+  .room-card {
+    transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s ease;
+  }
+  .room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(30,42,30,0.16);
+  }
+
+  /* Gallery: zoom + overlay */
+  .gallery-grid img {
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .gallery-grid img:hover {
+    opacity: 0.92;
+    transform: scale(1.04);
+  }
+
+  /* Review cards: gentle lift */
+  .review-card {
+    transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .review-card:hover {
+    box-shadow: 0 10px 32px rgba(30,42,30,0.12);
+    transform: translateY(-4px);
+  }
+
+  /* Amenity tiles: smooth scale + glow */
+  .amenity {
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .amenity:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  /* Contact form button: subtle pulse */
+  .btn-form {
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .btn-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30,42,30,0.2);
+  }
+
+  /* ── Accessibility: respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .hero-content,
+    .hero-content .hero-eyebrow,
+    .hero-content h1,
+    .hero-content .hero-sub,
+    .hero-content .hero-ctas {
+      opacity: 1 !important;
+      animation: none !important;
+    }
+    .room-card, .amenity, .review-card, .gallery-grid img, .btn-form {
+      transition-duration: 0.01ms !important;
+    }
+  }
