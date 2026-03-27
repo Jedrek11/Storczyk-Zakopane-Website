@@ -1918,13 +1918,8 @@
     transform: translate3d(0, 0, 0) scale(1);
   }
 
-  /* ── Animation variants ── */
-  [data-reveal="fade-up"]          { transform: translate3d(0, 40px, 0); transition-duration: 0.8s; }
-  [data-reveal="fade-down"]        { transform: translate3d(0, -30px, 0); transition-duration: 0.8s; }
-  [data-reveal="fade-right"]       { transform: translate3d(-50px, 0, 0); transition-duration: 0.9s; }
-  [data-reveal="fade-left"]        { transform: translate3d(50px, 0, 0); transition-duration: 0.9s; }
-  [data-reveal="zoom-in"]          { transform: scale(0.92); transition-duration: 0.7s; }
-  [data-reveal="zoom-in-up"]       { transform: translate3d(0, 40px, 0) scale(0.95); transition-duration: 0.9s; }
+  /* ── Animation: single cohesive style ── */
+  [data-reveal="fade-up"]          { transform: translate3d(0, 36px, 0); transition-duration: 0.8s; }
 
   /* ── Stagger delays via data-delay ── */
   [data-reveal][data-delay="80"]   { transition-delay: 0.08s; }
