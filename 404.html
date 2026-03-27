@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona nie znaleziona – Willa Storczyk Zakopane</title>
+  <meta name="robots" content="noindex">
+  <link href="/fonts/google-fonts.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <style>
+    :root {
+      --forest: #2c4a2c;
+      --cream: #f5f0e8;
+      --cream-light: #faf7f2;
+      --dark: #1a2a1a;
+      --text-mid: #6b7c6b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', 'Georgia', serif;
+      background: var(--cream-light);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .code {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 400;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--forest);
+      margin: 1rem auto 1.5rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background: #1a2a1a;
+      transform: translateY(-2px);
+    }
+    .links {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .links a {
+      color: var(--forest);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+    .links a:hover { opacity: 1; }
+    .auto-redirect {
+      color: var(--text-mid);
+      font-size: 0.75rem;
+      margin-top: 2.5rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="/zdj/gallery/nav-logo.webp" alt="Logo Willa Storczyk" class="logo">
+  <div class="code">404</div>
+  <div class="divider"></div>
+  <h1>Strona nie została znaleziona</h1>
+  <p>Wygląda na to, że ta strona nie istnieje lub została przeniesiona. Wróć na stronę główną i znajdź to, czego szukasz.</p>
+  <a href="/" class="btn">Strona główna</a>
+
+  <div class="links">
+    <a href="/blog.html">Blog</a>
+    <a href="/#pokoje">Pokoje</a>
+    <a href="/#kontakt">Kontakt</a>
+  </div>
+
+  <p class="auto-redirect">Automatyczne przekierowanie za <span id="countdown">10</span> sekund...</p>
+
+  <script>
+    let sec = 10;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(function() {
+      sec--;
+      el.textContent = sec;
+      if (sec <= 0) {
+        clearInterval(timer);
+        window.location.href = '/';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
