@@ -1,3 +1,13 @@
+# Minifikacja assetów przez Netlify
+[build.processing.css]
+  bundle = false
+  minify = true
+[build.processing.js]
+  bundle = false
+  minify = true
+[build.processing.html]
+  pretty_urls = false
+
 # Cache statycznych assetów — obrazy, fonty, video, ikony
 [[headers]]
   for = "/zdj/*"
@@ -51,3 +61,13 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# Security headers — wszystkie strony
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"

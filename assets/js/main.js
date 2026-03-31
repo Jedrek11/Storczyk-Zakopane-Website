@@ -166,12 +166,13 @@ function toggleDistances(btn) {
     'zdj/gallery/slide-ogrod-jelen.webp'
   ];
   var current = 0;
+  var slideshowTimer;
 
   function startSlideshow() {
     var img = document.getElementById('about-slideshow');
     if (!img || !slides.length) return;
 
-    setInterval(function() {
+    slideshowTimer = setInterval(function() {
       img.style.opacity = '0';
       setTimeout(function() {
         current = (current + 1) % slides.length;
@@ -182,6 +183,7 @@ function toggleDistances(btn) {
   }
 
   document.addEventListener('DOMContentLoaded', startSlideshow);
+  window.addEventListener('unload', function() { clearInterval(slideshowTimer); });
 })();
 
 function toggleMenu() {
@@ -302,6 +304,7 @@ function toggleFaq(btn) {
 
   // Glow button every 30s
   (function(){
+    var glowTimer;
     function triggerGlow(){
       var rezBtn = document.querySelector('.btn-rez');
       if(!rezBtn) return;
@@ -310,7 +313,8 @@ function toggleFaq(btn) {
       rezBtn.classList.add('glow');
       rezBtn.addEventListener('animationend', function(){ rezBtn.classList.remove('glow'); }, {once:true});
     }
-    setTimeout(function startGlowCycle(){ triggerGlow(); setInterval(triggerGlow, 30000); }, 30000);
+    setTimeout(function(){ triggerGlow(); glowTimer = setInterval(triggerGlow, 30000); }, 30000);
+    window.addEventListener('unload', function() { clearInterval(glowTimer); });
   })();
 
   // Typewriter – Twoje [słowo]
@@ -477,17 +481,20 @@ function toggleFaq(btn) {
 
   // Dzwonienie ikonki telefonu co 4 sekundy
   (function(){
+    var ringTimer;
     function triggerRing(){
       var navPhoneBtn = document.querySelector('.nav-phone');
       if(!navPhoneBtn) return;
       navPhoneBtn.classList.add('ringing');
       setTimeout(function(){ navPhoneBtn.classList.remove('ringing'); }, 800);
     }
-    setTimeout(function(){ triggerRing(); setInterval(triggerRing, 4000); }, 2000);
+    setTimeout(function(){ triggerRing(); ringTimer = setInterval(triggerRing, 4000); }, 2000);
+    window.addEventListener('unload', function() { clearInterval(ringTimer); });
   })();
 
   // Attract animation na przycisku Zarezerwuj – co 5 sekund
   (function(){
+    var attractTimer;
     function triggerAttract(){
       var floatBtn = document.querySelector('.float-phone');
       if(!floatBtn || floatBtn.classList.contains('float-phone--hidden')) return;
@@ -496,7 +503,8 @@ function toggleFaq(btn) {
       floatBtn.classList.add('attract');
       floatBtn.addEventListener('animationend', function(){ floatBtn.classList.remove('attract'); }, {once:true});
     }
-    setTimeout(function(){ triggerAttract(); setInterval(triggerAttract, 5000); }, 4000);
+    setTimeout(function(){ triggerAttract(); attractTimer = setInterval(triggerAttract, 5000); }, 4000);
+    window.addEventListener('unload', function() { clearInterval(attractTimer); });
   })();
 
   checkPhone();
@@ -537,11 +545,26 @@ function toggleFaq(btn) {
     // Usuń TikTok embed script
     var ttScript = document.querySelector('script[src*="tiktok.com/embed"]');
     if (ttScript) ttScript.remove();
-    // Zastąp TikTok embedy komunikatem
+    // Zastąp TikTok embedy komunikatem (bezpieczne tworzenie DOM)
     var embeds = document.querySelectorAll('.tiktok-embed');
     embeds.forEach(function(embed) {
-      var wrapper = embed;
-      wrapper.innerHTML = '<div style="padding:3rem 1.5rem; text-align:center; color:#888; font-size:0.85rem; line-height:1.6;"><p style="margin:0 0 0.5rem;">🎬 Treść TikTok zablokowana</p><p style="margin:0; font-size:0.78rem;">Zaakceptuj pliki cookies, aby wyświetlić filmy.</p><button onclick="acceptCookies();location.reload();" style="margin-top:0.8rem; background:var(--mauve-light); color:white; border:none; padding:0.4rem 1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;">Włącz cookies</button></div>';
+      embed.textContent = '';
+      var container = document.createElement('div');
+      container.style.cssText = 'padding:3rem 1.5rem; text-align:center; color:#888; font-size:0.85rem; line-height:1.6;';
+      var p1 = document.createElement('p');
+      p1.style.cssText = 'margin:0 0 0.5rem;';
+      p1.textContent = '\uD83C\uDFAC Treść TikTok zablokowana';
+      var p2 = document.createElement('p');
+      p2.style.cssText = 'margin:0; font-size:0.78rem;';
+      p2.textContent = 'Zaakceptuj pliki cookies, aby wyświetlić filmy.';
+      var btn = document.createElement('button');
+      btn.style.cssText = 'margin-top:0.8rem; background:var(--mauve-light); color:white; border:none; padding:0.4rem 1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;';
+      btn.textContent = 'Włącz cookies';
+      btn.addEventListener('click', function() { acceptCookies(); location.reload(); });
+      container.appendChild(p1);
+      container.appendChild(p2);
+      container.appendChild(btn);
+      embed.appendChild(container);
     });
   }
 })();
