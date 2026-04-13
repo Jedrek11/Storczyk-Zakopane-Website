@@ -50,6 +50,98 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Redirect /index.html → / (canonical fix)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Redirect blog URLs without .html extension
+[[redirects]]
+  from = "/blog-krupowki"
+  to = "/blog-krupowki.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-dolina-koscieliska"
+  to = "/blog-dolina-koscieliska.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-giewont"
+  to = "/blog-giewont.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-jak-dojechac"
+  to = "/blog-jak-dojechac.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-kasprowy-wierch"
+  to = "/blog-kasprowy-wierch.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-komunikacja"
+  to = "/blog-komunikacja.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-morskie-oko"
+  to = "/blog-morskie-oko.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-termy"
+  to = "/blog-termy.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-wielkanocne-jajo"
+  to = "/blog-wielkanocne-jajo.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-rowery"
+  to = "/blog-rowery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-gubalowka"
+  to = "/blog-gubalowka.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-skywalk"
+  to = "/blog-skywalk.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-narty-zakopane"
+  to = "/blog-narty-zakopane.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 301
+  force = true
+
 # Custom 404
 [[redirects]]
   from = "/*"
@@ -71,3 +163,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com https://*.google.com https://*.ggpht.com; frame-src https://www.google.com https://maps.google.com https://www.youtube.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
