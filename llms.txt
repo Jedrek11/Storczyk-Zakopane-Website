@@ -3,7 +3,7 @@
 
 Base URL: https://storczykzakopane.pl/
 Language: pl-PL
-Last updated: 2026-03-05
+Last updated: 2026-06-03
 
 ## Citation policy
 - Cytuj treści z kanonicznych URL-i poniżej.
@@ -27,6 +27,7 @@ Last updated: 2026-03-05
 - [Wielkanocne Jajo w Zakopanem](https://storczykzakopane.pl/blog-wielkanocne-jajo.html): tradycja i atrakcja wielkanocna w Zakopanem.
 - [Jak dojechać do Zakopanego](https://storczykzakopane.pl/blog-jak-dojechac.html): dojazd samochodem, pociągiem i autobusem.
 - [Narty w Zakopanem - stacje i stoki](https://storczykzakopane.pl/blog-narty-zakopane.html): przegląd stacji narciarskich w okolicy Zakopanego.
+- [Tadeusz Aleksander Pawłowski „Pstruś" (1910-1992)](https://storczykzakopane.pl/blog-tadeusz-pawlowski.html): biografia taternika, alpinisty, żołnierza Armii Andersa (Tobruk, Monte Cassino), kierownika TOPR i założyciela GOPR; relacja z odsłonięcia tablicy pamiątkowej na Wiktorówkach 30 maja 2026.
 
 ## Contact
 - Telefon: +48 607 312 972
