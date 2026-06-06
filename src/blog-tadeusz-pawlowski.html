@@ -417,13 +417,32 @@
     .bottom-nav .bnav-icon { width:20px; height:20px; fill:none; stroke:currentColor; }
     .bottom-nav .bnav-rez { color:#e8b86d; }
     .bottom-nav .bnav-rez:hover, .bottom-nav .bnav-rez:active { color:#f0c878; background:rgba(232,184,109,0.15); }
-    /* Wpis biograficzny: ukryty przycisk rezerwacji w dolnym pasku mobilnym */
-    .bottom-nav .bnav-rez { display:none !important; }
     .float-rez { display:none !important; }
   footer, .blog-article { padding-bottom:5rem !important; }
   }
 </style>
-<!-- Pływający przycisk rezerwacji celowo wyłączony na tej podstronie (wpis biograficzny) -->
+<!-- Wpis biograficzny: slot „Rezerwuj” w dolnym pasku zamieniony na „Udostępnij” (tylko ta strona) -->
+<script>
+function shareArticle(e){
+  if(e && e.preventDefault) e.preventDefault();
+  var url = window.location.href;
+  var data = { title: document.title, text: 'Tadeusz Pawłowski „Pstruś” – biografia taternika i twórcy GOPR', url: url };
+  if (navigator.share) { navigator.share(data).catch(function(){}); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function(){ alert('Link skopiowany do schowka:\n' + url); }).catch(function(){ window.prompt('Skopiuj link:', url); });
+  } else { window.prompt('Skopiuj link:', url); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var rez = document.querySelector('.bottom-nav .bnav-rez');
+  if(!rez) return;
+  rez.setAttribute('href', '#');
+  rez.setAttribute('aria-label', 'Udostępnij ten artykuł');
+  var span = rez.querySelector('span'); if(span) span.textContent = 'Udostępnij';
+  var icon = rez.querySelector('.bnav-icon');
+  if(icon){ icon.setAttribute('viewBox','0 0 24 24'); icon.innerHTML = '<circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>'; }
+  rez.addEventListener('click', shareArticle);
+});
+</script>
 <!-- PARTIAL:bottom-nav-blog -->
 
 <!-- PARTIAL:mobile-menu-blog -->
