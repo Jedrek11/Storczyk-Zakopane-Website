@@ -187,6 +187,74 @@ function savePost(d) {
   return log;
 }
 
+// ─── Lista istniejących wpisów ───────────────
+function listPosts() {
+  const dir = path.join(ROOT, 'src');
+  return fs.readdirSync(dir)
+    .filter(f => /^blog-.+\.html$/.test(f) && f !== 'blog.html')
+    .map(f => {
+      const slug = f.replace(/^blog-/, '').replace(/\.html$/, '');
+      let title = slug;
+      try {
+        const html = fs.readFileSync(path.join(dir, f), 'utf8');
+        const m = html.match(/<title>([^<]*)<\/title>/);
+        if (m) title = m[1].split('|')[0].trim();
+      } catch (_) {}
+      return { slug, title };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, 'pl'));
+}
+
+// ─── Usunięcie wpisu (wszędzie) ──────────────
+function deletePost(slug) {
+  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error('Nieprawidłowy slug.');
+  const log = [];
+  const esc = slug.replace(/[-]/g, '\\$&');
+
+  // 1. Pliki wpisu (src + zbudowany w katalogu głównym)
+  const srcPath = path.join(ROOT, 'src', `blog-${slug}.html`);
+  if (!fs.existsSync(srcPath)) throw new Error(`Wpis "blog-${slug}" nie istnieje.`);
+  fs.unlinkSync(srcPath);
+  log.push(`✓ Usunięto src/blog-${slug}.html`);
+  const rootPath = path.join(ROOT, `blog-${slug}.html`);
+  if (fs.existsSync(rootPath)) { fs.unlinkSync(rootPath); log.push(`✓ Usunięto blog-${slug}.html`); }
+
+  // 2. Karta z blog.html
+  const blogPath = path.join(ROOT, 'src', 'blog.html');
+  let blogHtml = fs.readFileSync(blogPath, 'utf8');
+  const cardRe = new RegExp(`\\s*<a href="blog-${esc}\\.html" class="article-card">[\\s\\S]*?</a>`);
+  if (cardRe.test(blogHtml)) {
+    blogHtml = blogHtml.replace(cardRe, '');
+    fs.writeFileSync(blogPath, blogHtml, 'utf8');
+    log.push('✓ Usunięto kartę z blog.html');
+  }
+
+  // 3. Wpis z sitemap.xml
+  const smPath = path.join(ROOT, 'sitemap.xml');
+  let sm = fs.readFileSync(smPath, 'utf8');
+  const smRe = new RegExp(`\\s*<url>\\s*<loc>https://storczykzakopane\\.pl/blog-${esc}\\.html</loc>[\\s\\S]*?</url>`);
+  if (smRe.test(sm)) { sm = sm.replace(smRe, ''); fs.writeFileSync(smPath, sm, 'utf8'); log.push('✓ Usunięto wpis z sitemap.xml'); }
+
+  // 4. Redirect z netlify.toml
+  const ntPath = path.join(ROOT, 'netlify.toml');
+  let nt = fs.readFileSync(ntPath, 'utf8');
+  const ntRe = new RegExp(`\\[\\[redirects\\]\\]\\s*\\n\\s*from = "/blog-${esc}"\\s*\\n\\s*to = "/blog-${esc}\\.html"\\s*\\n\\s*status = 301\\s*\\n\\s*force = true\\s*\\n+`);
+  if (ntRe.test(nt)) { nt = nt.replace(ntRe, ''); fs.writeFileSync(ntPath, nt, 'utf8'); log.push('✓ Usunięto redirect z netlify.toml'); }
+
+  // 5. Build
+  try {
+    execFileSync(process.execPath, ['scripts/build.js'], { cwd: ROOT, encoding: 'utf8' });
+    log.push('✓ Przebudowano stronę');
+  } catch (e) {
+    throw new Error('Build nie przeszedł: ' + (e.stdout || e.message));
+  }
+
+  log.push('');
+  log.push('Uwaga: zdjęcia wpisu zostały w folderze zdj/blog/ (mogą być używane gdzie indziej).');
+  log.push('Jeśli wpis był już opublikowany — kliknij „Opublikuj", żeby zniknął też z żywej strony.');
+  return log;
+}
+
 // ─── Publikacja: git add/commit/push ─────────
 function publish(d) {
   const log = [];
@@ -323,6 +391,20 @@ const server = http.createServer(async (req, res) => {
       const errs = validatePost(d);
       if (errs.length) { sendJson(res, 400, { ok: false, errors: errs }); return; }
       const log = savePost(d);
+      sendJson(res, 200, { ok: true, log });
+      return;
+    }
+
+    // Lista wpisów
+    if (req.method === 'GET' && url === '/api/posts') {
+      sendJson(res, 200, { posts: listPosts() });
+      return;
+    }
+
+    // Usunięcie wpisu
+    if (req.method === 'POST' && url === '/api/delete') {
+      const d = await readBody(req);
+      const log = deletePost(d.slug);
       sendJson(res, 200, { ok: true, log });
       return;
     }

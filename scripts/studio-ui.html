@@ -91,6 +91,13 @@
   .badge{font-size:.68rem; padding:.15rem .5rem; border-radius:20px; font-weight:700;}
   .badge.saved{background:#e2f0e4; color:var(--ok);}
   .badge.unsaved{background:#f6e9d9; color:var(--gold-d);}
+  .post-list{max-height:52vh; overflow:auto;}
+  .post-row{display:flex; align-items:center; gap:.7rem; padding:.55rem .3rem; border-bottom:1px solid var(--line);}
+  .post-row .pt{flex:1; font-size:.85rem;}
+  .post-row .ps{font-size:.68rem; color:#aaa; font-family:monospace;}
+  .btn-del{background:#f7e3df; color:var(--danger); border:1px solid #e6bcb2; border-radius:7px;
+    padding:.35rem .7rem; font-size:.76rem; font-weight:700; cursor:pointer;}
+  .btn-del:hover{background:var(--danger); color:#fff;}
   .spin{display:inline-block; width:14px; height:14px; border:2px solid rgba(255,255,255,.4);
     border-top-color:#fff; border-radius:50%; animation:sp .7s linear infinite; vertical-align:-2px;}
   @keyframes sp{to{transform:rotate(360deg);}}
@@ -103,6 +110,7 @@
   <span id="stateBadge" class="badge unsaved">niezapisane</span>
   <span class="sp"></span>
   <span class="hint">Zapisz → sprawdź podgląd → Opublikuj</span>
+  <button id="btnManage" class="btn btn-ghost">🗑 Wpisy</button>
   <button id="btnSave" class="btn btn-save">💾 Zapisz wpis</button>
   <button id="btnPub" class="btn btn-pub">🚀 Opublikuj na stronę</button>
 </header>
@@ -199,6 +207,18 @@
       <button class="add mini" id="refreshBtn">↻ odśwież</button>
     </div>
     <iframe id="preview" class="prev-frame"></iframe>
+  </div>
+</div>
+
+<!-- ZARZĄDZANIE WPISAMI -->
+<div class="overlay" id="manageOverlay">
+  <div class="modal">
+    <h3>🗑 Twoje wpisy</h3>
+    <div class="desc" style="margin-bottom:.8rem">Kliknij „Usuń", aby usunąć wpis z listy, sitemap i przekierowań. Zdjęcia zostają w folderze.</div>
+    <div id="postList" class="post-list"></div>
+    <div class="actions">
+      <button class="btn btn-ghost" style="background:#eee;color:#333" id="manageClose">Zamknij</button>
+    </div>
   </div>
 </div>
 
@@ -447,6 +467,35 @@ async function doSaveSilent(){
   const j=await r.json();
   if(j.ok) markSaved();
   return j;
+}
+
+// ═══ ZARZĄDZANIE / USUWANIE ═══
+$('btnManage').onclick=openManage;
+$('manageClose').onclick=()=> $('manageOverlay').classList.remove('show');
+async function openManage(){
+  $('manageOverlay').classList.add('show');
+  $('postList').innerHTML='<div class="desc">Wczytuję…</div>';
+  try{
+    const j = await (await fetch('/api/posts')).json();
+    if(!j.posts.length){ $('postList').innerHTML='<div class="desc">Brak wpisów.</div>'; return; }
+    $('postList').innerHTML='';
+    j.posts.forEach(p=>{
+      const row=document.createElement('div'); row.className='post-row';
+      row.innerHTML=`<div class="pt">${p.title}<div class="ps">blog-${p.slug}.html</div></div>`;
+      const del=document.createElement('button'); del.className='btn-del'; del.textContent='Usuń';
+      del.onclick=()=>deletePost(p.slug, p.title, del);
+      row.appendChild(del); $('postList').appendChild(row);
+    });
+  }catch(e){ $('postList').innerHTML='<div class="desc err">Błąd wczytywania.</div>'; }
+}
+async function deletePost(slug, title, btn){
+  if(!confirm(`Usunąć wpis „${title}" (blog-${slug})?\n\nZniknie z listy bloga, sitemap i przekierowań.\nJeśli był opublikowany — kliknij potem „Opublikuj", żeby zszedł z żywej strony.`)) return;
+  btn.disabled=true; btn.textContent='Usuwam…';
+  try{
+    const j = await (await fetch('/api/delete',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slug})})).json();
+    if(j.ok){ $('manageOverlay').classList.remove('show'); showLog('🗑 Usunięto wpis', j.log, false); }
+    else { showLog('⚠ Nie udało się usunąć', j.error||'?', true); btn.disabled=false; btn.textContent='Usuń'; }
+  }catch(e){ showLog('⚠ Błąd', e.message, true); btn.disabled=false; btn.textContent='Usuń'; }
 }
 
 // start
