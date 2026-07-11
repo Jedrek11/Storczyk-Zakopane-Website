@@ -62,11 +62,29 @@ Edytuj `config.json` — build automatycznie podmieni wartości `{{contact.phone
 
 ## Jak dodać nowy artykuł blogowy
 
+### Najprościej: Studio wpisów (klikany panel) ⭐
+
+1. Kliknij dwa razy plik **`Studio-Wpisow.bat`** (w głównym folderze).
+2. W przeglądarce otworzy się panel — wypełnij pola, przeciągnij zdjęcia,
+   dodaj treść klockami (nagłówek, akapit, wskazówka, FAQ, zdjęcie).
+3. Po prawej masz **podgląd na żywo** — dokładnie tak, jak wpis będzie wyglądał.
+4. Klikasz **„Zapisz wpis"** (tworzy się lokalnie) i sprawdzasz podgląd.
+5. Klikasz **„Opublikuj na stronę"** — wpis leci na GitHub, a Netlify
+   odświeża stronę w 1–2 minuty. Gotowe.
+
+Panel sam robi wszystko: plik wpisu, kartę na liście bloga, wpis do
+`sitemap.xml`, przekierowanie w `netlify.toml`, konwersję zdjęć do `.webp`
+i przebudowę strony.
+
+> W akapitach możesz używać `**pogrubienia**` oraz linków `[tekst](adres)`.
+
+### Alternatywa: generator w terminalu
+
 ```bash
 node scripts/new-blog.js
 ```
 
-Skrypt przeprowadzi Cię przez tworzenie nowego artykułu krok po kroku.
+Tworzy szkielet wpisu, treść uzupełniasz potem ręcznie w pliku `src/`.
 
 ## WAŻNE
 
