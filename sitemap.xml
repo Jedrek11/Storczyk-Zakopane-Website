@@ -133,6 +133,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://storczykzakopane.pl/blog-zakopane-gdy-pada-deszcz.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://storczykzakopane.pl/blog-zakopane-na-weekend.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
 
 

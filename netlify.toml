@@ -148,6 +148,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/blog-zakopane-gdy-pada-deszcz"
+  to = "/blog-zakopane-gdy-pada-deszcz.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-zakopane-na-weekend"
+  to = "/blog-zakopane-na-weekend.html"
+  status = 301
+  force = true
+
 # Custom 404
 [[redirects]]
   from = "/*"
