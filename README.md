@@ -89,7 +89,7 @@ npm run watch
 | **Frosted Glass UI** | Spójny design z efektem matowego szkła (backdrop-filter) |
 | **Responsywność** | Mobile-first, dedykowana nawigacja mobilna (wyspa + bottom nav) |
 | **Galeria** | Lightbox z nawigacją klawiaturową, swipe i pinch-to-zoom |
-| **Formularz rezerwacji** | Netlify Forms z reCAPTCHA i walidacją |
+| **Formularz rezerwacji** | Netlify Forms z honeypotem (anty-spam) i walidacją JS |
 | **Blog** | 7 artykułów o atrakcjach Zakopanego |
 | **SEO** | Schema.org (LodgingBusiness + FAQPage), Open Graph, sitemap.xml |
 | **Szybkość** | Self-hosted fonty, obrazy WebP, lazy loading, zero frameworków |

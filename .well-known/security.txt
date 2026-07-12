@@ -1,0 +1,5 @@
+# Willa Storczyk Zakopane — security.txt (RFC 9116)
+Contact: mailto:storczykzakopane@gmail.com
+Expires: 2027-07-12T00:00:00.000Z
+Preferred-Languages: pl, en
+Canonical: https://storczykzakopane.pl/.well-known/security.txt
