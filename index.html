@@ -188,7 +188,8 @@
     "embedUrl": "https://storczykzakopane.pl/"
   }
   </script>
-<link rel="preload" as="image" href="zdj/gallery/hero-bg.webp">
+<!-- Preload tła hero tylko na desktopie — na mobile hero to wideo (tło jest ukryte) -->
+<link rel="preload" as="image" href="zdj/gallery/hero-bg.webp" media="(min-width: 769px)">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" hreflang="pl" href="https://storczykzakopane.pl/">
 <link rel="alternate" hreflang="x-default" href="https://storczykzakopane.pl/">
@@ -254,8 +255,10 @@
 <!-- HERO -->
 <section class="hero" id="start">
   <div class="hero-bg"></div>
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.webp">
-    <source src="assets/hero-mobile.mp4" type="video/mp4">
+  <!-- Wideo dogrywane przez main.js PO załadowaniu strony i tylko na mobile (desktop ma tło-obrazek).
+       Do tego czasu widoczny jest lekki poster (58 KB) — duża poprawa LCP na telefonach. -->
+  <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster.webp">
+    <source data-src="assets/hero-mobile.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
   <svg class="mountain-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">

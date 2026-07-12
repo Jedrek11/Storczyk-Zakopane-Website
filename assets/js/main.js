@@ -700,3 +700,43 @@ function toggleFaq(btn) {
     if (heroBg) heroBg.style.transform = 'translate3d(0,' + offset + 'px,0)';
   }, { passive: true });
 })();
+/* hero-video-lazy: wideo hero (2.6 MB) dogrywane PO załadowaniu strony i tylko na mobile.
+   Desktop pokazuje tło-obrazek (wideo ukryte w CSS), więc nie pobiera filmu wcale.
+   Do czasu dogrania widoczny jest poster — znacząco poprawia LCP i wagę strony. */
+(function () {
+  var video = document.querySelector('.hero-video');
+  if (!video) return;
+  var source = video.querySelector('source[data-src]');
+  if (!source) return;
+
+  function loadHeroVideo() {
+    if (!window.matchMedia('(max-width: 768px)').matches) return; // desktop: obrazek, nie film
+    if (source.src) return; // już dograne
+    video.autoplay = true; // po dograniu zachowuje się jak oryginalny autoplay (muted+playsinline)
+    source.src = source.getAttribute('data-src');
+    video.load();
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { /* autoplay zablokowany — zostaje poster */ });
+  }
+
+  // Pas bezpieczeństwa: pierwszy dotyk/scroll ponawia odtwarzanie, gdyby przeglądarka zablokowała
+  function kickPlay() {
+    if (source.src && video.paused) {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+  document.addEventListener('touchstart', kickPlay, { once: true, passive: true });
+  window.addEventListener('scroll', kickPlay, { once: true, passive: true });
+
+  if (document.readyState === 'complete') {
+    loadHeroVideo();
+  } else {
+    window.addEventListener('load', function () {
+      // krótki oddech po load, żeby nie konkurować z niczym
+      setTimeout(loadHeroVideo, 200);
+    });
+  }
+  // Obrót telefonu / zmiana szerokości okna → dograj jeśli trzeba
+  window.addEventListener('resize', loadHeroVideo, { passive: true });
+})();
