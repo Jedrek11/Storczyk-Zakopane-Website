@@ -423,7 +423,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+// Nasłuch WYŁĄCZNIE na localhost — panel nie jest widoczny z sieci lokalnej/internetu
+server.listen(PORT, '127.0.0.1', () => {
   const link = `http://localhost:${PORT}`;
   console.log('');
   console.log('  🌿  Studio wpisów — Willa Storczyk');

@@ -410,7 +410,8 @@
 
       <!-- PRAWA: mapa -->
       <div class="map-container" data-reveal="fade-up" data-delay="200">
-        <iframe src="https://www.google.com/maps/d/embed?mid=15npGdOcyLhFSr0jmpTR-hTjz42PPmrw&ll=49.2862,19.9742&z=15" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Storczyk Zakopane"></iframe>
+        <!-- Mapa ładuje się dopiero po zgodzie na cookies (RODO) — src ustawia main.js -->
+        <iframe data-consent-src="https://www.google.com/maps/d/embed?mid=15npGdOcyLhFSr0jmpTR-hTjz42PPmrw&ll=49.2862,19.9742&z=15" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Storczyk Zakopane"></iframe>
       </div>
     </div>
   </div>
@@ -779,7 +780,7 @@
   </div>
 </section>
 
-<script async src="https://www.tiktok.com/embed.js"></script>
+<!-- Skrypt TikTok ładuje się dopiero po zgodzie na cookies (RODO) — wstrzykuje go main.js -->
 
 <!-- GAP -->
 <div style="height:2rem; background:var(--cream-light);"></div>
@@ -1000,7 +1001,7 @@
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:10000; background:var(--dark); color:var(--cream); padding:1rem 1.5rem; box-shadow:0 -4px 20px rgba(0,0,0,0.3); font-family:'Lato',sans-serif; font-size:0.85rem; line-height:1.6;">
   <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap;">
-    <p style="margin:0; flex:1; min-width:240px; opacity:0.9;">Ta strona korzysta z plików cookies oraz zewnętrznych usług (Google Fonts, TikTok) w celu prawidłowego działania i prezentacji treści. <a href="regulamin.html" style="color:var(--mauve-pale); text-decoration:underline; text-underline-offset:2px;">Polityka prywatności</a></p>
+    <p style="margin:0; flex:1; min-width:240px; opacity:0.9;">Ta strona używa niezbędnych plików cookies. Treści zewnętrzne (mapa Google, filmy TikTok) załadują się dopiero po Twojej zgodzie — mogą one stosować własne pliki cookies. <a href="regulamin.html" style="color:var(--mauve-pale); text-decoration:underline; text-underline-offset:2px;">Polityka prywatności</a></p>
     <div style="display:flex; gap:0.6rem; flex-shrink:0;">
       <button onclick="acceptCookies()" style="background:var(--mauve-light); color:white; border:none; padding:0.55rem 1.3rem; border-radius:4px; font-size:0.8rem; font-weight:700; letter-spacing:0.06em; cursor:pointer; text-transform:uppercase; transition:background 0.2s;">Akceptuję</button>
       <button onclick="rejectCookies()" style="background:transparent; color:var(--cream); border:1.5px solid rgba(237,232,220,0.3); padding:0.55rem 1.3rem; border-radius:4px; font-size:0.8rem; font-weight:700; letter-spacing:0.06em; cursor:pointer; text-transform:uppercase; transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(237,232,220,0.6)'" onmouseout="this.style.borderColor='rgba(237,232,220,0.3)'">Tylko niezbędne</button>

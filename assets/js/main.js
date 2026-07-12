@@ -511,35 +511,83 @@ function toggleFaq(btn) {
 })();
 
 (function() {
+  // Zgoda UPRZEDNIA (RODO): usługi zewnętrzne (TikTok, mapa Google) NIE ładują się,
+  // dopóki użytkownik nie kliknie "Akceptuję". Do tego czasu widoczne są placeholdery.
   var consent = localStorage.getItem('cookie-consent');
-  if (!consent) {
-    // Pokaż banner po krótkim opóźnieniu
-    setTimeout(function() {
-      var banner = document.getElementById('cookie-banner');
-      banner.style.display = 'block';
-      if (window.innerWidth <= 768) {
-        banner.style.bottom = 'calc(4.5rem + env(safe-area-inset-bottom, 0px))';
-        banner.style.borderRadius = '16px';
-        banner.style.margin = '0 0.6rem';
-        banner.style.left = '0';
-        banner.style.right = '0';
-      }
-    }, 800);
-  } else if (consent === 'rejected') {
-    // Zablokuj TikTok embed jeśli odrzucono
+
+  function loadThirdParty() {
+    // Iframy wstrzymane do zgody (src trzymany w data-consent-src)
+    document.querySelectorAll('iframe[data-consent-src]').forEach(function(f) {
+      f.src = f.getAttribute('data-consent-src');
+    });
+    // Skrypt TikTok — wstrzykiwany dopiero teraz
+    if (document.querySelector('.tiktok-embed') && !document.querySelector('script[src*="tiktok.com/embed"]')) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.tiktok.com/embed.js';
+      document.body.appendChild(s);
+    }
+  }
+
+  if (consent === 'accepted') {
+    loadThirdParty();
+  } else {
+    // Brak decyzji lub odrzucono — pokaż placeholdery zamiast treści zewnętrznych
     blockTikTok();
+    blockMaps();
+    if (!consent) {
+      // Pokaż banner po krótkim opóźnieniu
+      setTimeout(function() {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        banner.style.display = 'block';
+        if (window.innerWidth <= 768) {
+          banner.style.bottom = 'calc(4.5rem + env(safe-area-inset-bottom, 0px))';
+          banner.style.borderRadius = '16px';
+          banner.style.margin = '0 0.6rem';
+          banner.style.left = '0';
+          banner.style.right = '0';
+        }
+      }, 800);
+    }
   }
 
   window.acceptCookies = function() {
     localStorage.setItem('cookie-consent', 'accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+    // Przeładowanie czyści placeholdery i ładuje mapę + TikTok
+    location.reload();
   };
 
   window.rejectCookies = function() {
     localStorage.setItem('cookie-consent', 'rejected');
-    document.getElementById('cookie-banner').style.display = 'none';
-    blockTikTok();
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
   };
+
+  function blockMaps() {
+    // Placeholder w miejscu mapy (iframe bez src nic nie ładuje)
+    document.querySelectorAll('iframe[data-consent-src]').forEach(function(f) {
+      if (f.parentNode.querySelector('.consent-map-placeholder')) return;
+      var box = document.createElement('div');
+      box.className = 'consent-map-placeholder';
+      box.style.cssText = 'display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; min-height:280px; height:100%; padding:2rem 1.5rem; text-align:center; color:#888; font-size:0.85rem; line-height:1.6; background:rgba(0,0,0,0.04); border-radius:inherit;';
+      var p1 = document.createElement('p');
+      p1.style.cssText = 'margin:0;';
+      p1.textContent = '🗺️ Mapa Google zablokowana';
+      var p2 = document.createElement('p');
+      p2.style.cssText = 'margin:0; font-size:0.78rem;';
+      p2.textContent = 'Zaakceptuj pliki cookies, aby wyświetlić mapę dojazdu.';
+      var btn = document.createElement('button');
+      btn.style.cssText = 'margin-top:0.4rem; background:var(--mauve-light, #2c4a2c); color:white; border:none; padding:0.45rem 1.1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;';
+      btn.textContent = 'Włącz mapę';
+      btn.addEventListener('click', function() { acceptCookies(); });
+      box.appendChild(p1); box.appendChild(p2); box.appendChild(btn);
+      f.style.display = 'none';
+      f.parentNode.insertBefore(box, f);
+    });
+  }
 
   function blockTikTok() {
     // Usuń TikTok embed script
@@ -560,7 +608,7 @@ function toggleFaq(btn) {
       var btn = document.createElement('button');
       btn.style.cssText = 'margin-top:0.8rem; background:var(--mauve-light); color:white; border:none; padding:0.4rem 1rem; border-radius:4px; font-size:0.75rem; font-weight:700; cursor:pointer;';
       btn.textContent = 'Włącz cookies';
-      btn.addEventListener('click', function() { acceptCookies(); location.reload(); });
+      btn.addEventListener('click', function() { acceptCookies(); });
       container.appendChild(p1);
       container.appendChild(p2);
       container.appendChild(btn);
