@@ -16,6 +16,10 @@
 
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; overflow-x: hidden; background: var(--dark); }
+
+  /* Kotwice muszą zatrzymać się pod stałą nawigacją (60px + odstęp),
+     inaczej cel wjeżdża pod pasek. Mobile nadpisuje niżej w @media. */
+  section[id], #booking-form, #formularz { scroll-margin-top: 6rem; }
   body {
     font-family: 'Lato', sans-serif;
     background: var(--cream-warm);
@@ -1302,9 +1306,8 @@
     .mobile-menu-brand-sub {
       display:none;
     }
-    section[id] { scroll-margin-top: 3.5rem; }
-    #booking-form { scroll-margin-top: 3.5rem; }
-    #formularz { scroll-margin-top: 2rem; }
+    /* górny pasek na mobile kończy się ok. 50px – 4.5rem daje zapas pod nim */
+    section[id], #booking-form, #formularz { scroll-margin-top: 4.5rem; }
     .about-grid, .location-grid, .contact-grid { grid-template-columns:1fr; gap:2rem; }
     #kontakt { padding-left: 1rem; padding-right: 1rem; overflow-x: clip; }
     #kontakt .container { max-width: 100%; }

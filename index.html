@@ -196,7 +196,8 @@
 <link rel="preconnect" href="https://maps.google.com">
 <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 <link href="/fonts/google-fonts.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
+<!-- ?v= przy każdej zmianie main.css – /assets/* leci z Cache-Control immutable na rok -->
+<link rel="stylesheet" href="/assets/css/main.css?v=20260730b">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1014,6 +1015,30 @@
 
 
 
+<script>
+// Wejście z kotwicą z innej podstrony (np. #formularz z bloga): przeglądarka
+// skacze zanim doładują się obrazki, a rosnący układ spycha cel w dół.
+// Obrazki nie mają width/height, więc strona rośnie jeszcze po zdarzeniu "load" –
+// trzymamy cel na miejscu, aż wysokość dokumentu się ustabilizuje.
+// Docelowo do usunięcia, gdy obrazki dostaną wymiary.
+(function() {
+  if (!location.hash) return;
+  var cel = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (!cel) return;
+
+  var ruszylSam = false;
+  ['wheel', 'touchstart', 'keydown'].forEach(function(zdarzenie) {
+    window.addEventListener(zdarzenie, function() { ruszylSam = true; }, { passive: true, once: true });
+  });
+
+  var koniec = Date.now() + 4000;
+  (function przypnij() {
+    if (ruszylSam || Date.now() > koniec) return;
+    cel.scrollIntoView({ behavior: 'instant', block: 'start' });
+    setTimeout(przypnij, 120);
+  })();
+})();
+</script>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
