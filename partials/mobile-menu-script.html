@@ -1,0 +1,54 @@
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open')) {
+    closeMenu();
+  } else {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        menu.classList.add('open');
+        if (hamburger) hamburger.classList.add('open');
+      });
+    });
+  }
+}
+
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  menu.addEventListener('transitionend', function handler() {
+    if (!menu.classList.contains('open')) {
+      menu.style.display = '';
+    }
+    menu.removeEventListener('transitionend', handler);
+  });
+}
+
+// Podswietlenie przycisku Menu w dolnym pasku - celujemy w .bnav-menu,
+// bo w pasku bloga jest tez przycisk udostepniania i selektor po samym
+// "button" zlapalby ten pierwszy z brzegu.
+(function() {
+  var menuBtn = document.querySelector('.bottom-nav .bnav-menu');
+  if (!menuBtn) return;
+  var origToggle = window.toggleMenu;
+  window.toggleMenu = function() {
+    var menu = document.getElementById('mobile-menu');
+    var wasOpen = menu.classList.contains('open');
+    origToggle();
+    if (wasOpen) {
+      menuBtn.classList.remove('bnav-active');
+    } else {
+      menuBtn.classList.add('bnav-active');
+    }
+  };
+  var origClose = window.closeMenu;
+  window.closeMenu = function() {
+    origClose();
+    menuBtn.classList.remove('bnav-active');
+  };
+})();
+</script>
