@@ -385,12 +385,19 @@ function toggleFaq(btn) {
       captchaWrapper.style.padding = isError ? '0.35rem' : '';
     }
 
+    // Sprawdzamy captche tylko wtedy, gdy faktycznie jest na stronie.
+    // Wczesniej funkcja zwracala false przy braku widgetu i blokowala
+    // kazde wyslanie komunikatem "Zaznacz Nie jestem robotem", mimo ze
+    // takiego pola nigdzie nie bylo. Przed spamem chroni honeypot bot-field.
     function isRecaptchaVerified(){
       var tokenField = form.querySelector('textarea[name="g-recaptcha-response"], input[name="g-recaptcha-response"]');
+      var maGrecaptcha = typeof grecaptcha !== 'undefined' && typeof grecaptcha.getResponse === 'function';
+      if(!captchaWrapper && !tokenField && !maGrecaptcha) return true;
+
       if(tokenField && tokenField.value && tokenField.value.trim()){
         return true;
       }
-      if(typeof grecaptcha !== 'undefined' && typeof grecaptcha.getResponse === 'function'){
+      if(maGrecaptcha){
         try {
           var response = grecaptcha.getResponse();
           return !!(response && response.trim());
@@ -444,8 +451,11 @@ function toggleFaq(btn) {
         showError('Wybierz liczbę osób.');
         return;
       }
-      if(messageInput.value.trim().length < 10){
-        showError('Wiadomość musi mieć co najmniej 10 znaków.');
+      // Wiadomosc jest opcjonalna – zeby zapytac o wolny termin nie trzeba
+      // niczego komponowac. Jesli Gosc cos wpisze, pilnujemy sensownej dlugosci.
+      var trescWiadomosci = messageInput.value.trim();
+      if(trescWiadomosci.length > 0 && trescWiadomosci.length < 10){
+        showError('Wiadomość jest za krótka. Napisz kilka słów albo zostaw pole puste.');
         return;
       }
       if(departureInput.value < arrivalInput.value){
@@ -472,7 +482,8 @@ function toggleFaq(btn) {
         errorMsg.style.display = 'none';
         submitBtn.style.display = 'none';
       }).catch(function(){
-        showError('Wystąpił błąd. Zadzwoń: {{contact.phoneMobileDisplay}}');
+        // main.js nie przechodzi przez build.js, wiec numer wpisany na sztywno
+        showError('Wystąpił błąd. Zadzwoń: 607 312 972');
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
       });
