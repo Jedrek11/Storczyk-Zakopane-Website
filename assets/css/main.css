@@ -876,101 +876,153 @@
 
   .contact-block-text a:hover { color: #fff; }
 
+  /* Jasna karta na ciemnozielonej sekcji – formularz ma się czytać jako
+     osobna powierzchnia, a nie jako przezroczysta plama na tym samym tle. */
   .contact-form {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--cream-warm);
+    border: 1px solid rgba(30,42,30,0.10);
     padding: 2.2rem;
     border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+    color: var(--text-dark);
   }
 
   .form-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    margin-bottom: 1.8rem;
-    color: rgba(245,240,232,0.9);
+    margin-bottom: 0.4rem;
+    color: var(--text-dark);
     letter-spacing: 0.01em;
+  }
+
+  .form-lead {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
   }
 
   .form-group { margin-bottom:1.1rem; }
 
   .form-group label {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     margin-bottom: 0.45rem;
-    color: rgba(245,240,232,0.55);
+    color: var(--text-mid);
+  }
+  .form-group label .opcjonalne {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: italic;
+    color: #6d7d69;
   }
 
   .form-group input,
   .form-group textarea,
   .form-group select {
     width: 100%;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: var(--cream);
-    padding: 0.8rem 2.5rem 0.8rem 1rem;
+    background: #fff;
+    border: 1px solid rgba(30,42,30,0.22);
+    color: var(--text-dark);
+    padding: 0.8rem 1rem;
     font-family: 'Lato', sans-serif;
     font-size: 0.95rem;
     border-radius: 10px;
-    transition: all 0.3s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
+  }
+
+  /* Strzałka tylko na liście wyboru – wcześniej siedziała też na polach
+     tekstowych i na wiadomości, przez co udawały rozwijane listy. */
+  .form-group select {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(245,240,232,0.6)' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233D4F3A' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
   }
 
+  /* #6b7a66 daje 4,57:1 na bieli – placeholder ma byc czytelny, nie szary duch */
   .form-group input::placeholder,
-  .form-group textarea::placeholder { opacity:0.4; color:var(--cream); }
+  .form-group textarea::placeholder { opacity:1; color:#6b7a66; }
 
   .form-group input:focus,
   .form-group textarea:focus,
   .form-group select:focus {
-    border-color: rgba(255,255,255,0.35);
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+    border-color: var(--forest-mid);
+    box-shadow: 0 0 0 3px rgba(122,158,110,0.30);
   }
 
-  .form-group select option { background:var(--forest); color:var(--cream); }
-  .form-group textarea { height:120px; resize:vertical; }
+  .form-group textarea { height:110px; resize:vertical; }
   .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 
   .btn-form {
     width: 100%;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: rgba(245,240,232,0.95);
-    border: 1px solid rgba(255,255,255,0.18);
-    padding: 1rem;
+    /* forest-mid, a nie jasniejsza szalwia: bialy tekst 0.85rem bold potrzebuje
+       4,5:1, a na #6b8f5e wychodzilo tylko 3,67:1. Tu jest 6,35:1. */
+    background: var(--forest-mid);
+    color: #fff;
+    border: none;
+    padding: 1.05rem;
     font-family: 'Lato', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
     border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(45,74,45,0.28);
   }
 
-  .btn-form:hover {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.4);
-    color: #fff;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.08), 0 4px 20px rgba(0,0,0,0.3);
+  .btn-form:hover { background: var(--forest); box-shadow:0 10px 26px rgba(45,74,45,0.35); }
+  .btn-form:active { transform: translateY(1px); }
+  .btn-form:focus-visible { outline:3px solid var(--forest); outline-offset:3px; }
+
+  /* WhatsApp jako równorzędna, szybsza alternatywa dla formularza */
+  .btn-whatsapp {
+    display: flex; align-items: center; justify-content: center; gap: 0.55rem;
+    width: 100%;
+    margin-top: 0.7rem;
+    padding: 0.95rem;
+    background: #fff;
+    color: var(--forest);
+    border: 1.5px solid rgba(30,42,30,0.22);
+    border-radius: 12px;
+    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
   }
+  .btn-whatsapp svg { width: 17px; height: 17px; fill: #25D366; }
+  .btn-whatsapp:hover { background: #f2f6ef; border-color: var(--forest-mid); }
+  .btn-whatsapp:focus-visible { outline:3px solid var(--forest); outline-offset:3px; }
 
   .form-note {
-    font-size: 0.75rem;
-    opacity: 0.5;
+    font-size: 0.78rem;
+    color: var(--text-mid);
     text-align: center;
     margin-top: 1rem;
   }
+  .form-note a { color: var(--forest); font-weight: 700; }
+
+  /* Powody, dla których warto wysłać – zamiast listy zakazów */
+  .form-trust {
+    list-style: none;
+    margin-top: 1.4rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid rgba(30,42,30,0.12);
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .form-trust li {
+    display: flex; align-items: flex-start; gap: 0.55rem;
+    font-size: 0.83rem; color: var(--text-mid); line-height: 1.5;
+  }
+  .form-trust svg { flex: 0 0 auto; width: 15px; height: 15px; margin-top: 0.15rem; stroke: #6b8f5e; fill: none; stroke-width: 2.5; }
 
   /* ── FOOTER ── */
   footer {

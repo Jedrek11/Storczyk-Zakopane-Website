@@ -197,7 +197,7 @@
 <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 <link href="/fonts/google-fonts.css" rel="stylesheet">
 <!-- ?v= przy każdej zmianie main.css – /assets/* leci z Cache-Control immutable na rok -->
-<link rel="stylesheet" href="/assets/css/main.css?v=20260730b">
+<link rel="stylesheet" href="/assets/css/main.css?v=20260730d">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -867,20 +867,21 @@
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.8rem;">
           <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.9rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50px;font-size:0.78rem;color:rgba(245,240,232,0.7);">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Cisza nocna 22:00 – 7:00
+            Doba hotelowa 15:00 – 10:00
           </span>
           <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.9rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50px;font-size:0.78rem;color:rgba(245,240,232,0.7);">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Przyjazd od 15:00, wyjazd do 10:00
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Pokoje 2, 3 i 4-osobowe z łazienkami
           </span>
           <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.9rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50px;font-size:0.78rem;color:rgba(245,240,232,0.7);">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Zakaz palenia w budynku
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <a href="regulamin.html" style="color:inherit;">Cisza nocna, zasady pobytu i regulamin →</a>
           </span>
         </div>
       </div>
       <div id="formularz" class="contact-form" data-reveal="fade-up" data-delay="150">
         <p class="form-title">Wyślij zapytanie</p>
+        <p class="form-lead">Odpowiadamy tego samego dnia. Wysłanie zapytania do niczego nie zobowiązuje.</p>
         <form id="booking-form" name="kontakt" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="kontakt">
           <input type="hidden" name="_subject" value="Nowa wiadomość ze strony storczykzakopane.pl">
@@ -898,12 +899,21 @@
             <label for="osoby">Liczba osób</label>
             <select name="osoby" id="osoby" required aria-required="true"><option value="" selected disabled>Wybierz liczbę osób</option><option value="1 osoba">1 osoba</option><option value="2 osoby">2 osoby</option><option value="3 osoby">3 osoby</option><option value="4 osoby">4 osoby</option><option value="Więcej, napiszę w wiadomości">Więcej, napiszę w wiadomości</option></select>
           </div>
-          <div class="form-group"><label for="wiadomosc">Wiadomość</label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..." required aria-required="true" minlength="10"></textarea></div>
+          <div class="form-group"><label for="wiadomosc">Wiadomość <span class="opcjonalne">(opcjonalnie)</span></label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..."></textarea></div>
           <button type="submit" class="btn-form" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie</button>
-          <p id="form-success" style="display:none;color:rgba(245,240,232,0.9);text-align:center;margin-top:1rem;font-size:0.95rem;">✓ Dziękujemy! Wkrótce się odezwiemy.</p>
-          <p id="form-error" style="display:none;color:#e08080;text-align:center;margin-top:1rem;font-size:0.95rem;">Wystąpił błąd. Zadzwoń: 607 312 972</p>
+          <p id="form-success" style="display:none;color:#2d4a2d;font-weight:700;text-align:center;margin-top:1rem;font-size:0.95rem;">✓ Dziękujemy! Odezwiemy się jeszcze dziś.</p>
+          <p id="form-error" style="display:none;color:#b23b3b;text-align:center;margin-top:1rem;font-size:0.95rem;">Wystąpił błąd. Zadzwoń: 607 312 972</p>
         </form>
-        <p class="form-note">lub zadzwoń bezpośrednio: <a href="tel:+48607312972" style="color:rgba(245,240,232,0.7);">607 312 972</a></p>
+        <a href="https://wa.me/48607312972?text=Dzień dobry, chciałbym zapytać o wolny termin w Storczyku." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Wolę napisać na WhatsAppie
+        </a>
+        <p class="form-note">lub zadzwoń bezpośrednio: <a href="tel:+48607312972">607 312 972</a></p>
+        <ul class="form-trust">
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Odpowiadamy tego samego dnia, także na WhatsAppie</li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Parking, Wi-Fi i taksa klimatyczna w cenie pobytu</li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pytanie o termin nie jest jeszcze rezerwacją</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1039,7 +1049,7 @@
   })();
 })();
 </script>
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=20260730d" defer></script>
 </body>
 </html>
 
