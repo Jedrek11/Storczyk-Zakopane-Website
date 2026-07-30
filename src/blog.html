@@ -31,13 +31,15 @@
   <meta name="twitter:description" content="Poznaj najlepsze atrakcje Zakopanego i okolic. Kasprowy Wierch, Krupówki, Gubałówka i wiele więcej, przewodnik od gospodarzy Willi Storczyk.">
   <meta name="twitter:image" content="{{urls.baseUrl}}/assets/willa-storczyk.webp">
   <link href="/fonts/google-fonts.css" rel="stylesheet">
+  <link rel="preload" as="image" href="zdj/blog/thumbs/blog-hero-bg-1280.webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="zdj/blog/thumbs/blog-hero-bg-800.webp" media="(max-width: 768px)" fetchpriority="high">
   <style>
     :root {
       --forest: #2c4a2c;
       --cream: #f5f0e8;
       --cream-light: #faf7f2;
       --dark: #1a2a1a;
-      --text-mid: #6b7c6b;
+      --text-mid: #5a6b5a;
       --gold: #b8963e;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -73,22 +75,41 @@
 
     /* HERO */
     .blog-hero {
-      background: linear-gradient(rgba(30,42,30,0.55), rgba(30,42,30,0.7)), url('zdj/blog/blog-hero-bg.webp') center/cover no-repeat;
+      background: linear-gradient(rgba(30,42,30,0.55), rgba(30,42,30,0.7)), url('zdj/blog/thumbs/blog-hero-bg-1280.webp') center/cover no-repeat;
       padding: 12rem 2rem 5rem;
       text-align: center;
     }
-    .blog-hero-label { color: var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
     .blog-hero h1 { font-family:'Playfair Display', serif; font-size:3rem; color: #f5f0e8; font-weight:400; line-height:1.2; }
     .blog-hero h1 em { font-style:italic; color: var(--gold); }
     .blog-hero p { color:rgba(245,240,232,0.7); font-size:1rem; margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7; }
 
-    /* ARTICLES GRID */
+    /* FILTR KATEGORII */
     .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+    .blog-filters {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem;
+      padding: 3rem 0 0;
+    }
+    .filter-chip {
+      font-family:'Lato', sans-serif;
+      font-size:0.75rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase;
+      color: var(--text-mid);
+      background: #fff;
+      border: 1px solid rgba(30,42,30,0.14);
+      border-radius: 50px;
+      padding: 0.5rem 1.1rem;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .filter-chip:hover { border-color: var(--forest); color: var(--forest); }
+    .filter-chip[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); color: var(--cream); }
+    .filter-empty { display:none; text-align:center; color:var(--text-mid); padding:3rem 0; font-size:0.95rem; }
+
+    /* ARTICLES GRID */
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      padding: 4rem 0 6rem;
+      padding: 2.5rem 0 6rem;
     }
 
     .article-card {
@@ -107,13 +128,13 @@
       transform: translateY(-6px);
       box-shadow: 0 12px 40px rgba(30,42,30,0.15);
     }
+    .article-card:focus-visible {
+      outline: 3px solid var(--forest);
+      outline-offset: 3px;
+    }
     .article-thumb {
       height: 200px;
       background: var(--forest);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -141,15 +162,55 @@
       border: 1px solid rgba(255,255,255,0.15);
     }
     .article-body { padding: 1.5rem; flex:1; display:flex; flex-direction:column; }
+    .article-meta { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-mid); margin-bottom:0.5rem; }
     .article-title { font-family:'Playfair Display', serif; font-size:1.3rem; font-weight:700; color:var(--dark); margin-bottom:0.6rem; line-height:1.3; }
     .article-excerpt { font-size:0.88rem; color:var(--text-mid); line-height:1.7; flex:1; }
     .article-cta { margin-top:1.2rem; font-size:0.8rem; font-weight:700; color:var(--forest); letter-spacing:0.08em; text-transform:uppercase; display:flex; align-items:center; gap:0.4rem; }
     .article-cta svg { transition: transform 0.2s; }
     .article-card:hover .article-cta svg { transform: translateX(4px); }
 
+    /* KAFELEK REZERWACYJNY W SIATCE */
+    .promo-card {
+      background: linear-gradient(160deg, #2c4a2c 0%, #1a2a1a 100%);
+      border-radius: 8px;
+      border: 1px solid rgba(184,150,62,0.35);
+      box-shadow: 0 4px 20px rgba(30,42,30,0.14);
+      text-decoration: none;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 2rem 1.6rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .promo-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(30,42,30,0.28); }
+    .promo-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .promo-label { color: var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.9rem; }
+    .promo-title { font-family:'Playfair Display', serif; font-size:1.5rem; font-weight:400; color:#f5f0e8; line-height:1.3; margin-bottom:0.7rem; }
+    .promo-text { font-size:0.85rem; color:rgba(245,240,232,0.72); line-height:1.7; margin-bottom:1.4rem; }
+    .promo-btn { display:inline-block; align-self:center; background:#6b8f5e; color:#fff; font-size:0.78rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; padding:0.7rem 1.5rem; border-radius:50px; transition:background 0.25s; }
+    .promo-card:hover .promo-btn { background:#7aaa6a; }
+
+    @media (max-width: 1024px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
       .articles-grid { grid-template-columns: 1fr; }
+      .blog-hero {
+        padding: 7rem 1.5rem 3.5rem;
+        background-image: linear-gradient(rgba(30,42,30,0.55), rgba(30,42,30,0.7)), url('zdj/blog/thumbs/blog-hero-bg-800.webp');
+      }
       .blog-hero h1 { font-size:2rem; }
+      /* jeden przewijany rząd zamiast czterech rzędów chipsów */
+      .blog-filters {
+        padding: 2rem 1.5rem 0;
+        margin: 0 -1.5rem;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .blog-filters::-webkit-scrollbar { display: none; }
+      .filter-chip { flex: 0 0 auto; }
     }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -186,110 +247,164 @@
 </div>
 
 <div class="container">
+
+  <div class="blog-filters" role="group" aria-label="Filtruj wpisy według tematu">
+    <button type="button" class="filter-chip" data-filter="wszystkie" aria-pressed="true">Wszystkie</button>
+    <button type="button" class="filter-chip" data-filter="gory" aria-pressed="false">Góry i szlaki</button>
+    <button type="button" class="filter-chip" data-filter="miasto" aria-pressed="false">Miasto i widoki</button>
+    <button type="button" class="filter-chip" data-filter="rodzina" aria-pressed="false">Z dziećmi</button>
+    <button type="button" class="filter-chip" data-filter="zima" aria-pressed="false">Zima</button>
+    <button type="button" class="filter-chip" data-filter="praktyczne" aria-pressed="false">Praktyczne</button>
+    <button type="button" class="filter-chip" data-filter="kultura" aria-pressed="false">Kultura i historia</button>
+  </div>
+
   <div class="articles-grid">
 
-    <a href="blog-zakopane-na-weekend.html" class="article-card">
+    <a href="blog-zakopane-na-weekend.html" class="article-card" data-cat="praktyczne">
       <div class="article-thumb" style="background: linear-gradient(135deg, #4a5c3a 0%, #364826 100%);">
-        <img src="zdj/blog/blog-zakopane-weekend-img1.webp" alt="Zakopane na weekend – plan na 2–3 dni" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-zakopane-weekend-img1-400.webp"
+             srcset="zdj/blog/thumbs/blog-zakopane-weekend-img1-400.webp 400w, zdj/blog/thumbs/blog-zakopane-weekend-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Zakopane na weekend – plan na 2–3 dni" loading="eager" fetchpriority="high" decoding="async">
         <span class="article-tag">Poradnik</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-12">12 lipca 2026</time></p>
         <h2 class="article-title">Zakopane na weekend – plan na 2–3 dni</h2>
         <p class="article-excerpt">Masz tylko dwa lub trzy dni? Spokojnie, to wystarczy na esencję Zakopanego. Gotowy plan dzień po dniu: miasto, jedna duża wyprawa w Tatry i termy na deser.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-zakopane-gdy-pada-deszcz.html" class="article-card">
+    <a href="blog-zakopane-gdy-pada-deszcz.html" class="article-card" data-cat="praktyczne rodzina">
       <div class="article-thumb" style="background: linear-gradient(135deg, #3a4a5c 0%, #263648 100%);">
-        <img src="zdj/blog/blog-termy-img1.webp" alt="Co robić w Zakopanem, gdy pada deszcz?" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-termy-img1-400.webp"
+             srcset="zdj/blog/thumbs/blog-termy-img1-400.webp 400w, zdj/blog/thumbs/blog-termy-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Co robić w Zakopanem, gdy pada deszcz?" loading="eager" decoding="async">
         <span class="article-tag">Poradnik</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-12">12 lipca 2026</time></p>
         <h2 class="article-title">Co robić w Zakopanem, gdy pada deszcz?</h2>
         <p class="article-excerpt">Pogoda w górach potrafi pokrzyżować plany, ale deszczowy dzień w Zakopanem da się uratować. Termy, muzea, dobre jedzenie i kilka miejsc, o których nie pomyślałeś.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-zakopane-z-dziecmi.html" class="article-card">
+    <a href="blog-zakopane-z-dziecmi.html" class="article-card" data-cat="rodzina praktyczne">
       <div class="article-thumb" style="background: linear-gradient(135deg, #3d6b50 0%, #29573c 100%);">
-        <img src="zdj/blog/blog-zakopane-z-dziecmi-img2.webp" alt="Zakopane z dziećmi – co robić latem?" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-zakopane-z-dziecmi-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-zakopane-z-dziecmi-img2-400.webp 400w, zdj/blog/thumbs/blog-zakopane-z-dziecmi-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Zakopane z dziećmi – co robić latem?" loading="eager" decoding="async">
         <span class="article-tag">Rodzina</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-12">12 lipca 2026</time></p>
         <h2 class="article-title">Zakopane z dziećmi – co robić latem?</h2>
         <p class="article-excerpt">Gdzie zabrać dzieci w Zakopanem latem? Łatwe szlaki, Gubałówka, termy z brodzikami, rodzinne ścieżki rowerowe i plan B na deszcz. Wszystko w jednym przewodniku.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-plakat-150-lat-kenara.html" class="article-card">
+    <a href="blog-plakat-150-lat-kenara.html" class="article-card" data-cat="kultura">
       <div class="article-thumb" style="background: linear-gradient(135deg, #b8963e 0%, #8a6c2a 100%);">
-        <img src="zdj/blog/blog-marta-pawlowska-1.webp" alt="Plakat 150-lecia Liceum Kenara – projekt Marty Pawłowskiej" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-marta-pawlowska-1-400.webp"
+             srcset="zdj/blog/thumbs/blog-marta-pawlowska-1-400.webp 400w, zdj/blog/thumbs/blog-marta-pawlowska-1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Plakat 150-lecia Liceum Kenara – projekt Marty Pawłowskiej" loading="lazy" decoding="async">
         <span class="article-tag">Kultura</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-06-17">17 czerwca 2026</time></p>
         <h2 class="article-title">Plakat na 150-lecie Liceum Kenara – dzieło Marty Pawłowskiej</h2>
         <p class="article-excerpt">Uczennica zakopiańskiego Liceum Plastycznego wygrała konkurs na plakat jubileuszowy 150-lecia szkoły (1876–2026). Jej projekt zdobi ulice Zakopanego.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-tadeusz-pawlowski.html" class="article-card">
+    <a href="blog-tadeusz-pawlowski.html" class="article-card" data-cat="kultura gory">
       <div class="article-thumb" style="background: linear-gradient(135deg, #2c4a2c 0%, #1a2a1a 100%);">
-        <img src="zdj/blog/blog-tadeusz-pawlowski-1.webp" alt="Tadeusz Aleksander Pawłowski – taternik i twórca GOPR" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-tadeusz-pawlowski-1-400.webp"
+             srcset="zdj/blog/thumbs/blog-tadeusz-pawlowski-1-400.webp 400w, zdj/blog/thumbs/blog-tadeusz-pawlowski-1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Tadeusz Aleksander Pawłowski – taternik i twórca GOPR" loading="lazy" decoding="async">
         <span class="article-tag">Historia</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-06-03">3 czerwca 2026</time></p>
         <h2 class="article-title">Tadeusz Pawłowski „Pstruś” – taternik i twórca GOPR</h2>
         <p class="article-excerpt">Taternik i alpinista, żołnierz spod Tobruku i Monte Cassino, kierownik TOPR i założyciel GOPR. Biografia człowieka gór i relacja z odsłonięcia tablicy na Wiktorówkach.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-narty-zakopane.html" class="article-card">
+    <a href="blog-narty-zakopane.html" class="article-card" data-cat="zima gory">
       <div class="article-thumb" style="background: linear-gradient(135deg, #1a2a3a 0%, #2a3a4a 50%, #1a2030 100%);">
-        <img src="zdj/blog/blog-szymaszkowa-img1.webp" alt="Narty w Zakopanem – stok narciarski Szymoszkowa" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-szymaszkowa-img1-400.webp"
+             srcset="zdj/blog/thumbs/blog-szymaszkowa-img1-400.webp 400w, zdj/blog/thumbs/blog-szymaszkowa-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Narty w Zakopanem – stok narciarski Szymoszkowa" loading="lazy" decoding="async">
         <span class="article-tag">Zima</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-04-01">1 kwietnia 2026</time></p>
         <h2 class="article-title">Narty w Zakopanem – kompletny przewodnik zimowy</h2>
         <p class="article-excerpt">Stoki narciarskie, karnety, wypożyczalnie sprzętu i szkółki. Kasprowy Wierch, Nosal, Szymoszkowa i Białka Tatrzańska – wszystko w jednym miejscu.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-kasprowy-wierch.html" class="article-card">
+    <a href="index.html#formularz" class="promo-card">
+      <span class="promo-label">Willa Storczyk</span>
+      <span class="promo-title">Nocleg u stóp Tatr</span>
+      <span class="promo-text">Droga na Bystre: 20 minut pieszo do Krupówek i tyle samo do Kuźnic. Pokoje z łazienkami, bezpłatny parking i gospodarze, którzy podpowiedzą, gdzie iść jutro.</span>
+      <span class="promo-btn">Sprawdź terminy</span>
+    </a>
+
+    <a href="blog-kasprowy-wierch.html" class="article-card" data-cat="gory zima">
       <div class="article-thumb article-thumb-kasprowy">
-        <img src="zdj/blog/blog-kasprowy-wierch-img2.webp" alt="Kasprowy Wierch" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-kasprowy-wierch-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-kasprowy-wierch-img2-400.webp 400w, zdj/blog/thumbs/blog-kasprowy-wierch-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Kasprowy Wierch" loading="lazy" decoding="async">
         <span class="article-tag">Góry</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">Kasprowy Wierch, jak się dostać i co zobaczyć</h2>
         <p class="article-excerpt">Kolejka linowa na Kasprowy Wierch to jedna z największych atrakcji Zakopanego. Dowiedz się jak dojechać spod Willi Storczyk i co Cię czeka na szczycie.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-krupowki.html" class="article-card">
+    <a href="blog-krupowki.html" class="article-card" data-cat="miasto kultura rodzina">
       <div class="article-thumb article-thumb-krupowki">
-        <img src="zdj/blog/krupowki-zakopane-zima.webp" alt="Krupówki Zakopane" loading="lazy">
+        <img src="zdj/blog/thumbs/krupowki-zakopane-zima-400.webp"
+             srcset="zdj/blog/thumbs/krupowki-zakopane-zima-400.webp 400w, zdj/blog/thumbs/krupowki-zakopane-zima-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Krupówki Zakopane" loading="lazy" decoding="async">
         <span class="article-tag">Centrum</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">Krupówki, serce Zakopanego</h2>
         <p class="article-excerpt">Deptak Krupówki to wizytówka Zakopanego, restauracje, sklepy z oscypkiem, góralska muzyka i niepowtarzalny klimat. Sprawdź co warto zobaczyć.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-gubalowka.html" class="article-card">
+    <a href="blog-gubalowka.html" class="article-card" data-cat="miasto rodzina">
       <div class="article-thumb article-thumb-gubalowka">
-        <img src="zdj/blog/blog-gubalowka-img2.webp" alt="Gubałówka panorama" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-gubalowka-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-gubalowka-img2-400.webp 400w, zdj/blog/thumbs/blog-gubalowka-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Gubałówka panorama" loading="lazy" decoding="async">
         <span class="article-tag">Widoki</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">Gubałówka, panorama Tatr jakiej nie zapomnisz</h2>
         <p class="article-excerpt">Kolej linowa na Gubałówkę oferuje zapierający dech widok na całe Zakopane i Tatry. Idealne miejsce na rodzinny spacer o każdej porze roku.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
@@ -297,36 +412,48 @@
     </a>
 
 
-    <a href="blog-komunikacja.html" class="article-card">
+    <a href="blog-komunikacja.html" class="article-card" data-cat="praktyczne miasto">
       <div class="article-thumb" style="background: linear-gradient(135deg, #2a3a5a 0%, #1a2a4a 100%);">
-        <img src="zdj/blog/blog-komunikacja-img2.webp" alt="Komunikacja Zakopane" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-komunikacja-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-komunikacja-img2-400.webp 400w, zdj/blog/thumbs/blog-komunikacja-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Komunikacja Zakopane" loading="lazy" decoding="async">
         <span class="article-tag">Transport</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">Komunikacja miejska w Zakopanem</h2>
         <p class="article-excerpt">Autobusy, ceny biletów, miejsca na narty i jak sprawnie poruszać się po Zakopanem bez samochodu. Wszystko co musisz wiedzieć przed przyjazdem.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-rowery.html" class="article-card">
+    <a href="blog-rowery.html" class="article-card" data-cat="gory">
       <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a1a 0%, #2a5a2a 100%);">
-        <img src="zdj/blog/blog-rowery-img2.webp" alt="Wycieczki rowerowe Tatry" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-rowery-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-rowery-img2-400.webp 400w, zdj/blog/thumbs/blog-rowery-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Wycieczki rowerowe Tatry" loading="lazy" decoding="async">
         <span class="article-tag">Rower</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">Wycieczki rowerowe w Tatry – 3 legalne szlaki</h2>
         <p class="article-excerpt">Droga pod Reglami, Dolina Chochołowska i Dolina Gąsienicowa. Jedyne trasy gdzie rower jest dozwolony w TPN, z opisami, opłatami i wskazówkami.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-skywalk.html" class="article-card">
+    <a href="blog-skywalk.html" class="article-card" data-cat="miasto rodzina">
       <div class="article-thumb" style="background: linear-gradient(135deg, #3a1a3a 0%, #5a2a5a 100%);">
-        <img src="zdj/blog/blog-skywalk-img2.webp" alt="SkyWalk Serce Poronina" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-skywalk-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-skywalk-img2-400.webp 400w, zdj/blog/thumbs/blog-skywalk-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="SkyWalk Serce Poronina" loading="lazy" decoding="async">
         <span class="article-tag">Widoki</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-02-25">Aktualizacja: 25 lutego 2026</time></p>
         <h2 class="article-title">SkyWalk Serce Poronina</h2>
         <p class="article-excerpt">Platforma widokowa w kształcie serca z panoramą na Tatry. Jedna z najchętniej fotografowanych atrakcji w okolicach Zakopanego. Jak dojechać i co zobaczyć.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
@@ -334,24 +461,32 @@
     </a>
 
 
-    <a href="blog-wielkanocne-jajo.html" class="article-card">
+    <a href="blog-wielkanocne-jajo.html" class="article-card" data-cat="kultura zima">
       <div class="article-thumb" style="background: linear-gradient(135deg, #3a2a1a 0%, #5a3a1a 100%);">
-        <img src="zdj/blog/blog-wielkanocne-jajo-img1.webp" alt="Zawody O Wielkanocne Jajo na Kalatówkach" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-wielkanocne-jajo-img1-400.webp"
+             srcset="zdj/blog/thumbs/blog-wielkanocne-jajo-img1-400.webp 400w, zdj/blog/thumbs/blog-wielkanocne-jajo-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Zawody O Wielkanocne Jajo na Kalatówkach" loading="lazy" decoding="async">
         <span class="article-tag">Tradycja</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-03-23">23 marca 2026</time></p>
         <h2 class="article-title">Wielkanocne Jajo na Kalatówkach – retro zawody narciarskie</h2>
         <p class="article-excerpt">Drewniane narty, stylowe stroje z epoki i rywalizacja w Lany Poniedziałek. Coroczne zawody na Polanie Kalatówki to jeden z najbardziej klimatycznych eventów w Zakopanem.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-termy.html" class="article-card">
+    <a href="blog-termy.html" class="article-card" data-cat="rodzina praktyczne">
       <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a4a 0%, #0f2a3a 50%, #1a4a5a 100%);">
-        <img src="zdj/blog/blog-termy-img2.webp" alt="Termy Zakopane" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-termy-img2-400.webp"
+             srcset="zdj/blog/thumbs/blog-termy-img2-400.webp 400w, zdj/blog/thumbs/blog-termy-img2-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Termy Zakopane" loading="lazy" decoding="async">
         <span class="article-tag">Relaks</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-15">Aktualizacja: 15 lipca 2026</time></p>
         <h2 class="article-title">Termy w okolicach Zakopanego</h2>
         <p class="article-excerpt">Chochołowskie, Zakopiańskie, Bukowina i Gorący Potok Szaflary. Przewodnik po czterech najlepszych kompleksach termalnych dostępnych z Willi Storczyk.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
@@ -359,36 +494,48 @@
     </a>
 
 
-    <a href="blog-morskie-oko.html" class="article-card">
+    <a href="blog-morskie-oko.html" class="article-card" data-cat="gory rodzina">
       <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a4a 0%, #0f2535 100%);">
-        <img src="zdj/blog/morskie-oko-img1.webp" alt="Morskie Oko – najpiękniejsze jezioro Tatr" loading="lazy">
+        <img src="zdj/blog/thumbs/morskie-oko-img1-400.webp"
+             srcset="zdj/blog/thumbs/morskie-oko-img1-400.webp 400w, zdj/blog/thumbs/morskie-oko-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Morskie Oko – najpiękniejsze jezioro Tatr" loading="lazy" decoding="async">
         <span class="article-tag">Przyroda</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-15">Aktualizacja: 15 lipca 2026</time></p>
         <h2 class="article-title">Morskie Oko – najpiękniejsze jezioro Tatr</h2>
         <p class="article-excerpt">Szmaragdowe jezioro otoczone tatrzańskimi szczytami – Morskie Oko to obowiązkowy punkt każdej wizyty. Dowiedz się jak dotrzeć, co zabrać i czego się spodziewać.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-dolina-koscieliska.html" class="article-card">
+    <a href="blog-dolina-koscieliska.html" class="article-card" data-cat="gory rodzina">
       <div class="article-thumb" style="background: linear-gradient(135deg, #1a3a1a 0%, #0f2a0f 100%);">
-        <img src="zdj/blog/blog-dolina-koscieliska-img1.webp" alt="Dolina Kościeliska – jaskinie i spacer dla całej rodziny" loading="lazy">
+        <img src="zdj/blog/thumbs/blog-dolina-koscieliska-img1-400.webp"
+             srcset="zdj/blog/thumbs/blog-dolina-koscieliska-img1-400.webp 400w, zdj/blog/thumbs/blog-dolina-koscieliska-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Dolina Kościeliska – jaskinie i spacer dla całej rodziny" loading="lazy" decoding="async">
         <span class="article-tag">Natura</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-03-24">24 marca 2026</time></p>
         <h2 class="article-title">Dolina Kościeliska – jaskinie i spacer dla całej rodziny</h2>
         <p class="article-excerpt">Malownicza dolina z potokiem, Jaskinią Mroźną i łagodnymi ścieżkami. Idealna wycieczka dla rodzin z dziećmi, zaledwie 8 km od centrum Zakopanego.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </div>
     </a>
 
-    <a href="blog-giewont.html" class="article-card">
+    <a href="blog-giewont.html" class="article-card" data-cat="gory">
       <div class="article-thumb" style="background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 100%);">
-        <img src="zdj/blog/giewont-img1.webp" alt="Giewont – zdobycie symbolu Zakopanego" loading="lazy">
+        <img src="zdj/blog/thumbs/giewont-img1-400.webp"
+             srcset="zdj/blog/thumbs/giewont-img1-400.webp 400w, zdj/blog/thumbs/giewont-img1-800.webp 800w"
+             sizes="(max-width:768px) 100vw, (max-width:1024px) 45vw, 340px"
+             width="400" height="250" alt="Giewont – zdobycie symbolu Zakopanego" loading="lazy" decoding="async">
         <span class="article-tag">Góry</span>
       </div>
       <div class="article-body">
+        <p class="article-meta"><time datetime="2026-07-15">Aktualizacja: 15 lipca 2026</time></p>
         <h2 class="article-title">Giewont – zdobycie symbolu Zakopanego</h2>
         <p class="article-excerpt">Krzyż na szczycie, panorama całego Podhala i łańcuchy na finałowym odcinku. Jak wejść na Giewont, którą trasą i co zabrać – wszystko co musisz wiedzieć.</p>
         <div class="article-cta">Czytaj więcej <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
@@ -396,7 +543,37 @@
     </a>
 
   </div>
+  <p class="filter-empty" id="filter-empty">Brak wpisów w tej kategorii.</p>
 </div>
+
+<script>
+// Filtr kategorii – kafelek rezerwacyjny zostaje zawsze widoczny
+(function() {
+  var chipy  = document.querySelectorAll('.filter-chip');
+  var karty  = document.querySelectorAll('.article-card[data-cat]');
+  var pusto  = document.getElementById('filter-empty');
+  if (!chipy.length || !karty.length) return;
+
+  function filtruj(kat) {
+    var widoczne = 0;
+    karty.forEach(function(karta) {
+      var pasuje = kat === 'wszystkie' ||
+                   (' ' + karta.dataset.cat + ' ').indexOf(' ' + kat + ' ') !== -1;
+      karta.style.display = pasuje ? '' : 'none';
+      if (pasuje) widoczne++;
+    });
+    if (pusto) pusto.style.display = widoczne === 0 ? 'block' : 'none';
+  }
+
+  chipy.forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      chipy.forEach(function(c) { c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
+      filtruj(chip.dataset.filter);
+    });
+  });
+})();
+</script>
 
 <style>
   .float-rez { position:fixed; bottom:2rem; right:max(1rem, calc((100vw - 1340px) / 2)); z-index:999; background:#6b8f5e; color:var(--cream-light); border:2px solid transparent; overflow:hidden; padding:0.85rem 1.6rem; border-radius:50px; display:flex; align-items:center; justify-content:center; font-family:'Lato',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 24px rgba(0,0,0,0.35); transition:all 0.3s; white-space:nowrap; opacity:0; pointer-events:none; transform:scale(0.7); }
