@@ -4,7 +4,10 @@
   "description": "Willa Storczyk Zakopane — statyczna strona z systemem partials",
   "scripts": {
     "build": "node scripts/build.js",
-    "watch": "node scripts/watch.js"
+    "watch": "node scripts/watch.js",
+    "check": "node scripts/check-form.js",
+    "predeploy": "node scripts/build.js && node scripts/check-form.js",
+    "thumbs": "node scripts/make-thumbs.js"
   },
   "engines": {
     "node": ">=14"

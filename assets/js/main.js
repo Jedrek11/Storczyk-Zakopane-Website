@@ -475,15 +475,23 @@ function toggleFaq(btn) {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function(){
+      }).then(function(odpowiedz){
+        // fetch odrzuca obietnice TYLKO przy bledzie sieci. Odpowiedz 404 albo
+        // 500 (np. gdyby Netlify przestal rozpoznawac formularz) wchodzi tutaj
+        // jako sukces. Bez tego sprawdzenia Gosc widzialby "Dziekujemy",
+        // mimo ze zapytanie nigdzie nie dotarlo.
+        if (!odpowiedz || odpowiedz.ok === false) {
+          throw new Error('Serwer odrzucil formularz, status ' + (odpowiedz && odpowiedz.status));
+        }
         form.reset();
         departureInput.min = '';
         successMsg.style.display = 'block';
         errorMsg.style.display = 'none';
         submitBtn.style.display = 'none';
       }).catch(function(){
+        // Nie czyscimy pol - Gosc ma miec co wyslac ponownie.
         // main.js nie przechodzi przez build.js, wiec numer wpisany na sztywno
-        showError('Wystąpił błąd. Zadzwoń: 607 312 972');
+        showError('Nie udało się wysłać zapytania. Zadzwoń: 607 312 972 lub napisz na WhatsAppa.');
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie';
       });
