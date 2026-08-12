@@ -7,7 +7,8 @@
     "watch": "node scripts/watch.js",
     "check": "node scripts/check-form.js",
     "predeploy": "node scripts/build.js && node scripts/check-form.js",
-    "thumbs": "node scripts/make-thumbs.js"
+    "thumbs": "node scripts/make-thumbs.js",
+    "hook": "node -e \"const fs=require('fs');fs.copyFileSync('scripts/hooks/pre-commit','.git/hooks/pre-commit');fs.chmodSync('.git/hooks/pre-commit',0o755);console.log('hook pre-commit zainstalowany')\""
   },
   "engines": {
     "node": ">=14"

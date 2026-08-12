@@ -17,6 +17,10 @@ const crypto = require('crypto');
 const ROOT     = path.join(__dirname, '..');
 const MANIFEST = path.join(__dirname, 'asset-versions.json');
 
+// --reset przyjmuje obecny stan plikow za punkt odniesienia. Przydaje sie,
+// gdy cofnelismy zmiany po zablokowanym commicie i baseline zostal rozjechany.
+const RESET = process.argv.includes('--reset');
+
 const bledy = [];
 const ostrzezenia = [];
 const ok = [];
@@ -104,13 +108,16 @@ if (src && build && js) {
       `index.html: ${nazwa} BEZ ?v= – powracajacy Goscie dostana stara wersje z cache (immutable, rok)`);
   });
 
-  if (fs.existsSync(MANIFEST)) {
+  if (RESET) {
+    fs.writeFileSync(MANIFEST, JSON.stringify(wersje, null, 2) + '\n', 'utf8');
+    ostrzezenia.push('--reset: obecny stan main.js i main.css przyjety za punkt odniesienia');
+  } else if (fs.existsSync(MANIFEST)) {
     const poprzednie = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
     Object.entries(wersje).forEach(([plik, teraz]) => {
       const bylo = poprzednie[plik];
       if (!bylo) return;
       if (bylo.hash !== teraz.hash && bylo.wersja === teraz.wersja) {
-        bledy.push(`${plik}: tresc sie zmienila, ale ?v=${teraz.wersja} zostalo takie samo – podbij wersje w src/index.html, inaczej powracajacy Goscie zostana na starym pliku`);
+        bledy.push(`${plik}: tresc sie zmienila, ale ?v=${teraz.wersja} zostalo takie samo – podbij wersje w src/index.html, inaczej powracajacy Goscie zostana na starym pliku (jesli to falszywy alarm, np. po cofnieciu zmian: node scripts/check-form.js --reset)`);
       } else if (bylo.hash !== teraz.hash) {
         ok.push(`${plik}: tresc zmieniona, wersja podbita na ?v=${teraz.wersja}`);
       }
@@ -118,7 +125,13 @@ if (src && build && js) {
   } else {
     ostrzezenia.push('brak scripts/asset-versions.json – zapisuje stan wyjsciowy, kontrola wersji zadziala od nastepnego uruchomienia');
   }
-  fs.writeFileSync(MANIFEST, JSON.stringify(wersje, null, 2) + '\n', 'utf8');
+
+  // Baseline zapisujemy TYLKO gdy wszystko jest w porzadku. Inaczej nieudany
+  // przebieg nadpisalby sumy kontrolne i przy kolejnym uruchomieniu ten sam
+  // problem juz by sie nie zglosil.
+  if (bledy.length === 0) {
+    fs.writeFileSync(MANIFEST, JSON.stringify(wersje, null, 2) + '\n', 'utf8');
+  }
 }
 
 // ── Wynik ────────────────────────────────────────────────────────

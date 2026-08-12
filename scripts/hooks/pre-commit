@@ -1,0 +1,36 @@
+#!/bin/sh
+# Blokuje commit, jesli formularz rezerwacyjny jest zepsuty
+# albo jesli zbudowane pliki nie zgadzaja sie ze zrodlami.
+#
+# Instalacja: npm run hook
+# Pominiecie (naprawde wyjatkowo): git commit --no-verify
+
+echo "→ sprawdzam formularz przed commitem…"
+
+# 1. Przebuduj strony ze zrodel
+if ! node scripts/build.js > /dev/null 2>&1; then
+  echo ""
+  echo "✗ build sie nie powiodl. Uruchom: node scripts/build.js"
+  exit 1
+fi
+
+# 2. Czy build zmienil pliki, ktorych nie ma w commicie?
+#    Lapie klasyczny blad: zmiana w src/ bez przebudowania.
+NIEZASTAGOWANE=$(git diff --name-only -- '*.html' | tr '\n' ' ')
+if [ -n "$NIEZASTAGOWANE" ]; then
+  echo ""
+  echo "✗ przebudowa zmienila pliki, ktorych nie ma w tym commicie:"
+  for f in $NIEZASTAGOWANE; do echo "    $f"; done
+  echo ""
+  echo "  Zmieniles zrodlo w src/, ale commitujesz stara wersje strony."
+  echo "  Napraw: git add $NIEZASTAGOWANE"
+  exit 1
+fi
+
+# 3. Kontrakt formularza
+if ! node scripts/check-form.js; then
+  echo "  Commit wstrzymany. Formularz rezerwacyjny by nie dzialal."
+  exit 1
+fi
+
+exit 0
