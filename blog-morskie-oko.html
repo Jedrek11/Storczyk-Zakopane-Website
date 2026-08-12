@@ -331,6 +331,42 @@
     <p>Szukasz bazy wypadowej w Tatry? <a href="index.html">Willa Storczyk</a> to noclegi w Zakopanem z bezpłatnym parkingiem, blisko Krupówek.</p>
   </div>
 
+  <aside class="zobacz-tez">
+    <h2>Zobacz też</h2>
+    <ul>
+      <li><a href="blog-komunikacja.html">
+        <span class="zt-tytul">Komunikacja miejska</span>
+        <span class="zt-opis">Autobusy, bilety i dojazd pod szlaki</span>
+      </a></li>
+      <li><a href="blog-kasprowy-wierch.html">
+        <span class="zt-tytul">Kasprowy Wierch</span>
+        <span class="zt-opis">Kolejka, ceny i dojazd spod willi</span>
+      </a></li>
+      <li><a href="blog-rowery.html">
+        <span class="zt-tytul">Wycieczki rowerowe w Tatry</span>
+        <span class="zt-opis">Trzy trasy, gdzie rower jest legalny</span>
+      </a></li>
+    </ul>
+  </aside>
+
+<style>
+  .zobacz-tez { margin: 3rem 0 2rem; padding-top: 2rem; border-top: 1px solid rgba(30,42,30,0.12); }
+  .zobacz-tez h2 { font-family:'Playfair Display', serif; font-size:1.5rem; font-weight:400; color:var(--dark); margin-bottom:1.2rem; }
+  .zobacz-tez ul { list-style:none; margin:0; padding:0; display:grid; gap:0.7rem; }
+  .zobacz-tez li { margin:0; }
+  .zobacz-tez a {
+    display:flex; flex-direction:column; gap:0.15rem;
+    padding:0.9rem 1.1rem;
+    background:#fff; border:1px solid rgba(30,42,30,0.12); border-radius:10px;
+    text-decoration:none; transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .zobacz-tez a:hover { border-color:var(--forest); transform:translateY(-2px); box-shadow:0 6px 18px rgba(30,42,30,0.10); }
+  .zobacz-tez a:focus-visible { outline:3px solid var(--forest); outline-offset:3px; }
+  .zobacz-tez .zt-tytul { font-weight:700; color:var(--forest); font-size:1rem; }
+  .zobacz-tez .zt-opis { font-size:0.85rem; color:var(--text-mid); }
+  @media (min-width: 700px) { .zobacz-tez ul { grid-template-columns: repeat(3, 1fr); } }
+</style>
+
   <a href="blog.html" class="back-btn">← Wróć do bloga</a>
 </div>
 

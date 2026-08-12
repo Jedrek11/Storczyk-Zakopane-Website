@@ -225,6 +225,42 @@
   <h3>Gdzie można zobaczyć plakat?</h3>
   <p>Plakat zdobi ulice Zakopanego – m.in. w sklepie plastycznym na Krupówkach oraz w samym Liceum Kenara.</p>
 
+  <aside class="zobacz-tez">
+    <h2>Zobacz też</h2>
+    <ul>
+      <li><a href="blog-krupowki.html">
+        <span class="zt-tytul">Krupówki</span>
+        <span class="zt-opis">Serce Zakopanego i okolice deptaka</span>
+      </a></li>
+      <li><a href="blog-tadeusz-pawlowski.html">
+        <span class="zt-tytul">Tadeusz Pawłowski „Pstruś”</span>
+        <span class="zt-opis">Taternik i założyciel GOPR</span>
+      </a></li>
+      <li><a href="blog-gubalowka.html">
+        <span class="zt-tytul">Gubałówka</span>
+        <span class="zt-opis">Panorama Tatr i spacer dla każdego</span>
+      </a></li>
+    </ul>
+  </aside>
+
+<style>
+  .zobacz-tez { margin: 3rem 0 2rem; padding-top: 2rem; border-top: 1px solid rgba(30,42,30,0.12); }
+  .zobacz-tez h2 { font-family:'Playfair Display', serif; font-size:1.5rem; font-weight:400; color:var(--dark); margin-bottom:1.2rem; }
+  .zobacz-tez ul { list-style:none; margin:0; padding:0; display:grid; gap:0.7rem; }
+  .zobacz-tez li { margin:0; }
+  .zobacz-tez a {
+    display:flex; flex-direction:column; gap:0.15rem;
+    padding:0.9rem 1.1rem;
+    background:#fff; border:1px solid rgba(30,42,30,0.12); border-radius:10px;
+    text-decoration:none; transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .zobacz-tez a:hover { border-color:var(--forest); transform:translateY(-2px); box-shadow:0 6px 18px rgba(30,42,30,0.10); }
+  .zobacz-tez a:focus-visible { outline:3px solid var(--forest); outline-offset:3px; }
+  .zobacz-tez .zt-tytul { font-weight:700; color:var(--forest); font-size:1rem; }
+  .zobacz-tez .zt-opis { font-size:0.85rem; color:var(--text-mid); }
+  @media (min-width: 700px) { .zobacz-tez ul { grid-template-columns: repeat(3, 1fr); } }
+</style>
+
   <a href="blog.html" class="back-btn">&larr; Wróć do bloga</a>
 </div>
 
