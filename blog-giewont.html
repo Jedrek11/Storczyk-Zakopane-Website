@@ -119,6 +119,17 @@
     .tip-box strong { display:block; color:var(--forest); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem; }
     .tip-box p { margin:0; font-size:0.9rem; text-align:left; }
     .tip-box p strong { display:inline; color:inherit; font-size:inherit; letter-spacing:normal; text-transform:none; margin:0; }
+    .ctabox-nocleg { background:linear-gradient(135deg,#2f5030 0%,#1c3220 100%); border-left:none; border-radius:14px; padding:1.7rem 1.8rem 1.6rem; margin:2.8rem 0; box-shadow:0 12px 32px rgba(28,50,32,0.25); position:relative; overflow:hidden; }
+    .ctabox-nocleg::before { content:''; position:absolute; right:-55px; top:-70px; width:200px; height:200px; border-radius:50%; background:rgba(232,184,109,0.10); pointer-events:none; }
+    .ctabox-nocleg strong { color:#e8b86d; font-size:0.72rem; letter-spacing:0.18em; margin-bottom:0.55rem; position:relative; }
+    .ctabox-nocleg p { color:rgba(245,240,232,0.82); font-size:0.95rem; line-height:1.7; position:relative; }
+    .ctabox-nocleg p a { color:#f5f0e8; font-weight:700; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(232,184,109,0.65); }
+    .ctabox-nocleg p a:hover { color:#e8b86d; }
+    .cta-nocleg-btn { display:inline-flex; align-items:center; gap:0.55rem; margin-top:1.25rem; background:#e8b86d; color:#1c3220; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:0.8rem 1.5rem; border-radius:50px; box-shadow:0 6px 18px rgba(232,184,109,0.28); transition:transform 0.25s, box-shadow 0.25s, background 0.25s; position:relative; }
+    .cta-nocleg-btn:hover { background:#f5cd85; color:#1c3220; transform:translateY(-2px); box-shadow:0 10px 26px rgba(232,184,109,0.42); }
+    .cta-nocleg-btn:focus-visible { outline:3px solid #f5cd85; outline-offset:3px; }
+    .cta-nocleg-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.5; transition:transform 0.25s; }
+    .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .tip-box--warning { border-left-color: #c0392b; }
     .tip-box--warning strong { color: #c0392b; }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
@@ -299,10 +310,12 @@
 
   <h3>Który szlak na Giewont jest najłatwiejszy?</h3>
   <p>Najpopularniejszy jest niebieski szlak <strong>z Kuźnic przez Halę Kondratową</strong> (ok. 3–3,5 h). Trasa przez Dolinę Strążyską jest spokojniejsza, ale nieco dłuższa. Pamiętaj, że finałowy odcinek na kopule z łańcuchami jest wspólny i wymaga pewnego kroku niezależnie od wybranego szlaku.</p>
+  <div class="tip-box ctabox-nocleg">
 
 
     <strong>Nocleg w Zakopanem</strong>
     <p>Planujesz wejście na Giewont? Zatrzymaj się w <a href="index.html">Willi Storczyk</a> – noclegi w Zakopanem z parkingiem, blisko szlaków.</p>
+    <a href="index.html" class="cta-nocleg-btn">Zobacz pokoje i ceny <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 
   <aside class="zobacz-tez">
