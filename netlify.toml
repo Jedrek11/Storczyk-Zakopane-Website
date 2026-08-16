@@ -119,6 +119,12 @@
   force = true
 
 [[redirects]]
+  from = "/blog-msze-swiete-zakopane"
+  to = "/blog-msze-swiete-zakopane.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog-gubalowka"
   to = "/blog-gubalowka.html"
   status = 301
