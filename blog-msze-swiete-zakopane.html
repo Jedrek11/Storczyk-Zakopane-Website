@@ -133,6 +133,17 @@
     .tip-box strong { display:block; color:var(--forest); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem; }
     .tip-box p { margin:0; font-size:0.9rem; text-align:left; }
     .tip-box p strong { display:inline; color:inherit; font-size:inherit; letter-spacing:normal; text-transform:none; margin:0; }
+    .ctabox-nocleg { background:linear-gradient(135deg,#2f5030 0%,#1c3220 100%); border-left:none; border-radius:14px; padding:1.7rem 1.8rem 1.6rem; margin:2.8rem 0; box-shadow:0 12px 32px rgba(28,50,32,0.25); position:relative; overflow:hidden; }
+    .ctabox-nocleg::before { content:''; position:absolute; right:-55px; top:-70px; width:200px; height:200px; border-radius:50%; background:rgba(232,184,109,0.10); pointer-events:none; }
+    .ctabox-nocleg strong { color:#e8b86d; font-size:0.72rem; letter-spacing:0.18em; margin-bottom:0.55rem; position:relative; }
+    .ctabox-nocleg p { color:rgba(245,240,232,0.82); font-size:0.95rem; line-height:1.7; position:relative; }
+    .ctabox-nocleg p a { color:#f5f0e8; font-weight:700; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(232,184,109,0.65); }
+    .ctabox-nocleg p a:hover { color:#e8b86d; }
+    .cta-nocleg-btn { display:inline-flex; align-items:center; gap:0.55rem; margin-top:1.25rem; background:#e8b86d; color:#1c3220; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:0.8rem 1.5rem; border-radius:50px; box-shadow:0 6px 18px rgba(232,184,109,0.28); transition:transform 0.25s, box-shadow 0.25s, background 0.25s; position:relative; }
+    .cta-nocleg-btn:hover { background:#f5cd85; color:#1c3220; transform:translateY(-2px); box-shadow:0 10px 26px rgba(232,184,109,0.42); }
+    .cta-nocleg-btn:focus-visible { outline:3px solid #f5cd85; outline-offset:3px; }
+    .cta-nocleg-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.5; transition:transform 0.25s; }
+    .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .godziny { width:100%; border-collapse:collapse; font-size:0.95rem; }
     .godziny th { background:var(--forest); color:#f5f0e8; padding:0.75rem 1rem; text-align:left; }
     .godziny td { padding:0.7rem 1rem; border-bottom:1px solid #eee; }
@@ -395,6 +406,7 @@
   <div class="tip-box ctabox-nocleg">
     <strong>Nocleg w Zakopanem</strong>
     <p>Szukasz spokojnego miejsca blisko kościoła i szlaków? Zobacz <a href="index.html">pokoje w Willi Storczyk</a> &ndash; sanktuarium na Bystrem 10 minut pieszo, przystanek autobusowy 30 m od willi i bezpłatny parking.</p>
+    <a href="index.html" class="cta-nocleg-btn">Zobacz pokoje i ceny <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 
   <aside class="zobacz-tez">
