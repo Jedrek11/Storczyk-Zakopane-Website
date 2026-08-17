@@ -134,7 +134,19 @@
     .tip-box--warning strong { color: #c0392b; }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -277,31 +289,42 @@
     <strong>Sprawdź przed wyjściem</strong>
     <p><a href="https://tpn.gov.pl/komunikat-turystyczny" target="_blank" rel="noopener">Komunikat turystyczny TPN</a>, <a href="https://tpn.gov.pl/pogoda" target="_blank" rel="noopener">pogoda w Tatrach (TPN)</a>, <a href="https://topr.pl" target="_blank" rel="noopener">strona TOPR</a>. Numery alarmowe TOPR: <strong>985</strong> lub <strong>+48 601 100 300</strong> (awaryjnie także 112).</p>
   </div>
-  <h2>Najczęstsze pytania o Giewont</h2>
-
-  <h3>Ile czasu zajmuje wejście na Giewont?</h3>
-  <p>W zależności od szlaku ok. <strong>3–3,5 h</strong> lub <strong>3,5–4 h</strong> w jedną stronę (plus zejście). Oba szlaki są umiarkowanie trudne i oznakowane.</p>
-
-  <h3>Jak dojść na Giewont z Zakopanego?</h3>
-  <p>Szlaki startują z <strong>Kuźnic</strong> (ok. 2,5 km od centrum, ~3 km od willi). Pieszo ok. 35–40 min lub autobusem miejskim do Kuźnic. Tam kupujesz bilet TPN i idziesz przez Halę Kondratową i Przełęcz pod Kopą Kondracką.</p>
-
-  <h3>Czy wejście na Giewont jest niebezpieczne? Co z burzami?</h3>
-  <p>Końcowy odcinek na kopule jest ubezpieczony <strong>łańcuchami</strong> i wymaga pewnego kroku. Giewont jest bardzo narażony na <strong>pioruny</strong> – bezwzględnie schodź, gdy nadciągają ciemne chmury. Wychodź wcześnie rano, powrót planuj przed 13:00–14:00.</p>
-
-  <h3>Ile metrów ma Giewont?</h3>
-  <p><strong>1894 m n.p.m.</strong>, z 15-metrowym stalowym krzyżem na szczycie, widocznym z całego Zakopanego.</p>
-
-  <h3>Czy Giewont jest dla początkujących?</h3>
-  <p>Umiarkowanie trudny, ale odcinek z łańcuchami wymaga pewności ruchów, dobrego obuwia i kondycji – nie dla zupełnych początkujących.</p>
-
-  <h3>Gdzie jest Giewont?</h3>
-  <p>W <strong>Tatrach Zachodnich</strong>, na terenie Tatrzańskiego Parku Narodowego, bezpośrednio nad Zakopanem. Charakterystyczny masyw z krzyżem widać z niemal całego miasta, a najlepiej z Gubałówki i Równi Krupowej.</p>
-
-  <h3>Gdzie zaparkować idąc na Giewont?</h3>
-  <p>Przy szlaku przez Dolinę Strążyską: płatne parkingi przy wejściu do doliny. Przy starcie z Kuźnic: parkingi w okolicy ronda Kuźnickiego, bo do samych Kuźnic samochodem nie wjedziesz. Wygodną alternatywą jest autobus miejski z centrum Zakopanego.</p>
-
-  <h3>Który szlak na Giewont jest najłatwiejszy?</h3>
-  <p>Najpopularniejszy jest niebieski szlak <strong>z Kuźnic przez Halę Kondratową</strong> (ok. 3–3,5 h). Trasa przez Dolinę Strążyską jest spokojniejsza, ale nieco dłuższa. Pamiętaj, że finałowy odcinek na kopule z łańcuchami jest wspólny i wymaga pewnego kroku niezależnie od wybranego szlaku.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o Giewont</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile czasu zajmuje wejście na Giewont?</h3>
+      <p class="faq-a">W zależności od szlaku ok. <strong>3–3,5 h</strong> lub <strong>3,5–4 h</strong> w jedną stronę (plus zejście). Oba szlaki są umiarkowanie trudne i oznakowane.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Jak dojść na Giewont z Zakopanego?</h3>
+      <p class="faq-a">Szlaki startują z <strong>Kuźnic</strong> (ok. 2,5 km od centrum, ~3 km od willi). Pieszo ok. 35–40 min lub autobusem miejskim do Kuźnic. Tam kupujesz bilet TPN i idziesz przez Halę Kondratową i Przełęcz pod Kopą Kondracką.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy wejście na Giewont jest niebezpieczne? Co z burzami?</h3>
+      <p class="faq-a">Końcowy odcinek na kopule jest ubezpieczony <strong>łańcuchami</strong> i wymaga pewnego kroku. Giewont jest bardzo narażony na <strong>pioruny</strong> – bezwzględnie schodź, gdy nadciągają ciemne chmury. Wychodź wcześnie rano, powrót planuj przed 13:00–14:00.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile metrów ma Giewont?</h3>
+      <p class="faq-a"><strong>1894 m n.p.m.</strong>, z 15-metrowym stalowym krzyżem na szczycie, widocznym z całego Zakopanego.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy Giewont jest dla początkujących?</h3>
+      <p class="faq-a">Umiarkowanie trudny, ale odcinek z łańcuchami wymaga pewności ruchów, dobrego obuwia i kondycji – nie dla zupełnych początkujących.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Gdzie jest Giewont?</h3>
+      <p class="faq-a">W <strong>Tatrach Zachodnich</strong>, na terenie Tatrzańskiego Parku Narodowego, bezpośrednio nad Zakopanem. Charakterystyczny masyw z krzyżem widać z niemal całego miasta, a najlepiej z Gubałówki i Równi Krupowej.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Gdzie zaparkować idąc na Giewont?</h3>
+      <p class="faq-a">Przy szlaku przez Dolinę Strążyską: płatne parkingi przy wejściu do doliny. Przy starcie z Kuźnic: parkingi w okolicy ronda Kuźnickiego, bo do samych Kuźnic samochodem nie wjedziesz. Wygodną alternatywą jest autobus miejski z centrum Zakopanego.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Który szlak na Giewont jest najłatwiejszy?</h3>
+      <p class="faq-a">Najpopularniejszy jest niebieski szlak <strong>z Kuźnic przez Halę Kondratową</strong> (ok. 3–3,5 h). Trasa przez Dolinę Strążyską jest spokojniejsza, ale nieco dłuższa. Pamiętaj, że finałowy odcinek na kopule z łańcuchami jest wspólny i wymaga pewnego kroku niezależnie od wybranego szlaku.</p>
+    </div>
+  </section>
   <div class="tip-box ctabox-nocleg">
 
 

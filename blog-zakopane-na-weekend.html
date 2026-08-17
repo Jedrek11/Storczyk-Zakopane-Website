@@ -140,7 +140,19 @@
     .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -218,22 +230,30 @@
   <p><strong>Na miejscu:</strong> samochód zostawcie pod noclegiem. Po mieście i do dolin wygodnie kursują autobusy komunikacji miejskiej i busy, dzięki którym nie trzeba szukać drogich parkingów w centrum. Rozkłady i ceny we wpisie o <a href="blog-komunikacja.html">komunikacji miejskiej</a>.</p>
   <p><strong>Nocleg:</strong> na weekend w sezonie warto rezerwować z wyprzedzeniem. <strong>Willa Storczyk</strong> przy Drodze na Bystre oferuje pokoje z łazienkami i bezpłatny parking, kilka minut od szlaków i term, a jednocześnie z dala od zgiełku Krupówek.</p>
 
-  <h2>Najczęstsze pytania o weekend w Zakopanem</h2>
-
-  <h3>Ile dni wystarczy na Zakopane?</h3>
-  <p>Na esencję miasta i jedną dużą wyprawę w Tatry wystarczą <strong>2-3 dni</strong>. Tydzień pozwala poznać też mniej oczywiste doliny i szczyty, ale weekend to w zupełności udany wyjazd.</p>
-
-  <h3>Co zobaczyć w Zakopanem w 2 dni?</h3>
-  <p>Dzień pierwszy: Krupówki, Gubałówka i wieczorne termy. Dzień drugi: Morskie Oko albo Dolina Kościeliska. To sprawdzony zestaw, który mieści się w weekendzie bez gonitwy.</p>
-
-  <h3>Kiedy przyjechać, żeby uniknąć tłumów?</h3>
-  <p>Największy ruch jest w długie weekendy, wakacje i ferie. Najspokojniej bywa we wrześniu i październiku oraz poza weekendami. Na szlaki zawsze warto ruszać wcześnie rano, przed 8:00.</p>
-
-  <h3>Samochodem czy komunikacją po Zakopanem?</h3>
-  <p>Samochód najlepiej zostawić pod noclegiem. Po mieście i do dolin kursują autobusy i busy, a parkingi w centrum są drogie i szybko się zapełniają. Wyjątek to wyjazd na Palenicę Białczańską, gdzie parking trzeba zarezerwować online.</p>
-
-  <h3>Czy nocleg na weekend trzeba rezerwować wcześniej?</h3>
-  <p>W sezonie letnim, zimowym i w długie weekendy zdecydowanie tak, najlepiej z kilkutygodniowym wyprzedzeniem. Poza sezonem łatwiej o wolne pokoje, ale dobre miejsca w rozsądnych cenach i tak znikają pierwsze.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o weekend w Zakopanem</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile dni wystarczy na Zakopane?</h3>
+      <p class="faq-a">Na esencję miasta i jedną dużą wyprawę w Tatry wystarczą <strong>2-3 dni</strong>. Tydzień pozwala poznać też mniej oczywiste doliny i szczyty, ale weekend to w zupełności udany wyjazd.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Co zobaczyć w Zakopanem w 2 dni?</h3>
+      <p class="faq-a">Dzień pierwszy: Krupówki, Gubałówka i wieczorne termy. Dzień drugi: Morskie Oko albo Dolina Kościeliska. To sprawdzony zestaw, który mieści się w weekendzie bez gonitwy.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Kiedy przyjechać, żeby uniknąć tłumów?</h3>
+      <p class="faq-a">Największy ruch jest w długie weekendy, wakacje i ferie. Najspokojniej bywa we wrześniu i październiku oraz poza weekendami. Na szlaki zawsze warto ruszać wcześnie rano, przed 8:00.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Samochodem czy komunikacją po Zakopanem?</h3>
+      <p class="faq-a">Samochód najlepiej zostawić pod noclegiem. Po mieście i do dolin kursują autobusy i busy, a parkingi w centrum są drogie i szybko się zapełniają. Wyjątek to wyjazd na Palenicę Białczańską, gdzie parking trzeba zarezerwować online.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy nocleg na weekend trzeba rezerwować wcześniej?</h3>
+      <p class="faq-a">W sezonie letnim, zimowym i w długie weekendy zdecydowanie tak, najlepiej z kilkutygodniowym wyprzedzeniem. Poza sezonem łatwiej o wolne pokoje, ale dobre miejsca w rozsądnych cenach i tak znikają pierwsze.</p>
+    </div>
+  </section>
 
   <div class="tip-box ctabox-nocleg">
     <strong>Nocleg w Zakopanem</strong>

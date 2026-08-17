@@ -163,7 +163,19 @@
     .mapa { margin:2rem 0; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 6px 24px rgba(0,0,0,0.12); }
     .mapa iframe { display:block; width:100%; height:420px; border:0; }
     .mapa figcaption { padding:0.6rem 1rem; font-size:0.78rem; color:#888; text-align:right; }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .mapa iframe { height:320px; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
@@ -379,25 +391,34 @@
 
   <p>Aktualne godziny znajdziesz też w ogłoszeniach parafialnych wywieszonych przy wejściu do kościoła. A jeśli coś budzi wątpliwość &ndash; pytaj śmiało w recepcji, chętnie pomożemy i zadzwonimy sprawdzić.</p>
 
-  <h2>Najczęstsze pytania o msze święte w Zakopanem</h2>
-
-  <h3>Który kościół jest najbliżej Willi Storczyk?</h3>
-  <p>Sanktuarium św. Antoniego z Padwy u Ojców Bernardynów, Bulwary Słowackiego 33 na Bystrem. Od willi około <strong>10 minut spacerem</strong>.</p>
-
-  <h3>O której są msze święte u Bernardynów w Zakopanem?</h3>
-  <p>W niedziele i święta o <strong>7:00, 8:30, 10:00, 11:30, 17:00 i 19:00</strong>. W dni powszednie o 7:00 i 18:00, a w święta pracujące o 7:00, 9:00 i 18:00.</p>
-
-  <h3>Gdzie w Zakopanem jest msza święta o 20:00?</h3>
-  <p>W kościele NMP Królowej Świata przy Bulwarach Słowackiego 2, u <strong>salwatorianów</strong>. Msza o 20:00 odprawiana jest w niedziele i jest najpóźniejszą niedzielną Mszą w Zakopanem.</p>
-
-  <h3>O której są msze święte na Wiktorówkach?</h3>
-  <p>W niedziele od lipca do września o <strong>9:00, 11:00, 13:00 i 17:00</strong>, a od października do czerwca o 9:00, 11:00 i 13:00. W dni powszednie Msza jest o 12:00.</p>
-
-  <h3>Jak dojść na Wiktorówki z Zakopanego?</h3>
-  <p>Busem spod dworca w kierunku Palenicy Białczańskiej do przystanku <strong>Zazadnia</strong> (około 30 minut), a stamtąd niebieskim szlakiem pod górę mniej więcej <strong>godzinę</strong>. Do Rusinowej Polany z Wiktorówek jest jeszcze 15 minut.</p>
-
-  <h3>Czy w tych kościołach można się wyspowiadać?</h3>
-  <p>Tak. U Bernardynów spowiedź jest codziennie podczas Mszy i nabożeństw, u salwatorianów 15 minut przed każdą Mszą, a na Wiktorówkach w niedziele podczas każdej Mszy świętej.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o msze święte w Zakopanem</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Który kościół jest najbliżej Willi Storczyk?</h3>
+      <p class="faq-a">Sanktuarium św. Antoniego z Padwy u Ojców Bernardynów, Bulwary Słowackiego 33 na Bystrem. Od willi około <strong>10 minut spacerem</strong>.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">O której są msze święte u Bernardynów w Zakopanem?</h3>
+      <p class="faq-a">W niedziele i święta o <strong>7:00, 8:30, 10:00, 11:30, 17:00 i 19:00</strong>. W dni powszednie o 7:00 i 18:00, a w święta pracujące o 7:00, 9:00 i 18:00.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Gdzie w Zakopanem jest msza święta o 20:00?</h3>
+      <p class="faq-a">W kościele NMP Królowej Świata przy Bulwarach Słowackiego 2, u <strong>salwatorianów</strong>. Msza o 20:00 odprawiana jest w niedziele i jest najpóźniejszą niedzielną Mszą w Zakopanem.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">O której są msze święte na Wiktorówkach?</h3>
+      <p class="faq-a">W niedziele od lipca do września o <strong>9:00, 11:00, 13:00 i 17:00</strong>, a od października do czerwca o 9:00, 11:00 i 13:00. W dni powszednie Msza jest o 12:00.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Jak dojść na Wiktorówki z Zakopanego?</h3>
+      <p class="faq-a">Busem spod dworca w kierunku Palenicy Białczańskiej do przystanku <strong>Zazadnia</strong> (około 30 minut), a stamtąd niebieskim szlakiem pod górę mniej więcej <strong>godzinę</strong>. Do Rusinowej Polany z Wiktorówek jest jeszcze 15 minut.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy w tych kościołach można się wyspowiadać?</h3>
+      <p class="faq-a">Tak. U Bernardynów spowiedź jest codziennie podczas Mszy i nabożeństw, u salwatorianów 15 minut przed każdą Mszą, a na Wiktorówkach w niedziele podczas każdej Mszy świętej.</p>
+    </div>
+  </section>
 
   <div class="aktualnosc">
     <p>📅 <strong>Artykuł powstał 16 sierpnia 2026 roku.</strong> Wszystkie godziny Mszy spisaliśmy tego dnia z oficjalnych stron parafii. Porządek nabożeństw potrafi się jednak zmienić &ndash; zwłaszcza w okresie świąt, odpustów i rekolekcji, a na Wiktorówkach dodatkowo wraz z sezonem. Zanim wyjdziesz, sprawdź proszę aktualne godziny bezpośrednio u źródła: <a href="https://zakopane.bernardyni.pl/" target="_blank" rel="noopener noreferrer">zakopane.bernardyni.pl</a>, <a href="http://zakopane.sds.pl/" target="_blank" rel="noopener noreferrer">zakopane.sds.pl</a>, <a href="https://wiktorowki.dominikanie.pl/" target="_blank" rel="noopener noreferrer">wiktorowki.dominikanie.pl</a>.</p>

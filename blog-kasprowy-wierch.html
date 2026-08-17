@@ -117,7 +117,19 @@
     .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -205,22 +217,30 @@
 
   <div style="max-width:600px;overflow:hidden;margin:1.5rem auto;min-width:300px;"><iframe src="https://mapa-turystyczna.pl/map/widget/route/h1l0p1/3iv3u.html" height="680" style="width:100%;border:0;" loading="lazy"></iframe><a href="https://mapa-turystyczna.pl/route/3iv3u?utm_source=external_web&amp;utm_medium=widget&amp;utm_campaign=route_widget" target="_blank" rel="noopener noreferrer" style="color:#999;padding:7px 0;font-size: 13px;font-family:Roboto,Arial,sans-serif;display: inline-block;">Trasa: Kuźnice – Kasprowy Wierch, stacja kolejki | mapa-turystyczna.pl</a></div>
 
-  <h2>Najczęstsze pytania o Kasprowy Wierch</h2>
-
-  <h3>Ile kosztuje bilet na kolejkę na Kasprowy Wierch?</h3>
-  <p>W sezonie wysokim ok. <strong>165 zł</strong> (normalny) i <strong>129 zł</strong> (ulgowy), w sezonie niskim <strong>129 zł</strong> i <strong>109 zł</strong>. Online (pkl.pl) jest taniej niż w kasie. Bilet ulgowy przysługuje dzieciom, młodzieży, studentom do 26 lat i osobom 65+.</p>
-
-  <h3>Jak dojechać na Kasprowy Wierch z Zakopanego?</h3>
-  <p>Autobusem miejskim do <strong>Kuźnic</strong> (dolna stacja kolejki) w ok. <strong>10 minut</strong>. Bilet komunikacji miejskiej to 6 zł (3 zł ulgowy). Z Willi Storczyk autobus odjeżdża praktycznie spod drzwi.</p>
-
-  <h3>Czy trzeba rezerwować bilet na kolejkę?</h3>
-  <p>Warto kupić go z wyprzedzeniem online na <strong>pkl.pl</strong> i wybrać konkretny termin – w sezonie kolejki bywają długie.</p>
-
-  <h3>Ile metrów ma Kasprowy Wierch?</h3>
-  <p><strong>1987 m n.p.m.</strong> – jeden z najpopularniejszych szczytów polskich Tatr, dostępny dla każdego dzięki kolei linowej.</p>
-
-  <h3>Czy można wejść na Kasprowy Wierch pieszo?</h3>
-  <p>Tak. Szlak pieszy startuje z Kuźnic i prowadzi przez tatrzańskie lasy w górę – dobra alternatywa dla kolejki.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o Kasprowy Wierch</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile kosztuje bilet na kolejkę na Kasprowy Wierch?</h3>
+      <p class="faq-a">W sezonie wysokim ok. <strong>165 zł</strong> (normalny) i <strong>129 zł</strong> (ulgowy), w sezonie niskim <strong>129 zł</strong> i <strong>109 zł</strong>. Online (pkl.pl) jest taniej niż w kasie. Bilet ulgowy przysługuje dzieciom, młodzieży, studentom do 26 lat i osobom 65+.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Jak dojechać na Kasprowy Wierch z Zakopanego?</h3>
+      <p class="faq-a">Autobusem miejskim do <strong>Kuźnic</strong> (dolna stacja kolejki) w ok. <strong>10 minut</strong>. Bilet komunikacji miejskiej to 6 zł (3 zł ulgowy). Z Willi Storczyk autobus odjeżdża praktycznie spod drzwi.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy trzeba rezerwować bilet na kolejkę?</h3>
+      <p class="faq-a">Warto kupić go z wyprzedzeniem online na <strong>pkl.pl</strong> i wybrać konkretny termin – w sezonie kolejki bywają długie.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile metrów ma Kasprowy Wierch?</h3>
+      <p class="faq-a"><strong>1987 m n.p.m.</strong> – jeden z najpopularniejszych szczytów polskich Tatr, dostępny dla każdego dzięki kolei linowej.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy można wejść na Kasprowy Wierch pieszo?</h3>
+      <p class="faq-a">Tak. Szlak pieszy startuje z Kuźnic i prowadzi przez tatrzańskie lasy w górę – dobra alternatywa dla kolejki.</p>
+    </div>
+  </section>
 
   <div class="tip-box ctabox-nocleg">
     <strong>Nocleg w Zakopanem</strong>

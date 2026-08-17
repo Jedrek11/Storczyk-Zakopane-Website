@@ -167,7 +167,19 @@
     .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -303,40 +315,54 @@
     <strong>Sprawdź przed wyjściem</strong>
     <p><a href="https://tpn.gov.pl/komunikat-turystyczny" target="_blank" rel="noopener">Komunikat turystyczny TPN</a>, <a href="https://tpn.gov.pl/pogoda" target="_blank" rel="noopener">pogoda w Tatrach (TPN)</a>, <a href="https://topr.pl" target="_blank" rel="noopener">strona TOPR</a>. Numery alarmowe TOPR: <strong>985</strong> lub <strong>+48 601 100 300</strong> (awaryjnie także 112).</p>
   </div>
-  <h2>Najczęstsze pytania o Morskie Oko</h2>
-
-  <h3>Jak dojechać na Morskie Oko z Zakopanego?</h3>
-  <p>Najpierw dojeżdżasz na parking <strong>Palenica Białczańska</strong> (ok. 30 km, 35–40 minut samochodem drogą krajową nr 49) lub regularnym busem. Stamtąd na Morskie Oko prowadzi <strong>9 km</strong> asfaltowej drogi, którą pokonuje się pieszo w ok. <strong>2–2,5 godziny</strong>.</p>
-
-  <h3>Gdzie zaparkować jadąc nad Morskie Oko?</h3>
-  <p>Samochód zostawia się na płatnym parkingu TPN przy Palenicy Białczańskiej. Miejsce warto zarezerwować wcześniej online w systemie TPN – w sezonie parking zapełnia się przed godziną 8:00.</p>
-
-  <h3>Ile kilometrów i ile czasu zajmuje dojście?</h3>
-  <p>Trasa liczy <strong>9 km w jedną stronę</strong>. Wejście zajmuje ok. 2–2,5 h, a zejście 1,5–2 h. Droga jest asfaltowa, o łagodnym nachyleniu, dostępna dla każdego.</p>
-
-  <h3>Czy można dojechać samochodem pod samo Morskie Oko?</h3>
-  <p>Nie. Samochodem dojedziesz tylko do parkingu przy Palenicy Białczańskiej – dalej obowiązuje 9 km marszu drogą TPN. Część trasy (do Włosienicy) można pokonać konnym fasiągiem.</p>
-
-  <h3>Czy na Morskie Oko można wejść z psem?</h3>
-  <p>Nie. Tatrzański Park Narodowy zakazuje wprowadzania psów i innych zwierząt na szlaki, w tym na trasę nad Morskie Oko.</p>
-
-  <h3>Ile metrów n.p.m. ma Morskie Oko?</h3>
-  <p><strong>1395 m n.p.m.</strong> – to największe jezioro w polskich Tatrach (ponad 34 ha powierzchni i do 51 m głębokości).</p>
-
-  <h3>Czy na Morskie Oko można wjechać rowerem?</h3>
-  <p>Rowerem podjedziesz tylko częścią drogi – do <strong>Polany Włosienica</strong>, skąd dalej obowiązuje dojście pieszo. Zasady reguluje TPN, więc przed wyjazdem sprawdź aktualne informacje na stronie Parku.</p>
-
-  <h3>Czy nad Morskim Okiem jest schronisko?</h3>
-  <p>Tak – <strong>Schronisko PTTK nad Morskim Okiem</strong>, najstarsze tatrzańskie schronisko (1908 r.). Zjesz tam ciepły posiłek i odpoczniesz, a z tarasu rozciąga się panorama na całą dolinę.</p>
-
-  <h3>Ile kosztuje parking na Palenicy Białczańskiej?</h3>
-  <p>Parking jest płatny, a <strong>aktualny cennik</strong> znajdziesz w oficjalnym systemie rezerwacji TPN: <a href="https://tpn.gov.pl/parkingi-morskie-oko" target="_blank" rel="noopener">tpn.gov.pl/parkingi-morskie-oko</a>. Tam też od razu zarezerwujesz miejsce na konkretny dzień.</p>
-
-  <h3>Czy parking na Morskie Oko trzeba rezerwować?</h3>
-  <p>Formalnie nie, ale w praktyce tak: w sezonie miejsca wyprzedają się online na wiele dni naprzód i bez rezerwacji trudno wjechać. Zarezerwuj w systemie TPN od razu po ustaleniu daty wyjazdu.</p>
-
-  <h3>Co zrobić, gdy parking na Palenicy Białczańskiej jest pełny?</h3>
-  <p>Zapasową opcją jest parking przy <strong>Łysej Polanie</strong>, ok. 1,5 km od bramy wejściowej. Możesz też zostawić auto w Zakopanem i podjechać regularnym busem na Palenicę Białczańską.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o Morskie Oko</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Jak dojechać na Morskie Oko z Zakopanego?</h3>
+      <p class="faq-a">Najpierw dojeżdżasz na parking <strong>Palenica Białczańska</strong> (ok. 30 km, 35–40 minut samochodem drogą krajową nr 49) lub regularnym busem. Stamtąd na Morskie Oko prowadzi <strong>9 km</strong> asfaltowej drogi, którą pokonuje się pieszo w ok. <strong>2–2,5 godziny</strong>.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Gdzie zaparkować jadąc nad Morskie Oko?</h3>
+      <p class="faq-a">Samochód zostawia się na płatnym parkingu TPN przy Palenicy Białczańskiej. Miejsce warto zarezerwować wcześniej online w systemie TPN – w sezonie parking zapełnia się przed godziną 8:00.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile kilometrów i ile czasu zajmuje dojście?</h3>
+      <p class="faq-a">Trasa liczy <strong>9 km w jedną stronę</strong>. Wejście zajmuje ok. 2–2,5 h, a zejście 1,5–2 h. Droga jest asfaltowa, o łagodnym nachyleniu, dostępna dla każdego.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy można dojechać samochodem pod samo Morskie Oko?</h3>
+      <p class="faq-a">Nie. Samochodem dojedziesz tylko do parkingu przy Palenicy Białczańskiej – dalej obowiązuje 9 km marszu drogą TPN. Część trasy (do Włosienicy) można pokonać konnym fasiągiem.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy na Morskie Oko można wejść z psem?</h3>
+      <p class="faq-a">Nie. Tatrzański Park Narodowy zakazuje wprowadzania psów i innych zwierząt na szlaki, w tym na trasę nad Morskie Oko.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile metrów n.p.m. ma Morskie Oko?</h3>
+      <p class="faq-a"><strong>1395 m n.p.m.</strong> – to największe jezioro w polskich Tatrach (ponad 34 ha powierzchni i do 51 m głębokości).</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy na Morskie Oko można wjechać rowerem?</h3>
+      <p class="faq-a">Rowerem podjedziesz tylko częścią drogi – do <strong>Polany Włosienica</strong>, skąd dalej obowiązuje dojście pieszo. Zasady reguluje TPN, więc przed wyjazdem sprawdź aktualne informacje na stronie Parku.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy nad Morskim Okiem jest schronisko?</h3>
+      <p class="faq-a">Tak – <strong>Schronisko PTTK nad Morskim Okiem</strong>, najstarsze tatrzańskie schronisko (1908 r.). Zjesz tam ciepły posiłek i odpoczniesz, a z tarasu rozciąga się panorama na całą dolinę.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile kosztuje parking na Palenicy Białczańskiej?</h3>
+      <p class="faq-a">Parking jest płatny, a <strong>aktualny cennik</strong> znajdziesz w oficjalnym systemie rezerwacji TPN: <a href="https://tpn.gov.pl/parkingi-morskie-oko" target="_blank" rel="noopener">tpn.gov.pl/parkingi-morskie-oko</a>. Tam też od razu zarezerwujesz miejsce na konkretny dzień.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy parking na Morskie Oko trzeba rezerwować?</h3>
+      <p class="faq-a">Formalnie nie, ale w praktyce tak: w sezonie miejsca wyprzedają się online na wiele dni naprzód i bez rezerwacji trudno wjechać. Zarezerwuj w systemie TPN od razu po ustaleniu daty wyjazdu.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Co zrobić, gdy parking na Palenicy Białczańskiej jest pełny?</h3>
+      <p class="faq-a">Zapasową opcją jest parking przy <strong>Łysej Polanie</strong>, ok. 1,5 km od bramy wejściowej. Możesz też zostawić auto w Zakopanem i podjechać regularnym busem na Palenicę Białczańską.</p>
+    </div>
+  </section>
 
   <div class="tip-box ctabox-nocleg">
     <strong>Nocleg w Zakopanem</strong>

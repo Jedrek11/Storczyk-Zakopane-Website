@@ -145,7 +145,19 @@
     .cta-nocleg-btn:hover svg { transform:translateX(3px); }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -241,25 +253,34 @@
     <figcaption style="background:white; padding:0.6rem 1rem; font-size:0.78rem; color:#888; text-align:right;">Fot. Willa Storczyk</figcaption>
   </figure>
 
-  <h2>Najczęstsze pytania o Zakopane z dziećmi</h2>
-
-  <h3>Jakie szlaki w Tatrach są łatwe dla dzieci?</h3>
-  <p>Najlepsze na start są <strong>Dolina Kościeliska</strong> (płaska droga, wózek terenowy da radę), <strong>Droga pod Reglami</strong> oraz <strong>Rusinowa Polana</strong> (krótkie podejście z piękną panoramą). Wszystkie da się skrócić lub przerwać w dowolnym momencie.</p>
-
-  <h3>Czy na Gubałówkę można wjechać z wózkiem?</h3>
-  <p>Tak. Kolejka terenowa zabiera wózki, a promenada na szczycie jest szeroka i utwardzona – spacer z wózkiem to żaden problem.</p>
-
-  <h3>Czy Morskie Oko jest odpowiednie dla małych dzieci?</h3>
-  <p>To całodzienna wyprawa: 9 km asfaltową drogą w jedną stronę. Z młodszymi dziećmi warto skorzystać z konnych fasiągów, które pokonują większość trasy, i wyjechać wcześnie rano.</p>
-
-  <h3>Co robić z dziećmi w Zakopanem, gdy pada deszcz?</h3>
-  <p>Najpewniejszy plan to termy – kompleksy z brodzikami i zjeżdżalniami działają niezależnie od pogody. Alternatywy to muzea, jaskinie solne i kryte place zabaw w okolicy Krupówek.</p>
-
-  <h3>Czy w Zakopanem są ulgi i bilety rodzinne na autobusy?</h3>
-  <p>Tak, komunikacja miejska w Zakopanem oferuje bilety ulgowe dla dzieci oraz opcje rodzinne. Szczegóły i rozkłady opisaliśmy w naszym wpisie o komunikacji miejskiej.</p>
-
-  <h3>Gdzie zatrzymać się w Zakopanem z dziećmi?</h3>
-  <p>Warto szukać noclegu z parkingiem, ogrodem i pokojami rodzinnymi. Willa Storczyk przy Drodze na Bystre oferuje pokoje 2-, 3- i 4-osobowe z łazienkami, bezpłatny parking i ogród – blisko szlaków, a jednocześnie z dala od zgiełku centrum.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o Zakopane z dziećmi</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Jakie szlaki w Tatrach są łatwe dla dzieci?</h3>
+      <p class="faq-a">Najlepsze na start są <strong>Dolina Kościeliska</strong> (płaska droga, wózek terenowy da radę), <strong>Droga pod Reglami</strong> oraz <strong>Rusinowa Polana</strong> (krótkie podejście z piękną panoramą). Wszystkie da się skrócić lub przerwać w dowolnym momencie.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy na Gubałówkę można wjechać z wózkiem?</h3>
+      <p class="faq-a">Tak. Kolejka terenowa zabiera wózki, a promenada na szczycie jest szeroka i utwardzona – spacer z wózkiem to żaden problem.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy Morskie Oko jest odpowiednie dla małych dzieci?</h3>
+      <p class="faq-a">To całodzienna wyprawa: 9 km asfaltową drogą w jedną stronę. Z młodszymi dziećmi warto skorzystać z konnych fasiągów, które pokonują większość trasy, i wyjechać wcześnie rano.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Co robić z dziećmi w Zakopanem, gdy pada deszcz?</h3>
+      <p class="faq-a">Najpewniejszy plan to termy – kompleksy z brodzikami i zjeżdżalniami działają niezależnie od pogody. Alternatywy to muzea, jaskinie solne i kryte place zabaw w okolicy Krupówek.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy w Zakopanem są ulgi i bilety rodzinne na autobusy?</h3>
+      <p class="faq-a">Tak, komunikacja miejska w Zakopanem oferuje bilety ulgowe dla dzieci oraz opcje rodzinne. Szczegóły i rozkłady opisaliśmy w naszym wpisie o komunikacji miejskiej.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Gdzie zatrzymać się w Zakopanem z dziećmi?</h3>
+      <p class="faq-a">Warto szukać noclegu z parkingiem, ogrodem i pokojami rodzinnymi. Willa Storczyk przy Drodze na Bystre oferuje pokoje 2-, 3- i 4-osobowe z łazienkami, bezpłatny parking i ogród – blisko szlaków, a jednocześnie z dala od zgiełku centrum.</p>
+    </div>
+  </section>
 
   <div class="tip-box ctabox-nocleg">
     <strong>Nocleg w Zakopanem</strong>

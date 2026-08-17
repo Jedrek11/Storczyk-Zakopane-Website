@@ -163,7 +163,19 @@
     .aktualnosc a { color:#8a6d1f; font-weight:700; }
     .back-btn { display:inline-flex; align-items:center; gap:0.5rem; color:var(--forest); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid var(--forest); padding:0.7rem 1.4rem; border-radius:4px; margin-top:2rem; transition:all 0.2s; }
     .back-btn:hover { background:var(--forest); color:var(--cream); }
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0 0 0.5rem; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; text-align:left; }
+    .faq-a:last-child { margin-bottom:0; }
     @media(max-width:768px) { .article-hero h1 { font-size:1.9rem; } }
+    @media(max-width:768px) { .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; } .faq h2 { font-size:1.25rem; } .faq-item { padding:0.95rem 1rem; } }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -310,25 +322,34 @@
 
   <p>Warto też wiedzieć, że <strong>Droga na Bystre jest w podstrefie C</strong>, podobnie jak Bulwary Słowackiego, Jagiellońska czy Chramcówki. Parkowanie przy ulicy w tej okolicy jest więc płatne tak samo jak w centrum. Dlatego przy wyborze noclegu naprawdę warto sprawdzić, czy ma własny parking &ndash; przy pobycie tygodniowym to różnica rzędu kilkuset złotych.</p>
 
-  <h2>Najczęstsze pytania o parkowanie w Zakopanem</h2>
-
-  <h3>Ile kosztuje parkowanie w Zakopanem?</h3>
-  <p>W podstrefie A pierwsza godzina to <strong>8,00 zł</strong>, druga 9,60 zł, trzecia 11,50 zł. W podstrefach B, C i E pierwsza godzina kosztuje <strong>6,00 zł</strong>, druga 7,00 zł, trzecia 8,00 lub 8,20 zł. Czwarta i każda kolejna godzina wraca do stawki za pierwszą.</p>
-
-  <h3>W jakich godzinach płaci się za parkowanie?</h3>
-  <p>Od <strong>8:00 do 21:00</strong>. Przed ósmą rano i po dwudziestej pierwszej parkowanie jest bezpłatne.</p>
-
-  <h3>Czy w niedzielę trzeba płacić za parkowanie w Zakopanem?</h3>
-  <p>W śródmiejskiej strefie płatnego parkowania <strong>tak</strong> &ndash; opłaty pobierane są od poniedziałku do niedzieli. W zwykłej strefie płatnego parkowania opłat nie ma w weekendy ani w dni ustawowo wolne od pracy.</p>
-
-  <h3>Ile wynosi mandat za brak biletu parkingowego?</h3>
-  <p>Opłata dodatkowa to <strong>300,00 zł</strong>, a przy zapłacie w ciągu 3 dni kalendarzowych od wystawienia zawiadomienia &ndash; <strong>120,00 zł</strong>.</p>
-
-  <h3>Jaką aplikacją zapłacę za parkowanie w Zakopanem?</h3>
-  <p>Miasto obsługuje <strong>Flowbird</strong>, <strong>SkyCash</strong> i <strong>Mobilet</strong>. Wszystkie są dostępne w Google Play i App Store.</p>
-
-  <h3>Czy przy Willi Storczyk trzeba płacić za parkowanie?</h3>
-  <p>Nie. Droga na Bystre należy wprawdzie do podstrefy C, ale nasi Goście parkują na <strong>bezpłatnym parkingu przy willi</strong>, a nie przy ulicy.</p>
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o parkowanie w Zakopanem</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile kosztuje parkowanie w Zakopanem?</h3>
+      <p class="faq-a">W podstrefie A pierwsza godzina to <strong>8,00 zł</strong>, druga 9,60 zł, trzecia 11,50 zł. W podstrefach B, C i E pierwsza godzina kosztuje <strong>6,00 zł</strong>, druga 7,00 zł, trzecia 8,00 lub 8,20 zł. Czwarta i każda kolejna godzina wraca do stawki za pierwszą.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">W jakich godzinach płaci się za parkowanie?</h3>
+      <p class="faq-a">Od <strong>8:00 do 21:00</strong>. Przed ósmą rano i po dwudziestej pierwszej parkowanie jest bezpłatne.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy w niedzielę trzeba płacić za parkowanie w Zakopanem?</h3>
+      <p class="faq-a">W śródmiejskiej strefie płatnego parkowania <strong>tak</strong> &ndash; opłaty pobierane są od poniedziałku do niedzieli. W zwykłej strefie płatnego parkowania opłat nie ma w weekendy ani w dni ustawowo wolne od pracy.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile wynosi mandat za brak biletu parkingowego?</h3>
+      <p class="faq-a">Opłata dodatkowa to <strong>300,00 zł</strong>, a przy zapłacie w ciągu 3 dni kalendarzowych od wystawienia zawiadomienia &ndash; <strong>120,00 zł</strong>.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Jaką aplikacją zapłacę za parkowanie w Zakopanem?</h3>
+      <p class="faq-a">Miasto obsługuje <strong>Flowbird</strong>, <strong>SkyCash</strong> i <strong>Mobilet</strong>. Wszystkie są dostępne w Google Play i App Store.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy przy Willi Storczyk trzeba płacić za parkowanie?</h3>
+      <p class="faq-a">Nie. Droga na Bystre należy wprawdzie do podstrefy C, ale nasi Goście parkują na <strong>bezpłatnym parkingu przy willi</strong>, a nie przy ulicy.</p>
+    </div>
+  </section>
 
   <div class="aktualnosc">
     <p>📅 <strong>Artykuł powstał 16 sierpnia 2026 roku.</strong> Stawki, wykaz ulic i wysokość opłaty dodatkowej pochodzą z uchwały nr XX/219/2025 Rady Miasta Zakopane z 23 października 2025 r. wraz z późniejszymi zmianami, w tym uchwałą nr XXVII/300/2026 z 28 maja 2026 r. Rada Miasta zmienia te zasady dość często, a strefa bywa rozszerzana o kolejne ulice. Przed przyjazdem sprawdź aktualne dane na stronie <a href="https://www.zakopane.pl/strefa-miejska/transport/parkingi" target="_blank" rel="noopener noreferrer">zakopane.pl</a> i zwróć uwagę na oznakowanie oraz cennik na parkomacie.</p>
