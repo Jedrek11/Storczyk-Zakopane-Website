@@ -824,6 +824,41 @@
     margin-top: 1.5rem;
   }
 
+  /* Transfer z dworca to jedyna informacja w tej kolumnie, ktorej nie ma
+     nigdzie indziej na stronie - dlatego zloty akcent zamiast akapitu. */
+  .contact-transfer {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.3rem;
+    background: rgba(232,184,109,0.10);
+    border: 1px solid rgba(232,184,109,0.30);
+    border-radius: 14px;
+  }
+
+  .contact-transfer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.4rem;
+    height: 2.4rem;
+    background: rgba(232,184,109,0.16);
+    border-radius: 10px;
+    color: #e8b86d;
+  }
+
+  .contact-transfer strong {
+    display: block;
+    color: #e8b86d;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.35rem;
+  }
+
+  .contact-transfer p { margin: 0; font-size: 0.92rem; line-height: 1.7; }
+
   .contact-block {
     display: flex;
     align-items: center;

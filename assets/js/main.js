@@ -288,11 +288,19 @@ function toggleFaq(btn) {
 (function(){
   var floatPhoneBtn = document.querySelector('.float-phone');
   var lokalizacja = document.getElementById('lokalizacja');
+  var formularz = document.getElementById('formularz');
   var kontakt = document.getElementById('kontakt');
   function checkPhone(){
     if(!floatPhoneBtn || !lokalizacja) return;
     var showFrom = lokalizacja.offsetTop;
-    var hideFrom = kontakt ? kontakt.offsetTop : Infinity;
+    // Przycisk znika, gdy formularz zaczyna wchodzic w kadr - inaczej pływałby
+    // nad wlasnym celem i zaslanial przycisk wysylki.
+    var hideFrom = Infinity;
+    if(formularz){
+      hideFrom = formularz.getBoundingClientRect().top + window.scrollY - window.innerHeight + 140;
+    } else if(kontakt){
+      hideFrom = kontakt.offsetTop;
+    }
     if(window.scrollY < showFrom || window.scrollY >= hideFrom){
       floatPhoneBtn.classList.add('float-phone--hidden');
     } else {
