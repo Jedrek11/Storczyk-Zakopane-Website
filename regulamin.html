@@ -203,6 +203,36 @@
 
 </div>
 
+<footer class="footer-slim">
+  <p class="footer-copy">© 2026 Wynajem Pokoi Storczyk Zakopane · storczykzakopane.pl · Wszelkie prawa zastrzeżone</p>
+  <p class="footer-regulamin"><a href="regulamin.html">Regulamin i Polityka Prywatności</a></p>
+</footer>
+
+<style>
+  /* Waska stopka dla bloga i regulaminu. Pelna wersja z logo, adresem i
+     przyciskami spolecznosciowymi jest tylko na stronie glownej
+     (partials/footer.html). Style siedza tutaj, bo te strony nie ladują
+     main.css. */
+  footer.footer-slim {
+    background: #1E2A1E;
+    font-family: 'Lato', sans-serif;
+    padding: 2rem 2rem 1.8rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer.footer-slim .footer-copy {
+    margin: 0;
+    font-size: 0.7rem;
+    color: rgba(245,240,232,0.35);
+    text-align: center;
+  }
+  footer.footer-slim .footer-regulamin { margin: 0.5rem 0 0; font-size: 0.75rem; text-align: center; }
+  footer.footer-slim .footer-regulamin a { color: rgba(245,240,232,0.55); text-decoration: none; transition: color 0.3s; }
+  footer.footer-slim .footer-regulamin a:hover { color: rgba(245,240,232,0.9); }
+  /* Dolny pasek nawigacji na telefonie zaslonilby ostatnia linijke */
+  @media (max-width:768px) { footer.footer-slim { padding-bottom: 6rem; } }
+</style>
+
 <!-- BOTTOM NAV BAR (mobile) -->
 <nav class="bottom-nav">
   <a href="index.html" class="bnav-home">

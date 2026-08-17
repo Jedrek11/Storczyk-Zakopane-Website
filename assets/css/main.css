@@ -1061,77 +1061,8 @@
   .form-trust svg { flex: 0 0 auto; width: 15px; height: 15px; margin-top: 0.15rem; stroke: #6b8f5e; fill: none; stroke-width: 2.5; }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--dark);
-    color: var(--cream);
-    padding: 3rem 2rem 2.5rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-logo-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(245,240,232,0.2);
-  }
-
-  .footer-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--cream);
-    letter-spacing: 0.02em;
-  }
-
-  .footer-address { font-size:0.85rem; color:rgba(245,240,232,0.5); margin-bottom:1.8rem; line-height:1.7; }
-
-  .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .social-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 50px;
-    background: rgba(255,255,255,0.05);
-    color: rgba(245,240,232,0.7);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    transition: all 0.3s ease;
-  }
-  .social-btn svg { flex-shrink: 0; opacity: 0.7; }
-
-  .social-btn:hover {
-    border-color: rgba(255,255,255,0.35);
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-  }
-  .social-btn:hover svg { opacity: 1; }
-
-  .footer-copy {
-    font-size: 0.7rem;
-    color: rgba(245,240,232,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 1.5rem;
-  }
+  /* Stopka ma wlasne style w partials/footer.html - jedno zrodlo dla
+     wszystkich stron, takze tych, ktore nie ladują main.css. */
 
   /* ── FLOAT REZERWUJ ── */
   .float-phone {
