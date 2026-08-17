@@ -831,6 +831,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1.1rem 1.3rem;
+    margin-top: 0.75rem;
     background: rgba(232,184,109,0.10);
     border: 1px solid rgba(232,184,109,0.30);
     border-radius: 14px;
