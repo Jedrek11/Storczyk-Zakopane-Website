@@ -1400,6 +1400,12 @@
     #kontakt { padding-left: 1rem; padding-right: 1rem; overflow-x: clip; }
     #kontakt .container { max-width: 100%; }
     .contact-grid > * { min-width: 0; }
+    /* Na waskim ekranie formularz idzie na gore - to glowny cel sekcji,
+       a dane kontaktowe czytamy dopiero, gdy ktos woli zadzwonic.
+       Kolejnosc w HTML zostaje bez zmian (najpierw dane), zeby na
+       desktopie tabulator szedl zgodnie z ukladem kolumn. */
+    .contact-form { order: 1; }
+    .contact-info { order: 2; }
     .contact-form {
       width: 100%;
       max-width: 100%;
