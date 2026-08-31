@@ -23,5 +23,12 @@
     "facebook": "https://www.facebook.com/profile.php?id=61576000020623",
     "instagram": "https://www.instagram.com/storczykzakopane/",
     "tiktok": "https://www.tiktok.com/@storczykzakopane"
+  },
+  "pricing": {
+    "lowFrom": "100",
+    "highFrom": "120",
+    "peakFrom": "150",
+    "currency": "PLN",
+    "unit": "os. / doba"
   }
 }

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <!-- Ceny pochodza z config.json → "pricing". Zmiana tych trzech liczb
+       + npm run build aktualizuje je wszedzie: w tresci, w tabeli i w schema.org. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Pokoje do wynajęcia – Willa Storczyk Zakopane",
+    "description": "Pokoje 2, 3 i 4-osobowe z prywatną łazienką w Zakopanem. Bezpłatny parking na posesji, Wi-Fi i taksa klimatyczna w cenie.",
+    "url": "https://storczykzakopane.pl/pokoje-zakopane.html",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "HotelRoom",
+          "name": "Pokój 2-osobowy z łazienką",
+          "description": "Dwa pojedyncze łóżka, prywatna łazienka, bezpłatne Wi-Fi. Jeden z pokoi 2-osobowych ma balkon i łazienkę na korytarzu.",
+          "occupancy": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 2},
+          "bed": {"@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Single"},
+          "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Prywatna łazienka", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true}
+          ],
+          "image": "https://storczykzakopane.pl/zdj/gallery/room-2os.webp",
+          "offers": {
+            "@type": "Offer",
+            "price": "100",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "url": "https://storczykzakopane.pl/pokoje-zakopane.html",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "PLN",
+              "unitText": "osoba za dobę",
+              "valueAddedTaxIncluded": true
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "HotelRoom",
+          "name": "Pokój 2/3-osobowy z łazienką",
+          "description": "Jedno pojedyncze łóżko i kanapa rozkładana dla dwóch osób, prywatna łazienka, bezpłatne Wi-Fi.",
+          "occupancy": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 3},
+          "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Prywatna łazienka", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true}
+          ],
+          "image": "https://storczykzakopane.pl/zdj/gallery/room-3os.webp",
+          "offers": {
+            "@type": "Offer",
+            "price": "100",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "url": "https://storczykzakopane.pl/pokoje-zakopane.html",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "PLN",
+              "unitText": "osoba za dobę",
+              "valueAddedTaxIncluded": true
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "HotelRoom",
+          "name": "Pokój 3/4-osobowy z łazienką",
+          "description": "Łóżko podwójne i kanapa rozkładana dla dwóch osób, prywatna łazienka, bezpłatne Wi-Fi. Pokój rodzinny.",
+          "occupancy": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 4},
+          "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Prywatna łazienka", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true}
+          ],
+          "image": "https://storczykzakopane.pl/zdj/gallery/room-4os.webp",
+          "offers": {
+            "@type": "Offer",
+            "price": "100",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "url": "https://storczykzakopane.pl/pokoje-zakopane.html",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "PLN",
+              "unitText": "osoba za dobę",
+              "valueAddedTaxIncluded": true
+            }
+          }
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://storczykzakopane.pl"},
+      {"@type": "ListItem", "position": 2, "name": "Pokoje i cennik"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Ile kosztuje pokój w Zakopanem w Willi Storczyk?", "acceptedAnswer": {"@type": "Answer", "text": "Ceny zaczynają się od 100 zł od osoby za dobę poza sezonem, od 120 zł w wakacje i ferie oraz od 150 zł w okresie świąteczno-noworocznym. Stawka zależy od liczby osób i długości pobytu. Taksa klimatyczna, Wi-Fi i parking są wliczone."}},
+      {"@type": "Question", "name": "Czy wszystkie pokoje mają prywatną łazienkę?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, poza jednym pokojem 2-osobowym z balkonem, który korzysta z łazienki na korytarzu. Wszystkie pozostałe pokoje mają własną łazienkę z prysznicem."}},
+      {"@type": "Question", "name": "Czy przy noclegu jest parking?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Parking znajduje się na terenie posesji i jest bezpłatny dla Gości, bez limitu miejsc i bez rezerwacji. To istotne, bo parkowanie w centrum Zakopanego jest płatne i trudno o miejsce w sezonie."}},
+      {"@type": "Question", "name": "Jak daleko jest przystanek autobusowy?", "acceptedAnswer": {"@type": "Answer", "text": "Przystanek komunikacji miejskiej jest 30 metrów od willi. Stamtąd dojedziesz na Krupówki w 7 minut, a busy na Kasprowy Wierch i pod Morskie Oko odjeżdżają z pobliskich przystanków."}},
+      {"@type": "Question", "name": "Czy trzeba płacić taksę klimatyczną osobno?", "acceptedAnswer": {"@type": "Answer", "text": "Nie. Taksa klimatyczna jest wliczona w podaną cenę. Nie ma żadnych dopłat doliczanych na miejscu."}},
+      {"@type": "Question", "name": "Czy jest kuchnia do dyspozycji Gości?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, na korytarzu znajduje się wspólny aneks kuchenny dostępny dla wszystkich Gości. Śniadania nie są wliczone w cenę, ale w sąsiednim budynku działa cukiernia Góralskie Praliny, gdzie śniadanie kosztuje od 20 do 40 zł od osoby."}},
+      {"@type": "Question", "name": "Jak zarezerwować pokój?", "acceptedAnswer": {"@type": "Answer", "text": "Zadzwoń pod 607 312 972 albo wyślij formularz zapytania na stronie rezerwacji. Podaj datę przyjazdu, datę wyjazdu i liczbę osób, a odeślemy konkretną cenę za cały pobyt."}}
+    ]
+  }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokoje w Zakopanem z łazienką i parkingiem – cennik | Willa Storczyk</title>
+  <meta name="description" content="Pokoje 2, 3 i 4-osobowe z prywatną łazienką w Zakopanem. Bezpłatny parking na posesji, przystanek 30 m, taksa klimatyczna w cenie. Cennik od 100 zł za osobę.">
+  <meta name="keywords" content="pokoje z łazienką Zakopane, nocleg Zakopane z parkingiem, cennik pokoi Zakopane, pokoje 4-osobowe Zakopane, nocleg blisko przystanku Zakopane, willa Droga na Bystre">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://storczykzakopane.pl/pokoje-zakopane.html">
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pokoje w Zakopanem z łazienką i parkingiem – cennik | Willa Storczyk">
+  <meta property="og:description" content="Pokoje 2, 3 i 4-osobowe z prywatną łazienką. Bezpłatny parking, przystanek 30 m od willi, taksa klimatyczna w cenie. Cennik od 100 zł za osobę.">
+  <meta property="og:url" content="https://storczykzakopane.pl/pokoje-zakopane.html">
+  <meta property="og:image" content="https://storczykzakopane.pl/zdj/gallery/room-2os.webp">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Willa Storczyk Zakopane">
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pokoje w Zakopanem z łazienką i parkingiem – cennik">
+  <meta name="twitter:description" content="Pokoje 2, 3 i 4-osobowe z prywatną łazienką. Bezpłatny parking, przystanek 30 m od willi, taksa klimatyczna w cenie.">
+  <meta name="twitter:image" content="https://storczykzakopane.pl/zdj/gallery/room-2os.webp">
+  <link href="/fonts/google-fonts.css" rel="stylesheet">
+  <style>
+    :root { --forest:#2c4a2c; --cream:#f5f0e8; --cream-light:#faf7f2; --dark:#1a2a1a; --text-mid:#6b7c6b; --gold:#b8963e; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Lato', sans-serif; background:var(--cream-light); color:var(--dark); line-height:1.8; }
+    nav:not(.bottom-nav) { position:fixed; top:0.8rem; left:50%; transform:translateX(-50%); z-index:1000; background:rgba(20,32,20,0.45); backdrop-filter:saturate(180%) blur(24px); -webkit-backdrop-filter:saturate(180%) blur(24px); padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:60px; border:1px solid rgba(255,255,255,0.1); border-radius:50px; box-shadow:0 4px 30px rgba(0,0,0,0.2); width:calc(100% - 2rem); max-width:1340px; box-sizing:border-box; transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .nav-brand { display:flex; align-items:center; gap:0.8rem; text-decoration:none; }
+    .nav-logo-img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.2); transition:border-color 0.3s; } .nav-brand:hover .nav-logo-img { border-color:rgba(245,240,232,0.5); }
+    .nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
+    .nav-brand-name { color:#f5f0e8; font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:0.04em; }
+    .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
+    .nav-page-label { position:absolute; left:50%; transform:translateX(-50%); color:rgba(245,240,232,0.6); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; }
+    .nav-right { display:flex; align-items:center; gap:0.6rem; }
+    .nav-social { display:flex; gap:0.4rem; align-items:center; }
+    .nav-social a { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); transition:all 0.3s; color:rgba(245,240,232,0.5); text-decoration:none; }
+    .nav-social a:hover { background:rgba(255,255,255,0.18); color:rgba(245,240,232,1); border-color:rgba(255,255,255,0.3); transform:translateY(-1px); }
+    .nav-social svg { width:14px; height:14px; fill:currentColor; }
+    .nav-back { color:rgba(245,240,232,0.85); font-size:0.72rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); padding:0.4rem 1rem; border-radius:50px; transition:all 0.3s; }
+    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); color:#fff; }
+
+    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.72)),url('zdj/gallery/hero-bg.webp') center/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; }
+    .article-hero-label { color:var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'Playfair Display',serif; font-size:2.8rem; color:#f5f0e8; font-weight:400; line-height:1.2; max-width:760px; margin:0 auto; }
+    .article-hero h1 em { font-style:italic; color:var(--gold); }
+    .article-hero p { color:rgba(245,240,232,0.7); margin-top:1rem; font-size:0.95rem; max-width:620px; }
+
+    .container { max-width:820px; margin:0 auto; padding:3rem 2rem 5rem; }
+    h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--forest); margin:2.5rem 0 0.8rem; }
+    p { margin-bottom:1rem; color:#333; font-size:0.95rem; line-height:1.8; }
+    .lead { font-size:1.02rem; }
+
+    /* PASEK ZAUFANIA */
+    .trust-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin:0 0 2.5rem; }
+    .trust-item { background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:12px; padding:0.9rem 0.7rem; text-align:center; box-shadow:0 2px 10px rgba(28,50,32,0.05); }
+    .trust-item strong { display:block; font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--forest); line-height:1.2; }
+    .trust-item span { display:block; font-size:0.7rem; color:var(--text-mid); letter-spacing:0.04em; margin-top:0.25rem; line-height:1.4; }
+    @media(max-width:600px) { .trust-row { grid-template-columns:repeat(2,1fr); } }
+
+    /* KARTY POKOI */
+    .rooms { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:1.5rem 0 2rem; }
+    @media(max-width:820px) { .rooms { grid-template-columns:1fr; } }
+    .room { background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:14px; overflow:hidden; box-shadow:0 4px 18px rgba(28,50,32,0.07); display:flex; flex-direction:column; }
+    .room img { width:100%; height:180px; object-fit:cover; display:block; }
+    .room-body { padding:1.1rem 1.2rem 1.3rem; display:flex; flex-direction:column; flex:1; }
+    .room-name { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--forest); margin-bottom:0.2rem; }
+    .room-from { font-size:0.85rem; color:var(--gold); font-weight:700; letter-spacing:0.03em; margin-bottom:0.7rem; }
+    .room ul { list-style:none; margin:0; padding:0; }
+    .room ul li { font-size:0.87rem; color:#444; padding-left:1.1rem; position:relative; margin-bottom:0.3rem; line-height:1.55; }
+    .room ul li::before { content:''; position:absolute; left:0; top:0.55rem; width:5px; height:5px; border-radius:50%; background:var(--gold); }
+    .room-note { font-size:0.76rem; color:var(--text-mid); font-style:italic; margin-top:0.7rem; line-height:1.5; }
+
+    /* CENNIK */
+    .price-table-wrap { overflow-x:auto; margin:1.5rem 0 0.8rem; -webkit-overflow-scrolling:touch; }
+    table.cennik { width:100%; min-width:460px; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 18px rgba(28,50,32,0.07); }
+    table.cennik th, table.cennik td { padding:0.85rem 1rem; text-align:left; font-size:0.9rem; border-bottom:1px solid rgba(44,74,44,0.08); }
+    table.cennik thead th { background:var(--forest); color:#f5f0e8; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; }
+    table.cennik tbody tr:last-child td { border-bottom:none; }
+    table.cennik td.price { font-weight:700; color:var(--forest); white-space:nowrap; }
+    table.cennik td small { display:block; color:var(--text-mid); font-size:0.76rem; font-weight:400; line-height:1.5; margin-top:0.15rem; }
+    .price-disclaimer { font-size:0.82rem; color:var(--text-mid); font-style:italic; margin-bottom:2rem; }
+
+    .tip-box { background:white; border-left:3px solid var(--forest); border-radius:0 6px 6px 0; padding:1.2rem 1.5rem; margin:2rem 0; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .tip-box strong { display:block; color:var(--forest); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem; }
+    .tip-box p { margin:0; font-size:0.9rem; }
+    .tip-box p strong { display:inline; color:inherit; font-size:inherit; letter-spacing:normal; text-transform:none; margin:0; }
+
+    /* W CENIE / POZA CENĄ */
+    .incl-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0 2rem; }
+    @media(max-width:640px) { .incl-grid { grid-template-columns:1fr; } }
+    .incl-card { background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:12px; padding:1.2rem 1.3rem; box-shadow:0 2px 12px rgba(28,50,32,0.05); }
+    .incl-card h3 { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--forest); margin-bottom:0.7rem; }
+    .incl-card ul { list-style:none; margin:0; padding:0; }
+    .incl-card li { font-size:0.89rem; color:#444; padding-left:1.5rem; position:relative; margin-bottom:0.4rem; line-height:1.6; }
+    .incl-card.yes li::before { content:'✓'; position:absolute; left:0; top:0; color:var(--forest); font-weight:700; }
+    .incl-card.no li::before { content:'·'; position:absolute; left:0.35rem; top:-0.1rem; color:var(--text-mid); font-weight:700; font-size:1.1rem; }
+
+    /* CTA */
+    .ctabox-nocleg { background:linear-gradient(135deg,#2f5030 0%,#1c3220 100%); border-radius:14px; padding:1.7rem 1.8rem 1.6rem; margin:2.8rem 0; box-shadow:0 12px 32px rgba(28,50,32,0.25); position:relative; overflow:hidden; }
+    .ctabox-nocleg::before { content:''; position:absolute; right:-55px; top:-70px; width:200px; height:200px; border-radius:50%; background:rgba(232,184,109,0.10); pointer-events:none; }
+    .ctabox-nocleg strong { display:block; color:#e8b86d; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.55rem; position:relative; }
+    .ctabox-nocleg p { color:rgba(245,240,232,0.82); font-size:0.95rem; line-height:1.7; position:relative; margin-bottom:0; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:0.7rem; margin-top:1.25rem; position:relative; }
+    .cta-nocleg-btn { display:inline-flex; align-items:center; gap:0.55rem; background:#e8b86d; color:#1c3220; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:0.8rem 1.5rem; border-radius:50px; box-shadow:0 6px 18px rgba(232,184,109,0.28); transition:transform 0.25s, box-shadow 0.25s, background 0.25s; }
+    .cta-nocleg-btn:hover { background:#f5cd85; color:#1c3220; transform:translateY(-2px); box-shadow:0 10px 26px rgba(232,184,109,0.42); }
+    .cta-nocleg-btn:focus-visible { outline:3px solid #f5cd85; outline-offset:3px; }
+    .cta-nocleg-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.5; transition:transform 0.25s; }
+    .cta-nocleg-btn:hover svg { transform:translateX(3px); }
+    .cta-phone-btn { display:inline-flex; align-items:center; gap:0.55rem; background:rgba(255,255,255,0.10); border:1px solid rgba(245,240,232,0.28); color:#f5f0e8; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-decoration:none; padding:0.8rem 1.4rem; border-radius:50px; transition:background 0.25s, border-color 0.25s; }
+    .cta-phone-btn:hover { background:rgba(255,255,255,0.2); border-color:rgba(245,240,232,0.55); }
+    .cta-phone-btn svg { width:15px; height:15px; fill:currentColor; }
+
+    /* LOKALIZACJA */
+    .dist-list { list-style:none; margin:1rem 0 1.5rem; padding:0; }
+    .dist-list li { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:0.7rem 1rem; margin-bottom:0.5rem; font-size:0.9rem; color:#333; }
+    .dist-list li span:last-child { color:var(--forest); font-weight:700; white-space:nowrap; font-size:0.87rem; }
+    .map-btn { display:inline-flex; align-items:center; gap:0.5rem; background:var(--forest); color:#f5f0e8; text-decoration:none; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.7rem 1.4rem; border-radius:6px; margin:0.5rem 0 1.5rem; transition:background 0.2s; }
+    .map-btn:hover { background:#1a3a1a; }
+    .map-btn svg { width:16px; height:16px; fill:currentColor; flex-shrink:0; }
+
+    /* FAQ */
+    .faq { background:linear-gradient(160deg,#ffffff 0%,#f7f2e9 100%); border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.7rem; margin:3rem 0; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .faq::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .faq-label { display:block; color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.35rem; }
+    .faq h2 { margin:0 0 1.3rem; font-size:1.5rem; }
+    .faq-item { background:#fff; border:1px solid rgba(44,74,44,0.08); border-radius:10px; padding:1.05rem 1.3rem; margin-bottom:0.7rem; box-shadow:0 2px 10px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .faq-item:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .faq-item:last-child { margin-bottom:0; }
+    .faq-q { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--forest); margin:0 0 0.4rem; padding-left:2rem; position:relative; line-height:1.45; }
+    .faq-q::before { content:'?'; position:absolute; left:0; top:0.1rem; width:1.4rem; height:1.4rem; border-radius:50%; background:rgba(184,150,62,0.14); color:var(--gold); font-family:'Lato',sans-serif; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .faq-a { margin:0; padding-left:2rem; font-size:0.92rem; line-height:1.75; color:#444; }
+
+    /* LINKI DO BLOGA */
+    .guide-links { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; margin:1.2rem 0 0; }
+    @media(max-width:640px) { .guide-links { grid-template-columns:1fr; } }
+    .guide-links a { display:block; background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:10px; padding:0.85rem 1rem; text-decoration:none; color:var(--forest); font-size:0.88rem; font-weight:700; transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .guide-links a:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .guide-links a small { display:block; font-weight:400; color:var(--text-mid); font-size:0.78rem; margin-top:0.15rem; line-height:1.5; }
+
+    .back-btn { display:flex; width:max-content; align-items:center; gap:0.5rem; margin:2.5rem auto 0; color:var(--forest); font-size:0.85rem; font-weight:700; text-decoration:none; background:#fff; border:1px solid rgba(44,74,44,0.32); padding:0.65rem 1.5rem; border-radius:50px; transition:color 0.2s, border-color 0.2s, background 0.2s; }
+    .back-btn:hover { background:rgba(44,74,44,0.08); border-color:var(--forest); }
+    @media(max-width:768px) { .back-btn { display:none; } }
+
+    @media(max-width:768px) {
+      .article-hero h1 { font-size:1.9rem; }
+      .container { padding:2.2rem 1.1rem 4rem; }
+      .faq { padding:1.5rem 1.1rem 1.2rem; border-radius:12px; margin:2.2rem 0; }
+      .faq h2 { font-size:1.25rem; }
+      .faq-item { padding:0.95rem 1rem; }
+      .ctabox-nocleg { padding:1.4rem 1.2rem 1.3rem; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+<!-- MOBILE TOP BAR -->
+<div class="mobile-topbar">
+  <a href="javascript:history.back()" class="mobile-topbar-back" aria-label="Wróć">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </a>
+  <a href="index.html" class="mobile-topbar-brand">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo" class="mobile-topbar-logo">
+    <span class="mobile-topbar-url">storczykzakopane.pl</span>
+  </a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Storczyk</span>
+      <span class="nav-brand-sub">Zakopane</span>
+    </div>
+  </a>
+  <span class="nav-page-label">Pokoje i cennik</span>
+  <div class="nav-right"><span class="nav-social"><a href="https://www.facebook.com/profile.php?id=61576000020623" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.tiktok.com/@storczykzakopane" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a><a href="https://www.instagram.com/storczykzakopane/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></span><a href="index.html" class="nav-back">← Strona główna</a></div>
+</nav>
+
+<div class="article-hero">
+  <p class="article-hero-label">Willa Storczyk · Droga na Bystre 1</p>
+  <h1>Pokoje w Zakopanem <em>z łazienką i parkingiem</em></h1>
+  <p>Sześć pokoi dla 2, 3 i 4 osób w drewnianej willi. Auto zostawiasz na posesji, przystanek masz 30 metrów dalej.</p>
+</div>
+
+<div class="container">
+
+  <div class="trust-row">
+    <div class="trust-item"><strong>6</strong><span>pokoi w willi</span></div>
+    <div class="trust-item"><strong>30 m</strong><span>do przystanku</span></div>
+    <div class="trust-item"><strong>0 zł</strong><span>za parking</span></div>
+    <div class="trust-item"><strong>W cenie</strong><span>taksa klimatyczna</span></div>
+  </div>
+
+  <p class="lead">Willa Storczyk to sześć pokoi przy Drodze na Bystre, około 20 minut spacerem od Krupówek. Każdy pokój ma prywatną łazienkę, na korytarzu jest wspólny aneks kuchenny, a samochód zostawiasz na naszym parkingu bez dopłaty. Poniżej znajdziesz konkretne ceny, opis każdego typu pokoju i to, co dokładnie mieści się w stawce.</p>
+
+  <h2>Typy pokoi</h2>
+  <div class="rooms">
+    <div class="room">
+      <img src="zdj/gallery/room-2os.webp" alt="Pokój 2-osobowy z łazienką w Zakopanem – Willa Storczyk" loading="lazy" decoding="async" width="400" height="180">
+      <div class="room-body">
+        <p class="room-name">Pokój 2-osobowy</p>
+        <p class="room-from">od 100 zł / os. / doba</p>
+        <ul>
+          <li>Dwa pojedyncze łóżka</li>
+          <li>Prywatna łazienka z prysznicem</li>
+          <li>Bezpłatne Wi-Fi</li>
+          <li>3 pokoje tego typu</li>
+        </ul>
+        <p class="room-note">Jeden z pokoi 2-osobowych ma balkon, a łazienkę na korytarzu. Powiedz przy rezerwacji, który wolisz.</p>
+      </div>
+    </div>
+    <div class="room">
+      <img src="zdj/gallery/room-3os.webp" alt="Pokój 3-osobowy z łazienką w Zakopanem – Willa Storczyk" loading="lazy" decoding="async" width="400" height="180">
+      <div class="room-body">
+        <p class="room-name">Pokój 2/3-osobowy</p>
+        <p class="room-from">od 100 zł / os. / doba</p>
+        <ul>
+          <li>Jedno pojedyncze łóżko</li>
+          <li>Kanapa rozkładana dla 2 osób</li>
+          <li>Prywatna łazienka z prysznicem</li>
+          <li>Bezpłatne Wi-Fi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="room">
+      <img src="zdj/gallery/room-4os.webp" alt="Pokój 4-osobowy rodzinny z łazienką w Zakopanem – Willa Storczyk" loading="lazy" decoding="async" width="400" height="180">
+      <div class="room-body">
+        <p class="room-name">Pokój 3/4-osobowy</p>
+        <p class="room-from">od 100 zł / os. / doba</p>
+        <ul>
+          <li>Łóżko podwójne</li>
+          <li>Kanapa rozkładana dla 2 osób</li>
+          <li>Prywatna łazienka z prysznicem</li>
+          <li>2 pokoje tego typu</li>
+        </ul>
+        <p class="room-note">Najczęściej wybierany przez rodziny z dziećmi.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Cennik</h2>
+  <p>Stawka jest podawana od osoby za dobę i zależy od terminu, liczby osób w pokoju oraz długości pobytu. Przy dłuższych pobytach i mniejszym obłożeniu pokoju cena za osobę jest niższa.</p>
+
+  <div class="price-table-wrap">
+    <table class="cennik">
+      <thead>
+        <tr>
+          <th scope="col">Okres</th>
+          <th scope="col">Kiedy</th>
+          <th scope="col">Cena od</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Poza sezonem</td>
+          <td>kwiecień – czerwiec, wrzesień – listopad<small>bez długich weekendów</small></td>
+          <td class="price">100 zł<small>os. / doba</small></td>
+        </tr>
+        <tr>
+          <td>Sezon</td>
+          <td>wakacje, ferie zimowe, długie weekendy<small>oraz sezon narciarski</small></td>
+          <td class="price">120 zł<small>os. / doba</small></td>
+        </tr>
+        <tr>
+          <td>Szczyt sezonu</td>
+          <td>Boże Narodzenie, Sylwester, Nowy Rok<small>oraz Wielkanoc</small></td>
+          <td class="price">150 zł<small>os. / doba</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="price-disclaimer">Podane stawki to ceny wyjściowe. Dokładną kwotę za cały pobyt podajemy po podaniu daty przyjazdu, daty wyjazdu i liczby osób. Zadzwoń albo napisz, odpowiadamy tego samego dnia.</p>
+
+  <div class="ctabox-nocleg">
+    <strong>Sprawdź termin</strong>
+    <p>Napisz datę przyjazdu, datę wyjazdu i liczbę osób, a odeślemy konkretną cenę za cały pobyt. Bez zaliczki online i bez prowizji dla pośredników.</p>
+    <div class="cta-row">
+      <a href="rezerwacja.html" class="cta-nocleg-btn">Zapytaj o termin <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="tel:+48607312972" class="cta-phone-btn"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg> 607 312 972</a>
+    </div>
+  </div>
+
+  <h2>Co jest w cenie, a co nie</h2>
+  <div class="incl-grid">
+    <div class="incl-card yes">
+      <h3>W cenie</h3>
+      <ul>
+        <li>Taksa klimatyczna</li>
+        <li>Parking na terenie posesji</li>
+        <li>Bezpłatne Wi-Fi</li>
+        <li>Pościel i ręczniki</li>
+        <li>Wspólny aneks kuchenny</li>
+        <li>Stojak na narty</li>
+        <li>Odbiór z dworca po umówieniu</li>
+      </ul>
+    </div>
+    <div class="incl-card no">
+      <h3>Poza ceną</h3>
+      <ul>
+        <li>Śniadania (cukiernia obok, 20 – 40 zł od osoby)</li>
+        <li>Bilety na Kasprowy Wierch i wstęp do TPN</li>
+        <li>Parkingi przy szlakach, np. Palenica Białczańska</li>
+        <li>Pobyt zwierząt, ustalany indywidualnie</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Dlaczego parking ma znaczenie</strong>
+    <p>Cała okolica Krupówek to płatna strefa parkowania, a w sezonie miejsce trzeba złapać rano. U nas zostawiasz auto na posesji za darmo i na Krupówki jedziesz autobusem w 7 minut. Więcej o tym w naszym <a href="blog-parking-zakopane.html">poradniku o parkingach w Zakopanem</a>.</p>
+  </div>
+
+  <h2>Gdzie dokładnie jesteśmy</h2>
+  <p>Droga na Bystre 1, po wschodniej stronie Zakopanego. Spokojna okolica, ale z przystankiem komunikacji miejskiej praktycznie pod nosem, więc nie potrzebujesz auta żeby poruszać się po mieście.</p>
+  <ul class="dist-list">
+    <li><span>Przystanek autobusowy</span><span>30 m</span></li>
+    <li><span>Krupówki pieszo</span><span>ok. 20 min</span></li>
+    <li><span>Krupówki autobusem</span><span>7 min</span></li>
+    <li><span>Dworzec PKS i PKP</span><span>ok. 2,5 km</span></li>
+    <li><span>Wielka Krokiew</span><span>ok. 10 min</span></li>
+    <li><span>Kolejka na Kasprowy Wierch (Kuźnice)</span><span>ok. 10 min autobusem</span></li>
+  </ul>
+  <a href="https://maps.google.com/?cid=15771214070129548552" target="_blank" rel="noopener noreferrer" class="map-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    Zobacz na mapie Google
+  </a>
+
+  <h2>Jak zarezerwować</h2>
+  <p>Na dwa sposoby: zadzwoń pod <a href="tel:+48607312972" style="color:var(--forest);font-weight:700;">607 312 972</a> albo wyślij <a href="rezerwacja.html" style="color:var(--forest);font-weight:700;">formularz zapytania</a>.</p>
+
+  <section class="faq">
+    <span class="faq-label">Pytania i odpowiedzi</span>
+    <h2>Najczęstsze pytania o pokoje i ceny</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Ile kosztuje pokój w Zakopanem w Willi Storczyk?</h3>
+      <p class="faq-a">Ceny zaczynają się od 100 zł od osoby za dobę poza sezonem, od 120 zł w wakacje i ferie oraz od 150 zł w okresie świąteczno-noworocznym. Stawka zależy od liczby osób i długości pobytu. Taksa klimatyczna, Wi-Fi i parking są wliczone.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy wszystkie pokoje mają prywatną łazienkę?</h3>
+      <p class="faq-a">Tak, poza jednym pokojem 2-osobowym z balkonem, który korzysta z łazienki na korytarzu. Wszystkie pozostałe pokoje mają własną łazienkę z prysznicem.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy przy noclegu jest parking?</h3>
+      <p class="faq-a">Tak. Parking znajduje się na terenie posesji i jest bezpłatny dla Gości, bez limitu miejsc i bez rezerwacji. To istotne, bo parkowanie w centrum Zakopanego jest płatne i trudno o miejsce w sezonie.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Jak daleko jest przystanek autobusowy?</h3>
+      <p class="faq-a">Przystanek komunikacji miejskiej jest 30 metrów od willi. Stamtąd dojedziesz na Krupówki w 7 minut, a rozkłady i ceny biletów opisaliśmy w <a href="blog-komunikacja.html" style="color:var(--forest);font-weight:700;">przewodniku po komunikacji miejskiej</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy trzeba płacić taksę klimatyczną osobno?</h3>
+      <p class="faq-a">Nie. Taksa klimatyczna jest wliczona w podaną cenę. Nie ma żadnych dopłat doliczanych na miejscu.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy jest kuchnia do dyspozycji Gości?</h3>
+      <p class="faq-a">Tak, na korytarzu znajduje się wspólny aneks kuchenny dostępny dla wszystkich Gości. Śniadania nie są wliczone w cenę, ale w sąsiednim budynku działa cukiernia Góralskie Praliny, gdzie śniadanie kosztuje od 20 do 40 zł od osoby.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Czy można przyjechać z psem?</h3>
+      <p class="faq-a">To zależy od wielkości i zachowania psa. Prosimy o kontakt telefoniczny, ustalimy to indywidualnie.</p>
+    </div>
+  </section>
+
+  <h2>Zanim przyjedziesz</h2>
+  <p>Zebraliśmy praktyczne informacje o okolicy, z których korzystają nasi Goście:</p>
+  <div class="guide-links">
+    <a href="blog-komunikacja.html">Komunikacja miejska w Zakopanem<small>rozkłady, ceny biletów, bilet rodzinny</small></a>
+    <a href="blog-parking-zakopane.html">Parkingi w Zakopanem<small>strefy płatne, ceny, gdzie zostawić auto</small></a>
+    <a href="blog-morskie-oko.html">Morskie Oko<small>dojazd, parking Palenica, czas przejścia</small></a>
+    <a href="blog-kasprowy-wierch.html">Kasprowy Wierch<small>bilety na kolejkę, dojazd z Zakopanego</small></a>
+  </div>
+
+  <a href="index.html" class="back-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Wróć na stronę główną
+  </a>
+
+</div>
+
+<style>
+  /* Nawigacja mobilna. Ten sam blok co w artykulach blogowych – te strony nie
+     laduja main.css, wiec style dolnego paska i wyspy musza byc lokalnie. */
+  .mobile-topbar { display:none; }
+  .bottom-nav { display:none; }
+  @media (max-width:768px) {
+    .mobile-topbar { display:flex; justify-content:center; align-items:center; position:fixed; top:0.5rem; left:50%; transform:translateX(-50%); z-index:997; padding:0.45rem 0.6rem 0.45rem 0.5rem; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); border-radius:40px; border:1px solid rgba(255,255,255,0.12); }
+    .mobile-topbar-brand { display:flex; align-items:center; gap:0.45rem; text-decoration:none; }
+    .mobile-topbar-logo { width:26px; height:26px; border-radius:50%; object-fit:cover; }
+    .mobile-topbar-url { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
+    .mobile-topbar-back { display:flex; align-items:center; justify-content:center; background:none; border:none; color:rgba(245,240,232,0.7); cursor:pointer; padding:0.3rem; margin-right:0.2rem; border-radius:50%; transition:color 0.2s,background 0.2s; text-decoration:none; }
+    .mobile-topbar-back:hover { color:#f5f0e8; background:rgba(255,255,255,0.1); }
+    nav:not(.bottom-nav) { display:none !important; }
+    .bottom-nav { display:flex; position:fixed; top:auto; bottom:calc(0.5rem + env(safe-area-inset-bottom,0px)); left:0.6rem; right:0.6rem; z-index:9999; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); padding:0.25rem; justify-content:space-around; align-items:stretch; border:1px solid rgba(255,255,255,0.1); border-radius:40px; }
+    .bottom-nav a, .bottom-nav button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.15rem; color:rgba(245,240,232,0.45); text-decoration:none; font-family:'Lato',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:none; border:none; cursor:pointer; padding:0.5rem 0; transition:color 0.2s,background 0.2s; -webkit-tap-highlight-color:transparent; border-radius:30px; position:relative; flex:1; }
+    .bottom-nav a:hover, .bottom-nav button:hover, .bottom-nav a:active, .bottom-nav button:active { color:rgba(245,240,232,0.9); background:rgba(255,255,255,0.12); }
+    .bottom-nav a.bnav-active { color:#f5f0e8; background:rgba(255,255,255,0.15); }
+    .bottom-nav .bnav-icon { width:20px; height:20px; fill:none; stroke:currentColor; }
+    .bottom-nav .bnav-rez { color:#e8b86d; }
+    .bottom-nav .bnav-rez:hover, .bottom-nav .bnav-rez:active { color:#f0c878; background:rgba(232,184,109,0.15); }
+    /* wyspa u gory zaslonilaby naglowek hero */
+    .article-hero { padding-top:6rem; }
+  }
+</style>
+
+<footer class="footer-slim">
+  <p class="footer-copy">© 2026 Wynajem Pokoi Storczyk Zakopane · storczykzakopane.pl · Wszelkie prawa zastrzeżone</p>
+  <p class="footer-regulamin"><a href="regulamin.html">Regulamin i Polityka Prywatności</a></p>
+</footer>
+
+<style>
+  /* Waska stopka dla bloga i regulaminu. Pelna wersja z logo, adresem i
+     przyciskami spolecznosciowymi jest tylko na stronie glownej
+     (partials/footer.html). Style siedza tutaj, bo te strony nie ladują
+     main.css. */
+  footer.footer-slim {
+    background: #1E2A1E;
+    font-family: 'Lato', sans-serif;
+    padding: 2rem 2rem 1.8rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer.footer-slim .footer-copy {
+    margin: 0;
+    font-size: 0.7rem;
+    color: rgba(245,240,232,0.35);
+    text-align: center;
+  }
+  footer.footer-slim .footer-regulamin { margin: 0.5rem 0 0; font-size: 0.75rem; text-align: center; }
+  footer.footer-slim .footer-regulamin a { color: rgba(245,240,232,0.55); text-decoration: none; transition: color 0.3s; }
+  footer.footer-slim .footer-regulamin a:hover { color: rgba(245,240,232,0.9); }
+  /* Dolny pasek nawigacji na telefonie zaslonilby ostatnia linijke */
+  @media (max-width:768px) { footer.footer-slim { padding-bottom: 6rem; } }
+</style>
+
+<!-- BOTTOM NAV BAR (mobile) -->
+<nav class="bottom-nav">
+  <a href="index.html" class="bnav-home">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Dom</span>
+  </a>
+  <a href="tel:+48607312972">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Telefon</span>
+  </a>
+  <a href="rezerwacja.html" class="bnav-rez">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+    <span>Rezerwuj</span>
+  </a>
+  <a href="blog.html">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <span>Blog</span>
+  </a>
+  <button class="bnav-menu" onclick="toggleMenu()">
+    <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>Menu</span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-brand">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk" class="mobile-menu-logo">
+    <div class="mobile-menu-brand-text">
+      <span class="mobile-menu-brand-name">storczykzakopane.pl</span>
+    </div>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="index.html" onclick="closeMenu()">Strona główna</a>
+    <a href="index.html#o-nas" onclick="closeMenu()">O nas</a>
+    <a href="index.html#lokalizacja" onclick="closeMenu()">Lokalizacja</a>
+    <a href="pokoje-zakopane.html" onclick="closeMenu()">Pokoje i cennik</a>
+    <a href="rezerwacja.html" onclick="closeMenu()">Rezerwacja</a>
+    <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="index.html#opinie" onclick="closeMenu()">Opinie</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#galeria" onclick="closeMenu()">Galeria</a>
+  </div>
+</div>
+
+<style>
+  .mobile-menu { display:flex; position:fixed; top:68px; right:0; bottom:auto; left:auto; width:280px; background:rgba(26,36,26,0.88); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); z-index:999; flex-direction:column; padding:1rem 0; box-shadow:-8px 8px 24px rgba(0,0,0,0.3); border-radius:0 0 0 16px; transform:translateX(100%); visibility:hidden; transition:transform 0.3s ease, visibility 0.3s ease; }
+  .mobile-menu.open { transform:translateX(0); visibility:visible; }
+  @media (max-width:768px) {
+    .mobile-menu {
+      position:fixed !important;
+      inset:0 !important;
+      width:100% !important;
+      height:100% !important;
+      transform:none !important;
+      background:rgba(30,30,30,0.70) !important;
+      backdrop-filter:saturate(180%) blur(24px);
+      -webkit-backdrop-filter:saturate(180%) blur(24px);
+      flex-direction:column !important; align-items:center; justify-content:flex-start;
+      padding:0 1.5rem 5rem !important; gap:0;
+      z-index:9997 !important; border:none !important; box-shadow:none !important;
+      border-radius:0 !important;
+      overflow-y:auto; opacity:0; visibility:hidden;
+      transition:opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .mobile-menu.open { display:flex !important; opacity:1 !important; visibility:visible !important; transform:none !important; }
+    .mobile-menu a {
+      display:block !important; width:100%; max-width:320px; text-align:center !important;
+      padding:0.85rem 1.5rem !important; border:1px solid rgba(255,255,255,0.15) !important;
+      border-radius:50px !important; font-size:0.88rem !important; letter-spacing:0.06em;
+      color:var(--cream,#f5f0e8); text-decoration:none; font-weight:700; text-transform:uppercase;
+      transition:background 0.2s, border-color 0.2s;
+    }
+    .mobile-menu a:hover { background:rgba(255,255,255,0.1) !important; border-color:rgba(255,255,255,0.35) !important; }
+    .mobile-menu-brand { display:flex !important; flex-direction:row; align-items:center; gap:0.55rem; margin-top:3rem; margin-bottom:2.5rem; padding:0.45rem 1.1rem; background:rgba(15,15,15,0.6); backdrop-filter:saturate(180%) blur(22px); -webkit-backdrop-filter:saturate(180%) blur(22px); border-radius:40px; border:1px solid rgba(255,255,255,0.08); text-decoration:none; }
+    .mobile-menu-logo { width:26px; height:26px; border-radius:50%; object-fit:cover; }
+    .mobile-menu-brand-text { display:flex; flex-direction:column; }
+    .mobile-menu-brand-name { font-family:'Lato',sans-serif; font-size:0.72rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
+    .mobile-menu-brand-sub { display:none; }
+    .mobile-menu-links { display:flex; flex-direction:column; align-items:center; width:100%; gap:0.55rem; }
+  }
+</style>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open')) {
+    closeMenu();
+  } else {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        menu.classList.add('open');
+        if (hamburger) hamburger.classList.add('open');
+      });
+    });
+  }
+}
+
+// Bottom nav active state – page default always stays, Menu toggles separately
+(function() {
+  var menuBtn = document.querySelector('.bottom-nav .bnav-menu');
+  if (menuBtn) {
+    var origToggle = window.toggleMenu;
+    window.toggleMenu = function() {
+      var menu = document.getElementById('mobile-menu');
+      var wasOpen = menu.classList.contains('open');
+      origToggle();
+      if (wasOpen) {
+        menuBtn.classList.remove('bnav-active');
+      } else {
+        menuBtn.classList.add('bnav-active');
+      }
+    };
+    var origClose = window.closeMenu;
+    window.closeMenu = function() {
+      origClose();
+      menuBtn.classList.remove('bnav-active');
+    };
+  }
+})();
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  menu.addEventListener('transitionend', function handler() {
+    if (!menu.classList.contains('open')) {
+      menu.style.display = '';
+    }
+    menu.removeEventListener('transitionend', handler);
+  });
+}
+</script>
+</body>
+</html>

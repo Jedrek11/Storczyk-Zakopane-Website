@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Willa Storczyk Zakopane – Wynajem Pokoi | Noclegi od 100 zł</title>
+<title>Willa Storczyk Zakopane – Wynajem Pokoi | Noclegi od {{pricing.lowFrom}} zł</title>
   <!-- SEO META TAGI -->
-  <meta name="description" content="Wynajem pokoi Zakopane – Willa Storczyk. Pokoje 2–4 osobowe z łazienkami, Wi-Fi i parkingiem. Blisko Krupówek i Kasprowego Wierchu. Od 100 zł/os./dobę.">
+  <meta name="description" content="Wynajem pokoi Zakopane – Willa Storczyk. Pokoje 2–4 osobowe z łazienkami, Wi-Fi i parkingiem. Blisko Krupówek i Kasprowego Wierchu. Od {{pricing.lowFrom}} zł/os./dobę.">
   <meta name="keywords" content="wynajem pokoi Zakopane, noclegi Zakopane centrum, kwatery Zakopane, pokoje Zakopane, Willa Storczyk, noclegi przy Krupówkach, tanie noclegi Zakopane, pokoje z łazienką Zakopane">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Willa Storczyk Zakopane">
@@ -15,7 +15,7 @@
   <!-- OPEN GRAPH (Facebook, Messenger, WhatsApp) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Willa Storczyk – Wynajem Pokoi Zakopane Centrum">
-  <meta property="og:description" content="Przytulne pokoje w centrum Zakopanego. Bezpłatny parking, Wi-Fi, taksa klimatyczna w cenie. Blisko Krupówek i Kasprowego Wierchu. Od 100 zł/os./dobę.">
+  <meta property="og:description" content="Przytulne pokoje w centrum Zakopanego. Bezpłatny parking, Wi-Fi, taksa klimatyczna w cenie. Blisko Krupówek i Kasprowego Wierchu. Od {{pricing.lowFrom}} zł/os./dobę.">
   <meta property="og:url" content="{{urls.baseUrl}}/">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="Willa Storczyk Zakopane">
@@ -24,7 +24,7 @@
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Willa Storczyk – Wynajem Pokoi Zakopane Centrum">
-  <meta name="twitter:description" content="Przytulne pokoje w centrum Zakopanego. Bezpłatny parking, Wi-Fi, taksa klimatyczna w cenie. Blisko Krupówek i Kasprowego Wierchu. Od 100 zł/os./dobę.">
+  <meta name="twitter:description" content="Przytulne pokoje w centrum Zakopanego. Bezpłatny parking, Wi-Fi, taksa klimatyczna w cenie. Blisko Krupówek i Kasprowego Wierchu. Od {{pricing.lowFrom}} zł/os./dobę.">
   <meta name="twitter:image" content="{{urls.baseUrl}}/zdj/gallery/hero-bg.webp">
 
   <!-- SCHEMA.ORG – dane strukturalne dla Google -->
@@ -36,7 +36,7 @@
     "description": "Przytulna drewniana willa w centrum Zakopanego. Pokoje 2, 3 i 4-osobowe z prywatnymi łazienkami, bezpłatnym parkingiem i Wi-Fi. Blisko Krupówek, Kasprowego Wierchu i szlaków tatrzańskich.",
     "url": "{{urls.baseUrl}}",
     "telephone": "{{contact.phoneMobile}}",
-    "priceRange": "100-200 PLN",
+    "priceRange": "{{pricing.lowFrom}}-{{pricing.peakFrom}} PLN",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Droga na Bystre 1",
@@ -82,7 +82,7 @@
       "cssSelector": ["#o-nas", "#pokoje", "#lokalizacja", "#faq"]
     },
     "sameAs": [
-      "https://maps.app.goo.gl/RG8Byvs9u7my1c5TV",
+      "https://maps.google.com/?cid=15771214070129548552",
       "https://www.facebook.com/share/1KkBXUvRLa/",
       "{{urls.tiktok}}",
       "{{urls.instagram}}",
@@ -202,7 +202,7 @@
 <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 <link href="/fonts/google-fonts.css" rel="stylesheet">
 <!-- ?v= przy każdej zmianie main.css – /assets/* leci z Cache-Control immutable na rok -->
-<link rel="stylesheet" href="/assets/css/main.css?v=20260817d">
+<link rel="stylesheet" href="/assets/css/main.css?v=20260831a">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -230,6 +230,7 @@
     <li><a href="#o-nas">O nas</a></li>
     <li><a href="#lokalizacja">Lokalizacja</a></li>
     <li><a href="#pokoje">Pokoje</a></li>
+    <li><a href="pokoje-zakopane.html">Cennik</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="blog.html" class="nav-blog-link">Blog</a></li>
   </ul>
@@ -276,7 +277,7 @@
         <p>Oferujemy przytulne pokoje gościnne z prywatnymi łazienkami. Do dyspozycji Gości dostępny jest wspólny <strong>aneks kuchenny</strong> z pełnym wyposażeniem: kuchenką elektryczną, mikrofalówką, lodówką i naczyniami.</p>
         <p>30 metrów od domu znajdziesz przystanek autobusowy, z którego dojedziesz wprost pod kolejkę na <strong>Kasprowy Wierch</strong>. Dzięki świetnej lokalizacji nie będziesz musiał martwić się o miejsce parkingowe w Zakopanem, co pozwoli Ci na zwiedzanie miasta bez konieczności używania samochodu.</p>
         <p>Cena nie zawiera dodatkowych dopłat i obejmuje: <strong>taksę klimatyczną</strong>, <strong>Wi-Fi</strong> oraz <strong>parking</strong>. Przy rezerwacji prosimy o podanie liczby osób, daty przyjazdu i wyjazdu.</p>
-        <p><strong class="price-blink">Cena od 100 zł</strong> od osoby za dobę (zależy od sezonu i liczby osób).</p>
+        <p><strong class="price-blink">Cena od {{pricing.lowFrom}} zł</strong> od osoby za dobę (zależy od sezonu i liczby osób).</p>
         
         <div class="review-badges" data-reveal="fade-up" data-delay="100" style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0;">
         <a href="https://maps.app.goo.gl/qVVm1m6aJQ5KG3pUA" target="_blank" rel="noopener noreferrer" style="display:inline-flex; margin-top:1rem; align-items:center; gap:0.7rem; text-decoration:none; background:white; border:1px solid rgba(30,42,30,0.07); border-radius:14px; padding:0.6rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)';this.style.transform='translateY(0)'">
@@ -366,7 +367,7 @@
         </div>
         <div class="room-body">
           <p class="room-title">Pokój 2-osobowy</p>
-          <p class="room-price">Od 100 zł / osoba / noc</p>
+          <p class="room-price">Od {{pricing.lowFrom}} zł / osoba / noc</p>
           <ul class="room-features">
             <li>Dwa pojedyncze łóżka</li>
             <li>Prywatna łazienka</li>
@@ -383,7 +384,7 @@
         </div>
         <div class="room-body">
           <p class="room-title">Pokój 2/3-osobowy</p>
-          <p class="room-price">Od 100 zł / osoba / noc</p>
+          <p class="room-price">Od {{pricing.lowFrom}} zł / osoba / noc</p>
           <ul class="room-features">
             <li>Prywatna łazienka</li>
             <li>Jedno pojedyncze łóżko</li>
@@ -400,7 +401,7 @@
         </div>
         <div class="room-body">
           <p class="room-title">Pokój 3/4-osobowy</p>
-          <p class="room-price">Od 100 zł / osoba / noc</p>
+          <p class="room-price">Od {{pricing.lowFrom}} zł / osoba / noc</p>
           <ul class="room-features">
             <li>Prywatna łazienka</li>
             <li>Jedno łóżko podwójne</li>
@@ -418,6 +419,12 @@
       <span class="rooms-summary-item"><strong>1×</strong> Pokój 2/3-osobowy</span>
       <span class="rooms-summary-dot">•</span>
       <span class="rooms-summary-item"><strong>2×</strong> Pokój 3/4-osobowy</span>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;" data-reveal="fade-up">
+      <a href="pokoje-zakopane.html" class="btn-pokoje">Pełny cennik i opis pokoi
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
 
   </div>
@@ -990,7 +997,7 @@
   })();
 })();
 </script>
-<script src="/assets/js/main.js?v=20260817d" defer></script>
+<script src="/assets/js/main.js?v=20260831a" defer></script>
 </body>
 </html>
 

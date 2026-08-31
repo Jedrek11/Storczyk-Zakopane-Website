@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Rezerwacja pobytu – Willa Storczyk Zakopane",
+    "description": "Formularz zapytania o wolny termin w Willi Storczyk w Zakopanem. Rezerwacja bezpośrednia, bez pośredników i bez zaliczki online.",
+    "url": "{{urls.baseUrl}}/rezerwacja.html",
+    "inLanguage": "pl",
+    "isPartOf": {"@type": "WebSite", "name": "Willa Storczyk Zakopane", "url": "{{urls.baseUrl}}"},
+    "about": {
+      "@type": "LodgingBusiness",
+      "name": "Willa Storczyk Zakopane",
+      "telephone": "{{contact.phoneMobile}}",
+      "email": "{{contact.email}}",
+      "url": "{{urls.baseUrl}}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{business.street}}",
+        "addressLocality": "{{business.city}}",
+        "postalCode": "{{business.postalCode}}",
+        "addressCountry": "PL"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "{{urls.baseUrl}}"},
+      {"@type": "ListItem", "position": 2, "name": "Pokoje i cennik", "item": "{{urls.baseUrl}}/pokoje-zakopane.html"},
+      {"@type": "ListItem", "position": 3, "name": "Rezerwacja"}
+    ]
+  }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rezerwacja pokoju w Zakopanem – Willa Storczyk</title>
+  <meta name="description" content="Zapytaj o wolny termin w Willi Storczyk w Zakopanem. Rezerwacja bezpośrednio u gospodarzy, bez pośredników i bez zaliczki online. Odpowiadamy tego samego dnia.">
+  <meta name="keywords" content="rezerwacja nocleg Zakopane, wolne terminy Zakopane, zapytanie o pokój Zakopane, Willa Storczyk rezerwacja">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{urls.baseUrl}}/rezerwacja.html">
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rezerwacja pokoju w Zakopanem – Willa Storczyk">
+  <meta property="og:description" content="Zapytaj o wolny termin. Rezerwacja bezpośrednio u gospodarzy, bez pośredników i bez zaliczki online.">
+  <meta property="og:url" content="{{urls.baseUrl}}/rezerwacja.html">
+  <meta property="og:image" content="{{urls.baseUrl}}/zdj/gallery/hero-bg.webp">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Willa Storczyk Zakopane">
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rezerwacja pokoju w Zakopanem – Willa Storczyk">
+  <meta name="twitter:description" content="Zapytaj o wolny termin. Rezerwacja bezpośrednio u gospodarzy, bez pośredników i bez zaliczki online.">
+  <meta name="twitter:image" content="{{urls.baseUrl}}/zdj/gallery/hero-bg.webp">
+  <link href="/fonts/google-fonts.css" rel="stylesheet">
+  <style>
+    :root {
+      --forest:#2c4a2c; --forest-mid:#4A6741; --cream:#f5f0e8; --cream-light:#faf7f2;
+      --dark:#1a2a1a; --text-dark:#1A2A1A; --text-mid:#6b7c6b; --gold:#b8963e;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Lato', sans-serif; background:var(--cream-light); color:var(--dark); line-height:1.8; }
+    nav:not(.bottom-nav) { position:fixed; top:0.8rem; left:50%; transform:translateX(-50%); z-index:1000; background:rgba(20,32,20,0.45); backdrop-filter:saturate(180%) blur(24px); -webkit-backdrop-filter:saturate(180%) blur(24px); padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:60px; border:1px solid rgba(255,255,255,0.1); border-radius:50px; box-shadow:0 4px 30px rgba(0,0,0,0.2); width:calc(100% - 2rem); max-width:1340px; box-sizing:border-box; transition:all 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .nav-brand { display:flex; align-items:center; gap:0.8rem; text-decoration:none; }
+    .nav-logo-img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid rgba(245,240,232,0.2); transition:border-color 0.3s; } .nav-brand:hover .nav-logo-img { border-color:rgba(245,240,232,0.5); }
+    .nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
+    .nav-brand-name { color:#f5f0e8; font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:0.04em; }
+    .nav-brand-sub { color:rgba(245,240,232,0.45); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; }
+    .nav-page-label { position:absolute; left:50%; transform:translateX(-50%); color:rgba(245,240,232,0.6); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; }
+    .nav-right { display:flex; align-items:center; gap:0.6rem; }
+    .nav-back { color:rgba(245,240,232,0.85); font-size:0.72rem; font-weight:700; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); padding:0.4rem 1rem; border-radius:50px; transition:all 0.3s; }
+    .nav-back:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); color:#fff; }
+
+    .article-hero { background:linear-gradient(rgba(20,32,20,0.62),rgba(20,32,20,0.74)),url('zdj/gallery/hero-bg.webp') center/cover no-repeat; padding:5rem 2rem 3.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px; }
+    .article-hero-label { color:var(--gold); font-size:0.75rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'Playfair Display',serif; font-size:2.6rem; color:#f5f0e8; font-weight:400; line-height:1.2; max-width:720px; margin:0 auto; }
+    .article-hero h1 em { font-style:italic; color:var(--gold); }
+    .article-hero p { color:rgba(245,240,232,0.72); margin-top:1rem; font-size:0.95rem; max-width:580px; }
+
+    .container { max-width:680px; margin:0 auto; padding:3rem 2rem 5rem; }
+    h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--forest); margin:0 0 0.8rem; }
+    p { color:#333; font-size:0.95rem; line-height:1.8; }
+
+    /* SZYBKI KONTAKT */
+    .quick-contact { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:2.5rem; }
+    @media(max-width:560px) { .quick-contact { grid-template-columns:1fr; } }
+    .quick-contact a { display:flex; align-items:center; gap:0.8rem; background:#fff; border:1px solid rgba(44,74,44,0.12); border-radius:12px; padding:1rem 1.1rem; text-decoration:none; box-shadow:0 2px 12px rgba(28,50,32,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .quick-contact a:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.5); }
+    .quick-contact svg { width:20px; height:20px; flex-shrink:0; fill:var(--forest); }
+    .quick-contact .qc-text { display:flex; flex-direction:column; line-height:1.35; }
+    .quick-contact .qc-label { font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-mid); }
+    .quick-contact .qc-value { font-size:1rem; font-weight:700; color:var(--forest); }
+
+    /* KARTA FORMULARZA */
+    .form-card { background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:16px; padding:2rem 2rem 1.8rem; box-shadow:0 10px 34px rgba(28,50,32,0.08); position:relative; overflow:hidden; }
+    .form-card::before { content:''; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--forest) 0%,#b8963e 100%); }
+    .form-intro { margin-bottom:1.6rem; font-size:0.92rem; color:#444; }
+    @media(max-width:768px) { .form-card { padding:1.5rem 1.1rem 1.3rem; border-radius:12px; } }
+
+    /* POLA FORMULARZA – ten sam wyglad co na stronie glownej (assets/css/main.css) */
+    .form-group { margin-bottom:1.1rem; }
+    .form-group label { display:block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.45rem; color:var(--text-mid); }
+    .form-group label .opcjonalne { text-transform:none; letter-spacing:0; font-weight:400; font-style:italic; color:#6d7d69; }
+    .form-group input, .form-group textarea, .form-group select { width:100%; background:#fff; border:1px solid rgba(30,42,30,0.22); color:var(--text-dark); padding:0.8rem 1rem; font-family:'Lato', sans-serif; font-size:0.95rem; border-radius:10px; transition:border-color 0.2s ease, box-shadow 0.2s ease; outline:none; }
+    .form-group select { appearance:none; -webkit-appearance:none; padding-right:2.5rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233D4F3A' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; }
+    .form-group input::placeholder, .form-group textarea::placeholder { opacity:1; color:#6b7a66; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--forest-mid); box-shadow:0 0 0 3px rgba(122,158,110,0.30); }
+    .form-group textarea { height:110px; resize:vertical; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media(max-width:768px) { .form-row { grid-template-columns:1fr; } }
+    .btn-form { width:100%; background:var(--forest-mid); color:#fff; border:none; padding:1.05rem; font-family:'Lato', sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; transition:background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease; border-radius:12px; box-shadow:0 6px 18px rgba(45,74,45,0.28); }
+    .btn-form:hover { background:var(--forest); box-shadow:0 10px 26px rgba(45,74,45,0.35); transform:translateY(-2px); }
+    .btn-form:active { transform:translateY(1px); }
+    .btn-form:focus-visible { outline:3px solid var(--forest); outline-offset:3px; }
+
+    .reassure { display:flex; flex-wrap:wrap; gap:0.5rem 1.2rem; justify-content:center; margin-top:1.6rem; }
+    .reassure span { font-size:0.8rem; color:var(--text-mid); display:inline-flex; align-items:center; gap:0.35rem; }
+    .reassure span::before { content:'✓'; color:var(--forest); font-weight:700; }
+
+    .next-link { display:block; margin-top:2.5rem; background:#fff; border:1px solid rgba(44,74,44,0.10); border-radius:12px; padding:1rem 1.2rem; text-decoration:none; color:var(--forest); font-size:0.9rem; font-weight:700; transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .next-link:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(28,50,32,0.10); border-color:rgba(184,150,62,0.45); }
+    .next-link small { display:block; font-weight:400; color:var(--text-mid); font-size:0.8rem; margin-top:0.15rem; line-height:1.5; }
+
+    @media(max-width:768px) {
+      .article-hero h1 { font-size:1.85rem; }
+      .container { padding:2.2rem 1.1rem 4rem; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+<!-- MOBILE TOP BAR -->
+<!-- PARTIAL:mobile-topbar -->
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="zdj/gallery/nav-logo.webp" alt="Logo Storczyk Zakopane" class="nav-logo-img">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Storczyk</span>
+      <span class="nav-brand-sub">Zakopane</span>
+    </div>
+  </a>
+  <span class="nav-page-label">Rezerwacja</span>
+  <div class="nav-right"><a href="pokoje-zakopane.html" class="nav-back">← Pokoje i cennik</a></div>
+</nav>
+
+<div class="article-hero">
+  <p class="article-hero-label">Willa Storczyk · Zakopane</p>
+  <h1>Zapytaj o <em>wolny termin</em></h1>
+  <p>Rezerwujemy bezpośrednio, bez pośredników i bez zaliczki online. Odpowiadamy tego samego dnia.</p>
+</div>
+
+<div class="container">
+
+  <div class="quick-contact">
+    <a href="tel:{{contact.phoneMobile}}">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      <span class="qc-text"><span class="qc-label">Zadzwoń</span><span class="qc-value">{{contact.phoneMobileDisplay}}</span></span>
+    </a>
+    <a href="tel:{{contact.phoneLandline}}">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      <span class="qc-text"><span class="qc-label">Stacjonarny</span><span class="qc-value">{{contact.phoneLandlineDisplay}}</span></span>
+    </a>
+  </div>
+
+  <div class="form-card">
+    <h2>Formularz zapytania</h2>
+    <p class="form-intro">Podaj datę przyjazdu, datę wyjazdu i liczbę osób, a odeślemy cenę za cały pobyt.</p>
+
+    <form id="booking-form" name="kontakt" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="kontakt">
+      <input type="hidden" name="_subject" value="Nowa wiadomość ze strony storczykzakopane.pl">
+      <p style="position:absolute;left:-9999px;"><label>Nie wypełniaj: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="form-group"><label for="imie">Imię i nazwisko</label><input type="text" name="imie" id="imie" placeholder="Jan Kowalski" required aria-required="true"></div>
+      <div class="form-row">
+        <div class="form-group"><label for="telefon">Telefon</label><input type="tel" name="telefon" id="telefon" placeholder="+48 000 000 000"></div>
+        <div class="form-group"><label for="email">E-mail</label><input type="email" name="email" id="email" placeholder="jan@example.com" required aria-required="true"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="przyjazd">Przyjazd</label><input type="date" name="przyjazd" id="przyjazd" required aria-required="true"></div>
+        <div class="form-group"><label for="wyjazd">Wyjazd</label><input type="date" name="wyjazd" id="wyjazd" required aria-required="true"></div>
+      </div>
+      <div class="form-group">
+        <label for="osoby">Liczba osób</label>
+        <select name="osoby" id="osoby" required aria-required="true"><option value="" selected disabled>Wybierz liczbę osób</option><option value="1 osoba">1 osoba</option><option value="2 osoby">2 osoby</option><option value="3 osoby">3 osoby</option><option value="4 osoby">4 osoby</option><option value="Więcej, napiszę w wiadomości">Więcej, napiszę w wiadomości</option></select>
+      </div>
+      <div class="form-group"><label for="wiadomosc">Wiadomość <span class="opcjonalne">(opcjonalnie)</span></label><textarea name="wiadomosc" id="wiadomosc" placeholder="Dodatkowe informacje, pytania..."></textarea></div>
+      <button type="submit" class="btn-form" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Wyślij zapytanie</button>
+      <p id="form-success" style="display:none;color:#2d4a2d;font-weight:700;text-align:center;margin-top:1rem;font-size:0.95rem;">✓ Dziękujemy! Odezwiemy się jeszcze dziś.</p>
+      <p id="form-error" style="display:none;color:#b23b3b;text-align:center;margin-top:1rem;font-size:0.95rem;">Wystąpił błąd. Zadzwoń: {{contact.phoneMobileDisplay}}</p>
+    </form>
+
+    <div class="reassure">
+      <span>Bez zaliczki online</span>
+      <span>Bez prowizji pośredników</span>
+      <span>Odpowiedź tego samego dnia</span>
+    </div>
+  </div>
+
+  <a href="pokoje-zakopane.html" class="next-link">Nie znasz jeszcze cen?
+    <small>Zobacz typy pokoi i cennik na trzy sezony</small>
+  </a>
+
+</div>
+
+<style>
+  /* Nawigacja mobilna. Ten sam blok co na pozostalych podstronach – te strony
+     nie laduja main.css, wiec style dolnego paska i wyspy musza byc lokalnie. */
+  .mobile-topbar { display:none; }
+  .bottom-nav { display:none; }
+  @media (max-width:768px) {
+    .mobile-topbar { display:flex; justify-content:center; align-items:center; position:fixed; top:0.5rem; left:50%; transform:translateX(-50%); z-index:997; padding:0.45rem 0.6rem 0.45rem 0.5rem; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); border-radius:40px; border:1px solid rgba(255,255,255,0.12); }
+    .mobile-topbar-brand { display:flex; align-items:center; gap:0.45rem; text-decoration:none; }
+    .mobile-topbar-logo { width:26px; height:26px; border-radius:50%; object-fit:cover; }
+    .mobile-topbar-url { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; color:rgba(245,240,232,0.9); letter-spacing:0.08em; text-transform:uppercase; }
+    .mobile-topbar-back { display:flex; align-items:center; justify-content:center; background:none; border:none; color:rgba(245,240,232,0.7); cursor:pointer; padding:0.3rem; margin-right:0.2rem; border-radius:50%; transition:color 0.2s,background 0.2s; text-decoration:none; }
+    .mobile-topbar-back:hover { color:#f5f0e8; background:rgba(255,255,255,0.1); }
+    nav:not(.bottom-nav) { display:none !important; }
+    .bottom-nav { display:flex; position:fixed; top:auto; bottom:calc(0.5rem + env(safe-area-inset-bottom,0px)); left:0.6rem; right:0.6rem; z-index:9999; background:rgba(30,30,30,0.55); backdrop-filter:saturate(180%) blur(28px); -webkit-backdrop-filter:saturate(180%) blur(28px); padding:0.25rem; justify-content:space-around; align-items:stretch; border:1px solid rgba(255,255,255,0.1); border-radius:40px; }
+    .bottom-nav a, .bottom-nav button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.15rem; color:rgba(245,240,232,0.45); text-decoration:none; font-family:'Lato',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:none; border:none; cursor:pointer; padding:0.5rem 0; transition:color 0.2s,background 0.2s; -webkit-tap-highlight-color:transparent; border-radius:30px; position:relative; flex:1; }
+    .bottom-nav a:hover, .bottom-nav button:hover, .bottom-nav a:active, .bottom-nav button:active { color:rgba(245,240,232,0.9); background:rgba(255,255,255,0.12); }
+    .bottom-nav a.bnav-active { color:#f5f0e8; background:rgba(255,255,255,0.15); }
+    .bottom-nav .bnav-icon { width:20px; height:20px; fill:none; stroke:currentColor; }
+    .bottom-nav .bnav-rez { color:#e8b86d; }
+    .bottom-nav .bnav-rez:hover, .bottom-nav .bnav-rez:active { color:#f0c878; background:rgba(232,184,109,0.15); }
+    .article-hero { padding-top:6rem; }
+  }
+</style>
+
+<!-- PARTIAL:footer-slim -->
+
+<!-- PARTIAL:bottom-nav-regulamin -->
+
+<!-- PARTIAL:mobile-menu-blog -->
+
+<!-- PARTIAL:mobile-menu-styles -->
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open')) {
+    closeMenu();
+  } else {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        menu.classList.add('open');
+        if (hamburger) hamburger.classList.add('open');
+      });
+    });
+  }
+}
+
+// Bottom nav active state – page default always stays, Menu toggles separately
+(function() {
+  var menuBtn = document.querySelector('.bottom-nav .bnav-menu');
+  if (menuBtn) {
+    var origToggle = window.toggleMenu;
+    window.toggleMenu = function() {
+      var menu = document.getElementById('mobile-menu');
+      var wasOpen = menu.classList.contains('open');
+      origToggle();
+      if (wasOpen) {
+        menuBtn.classList.remove('bnav-active');
+      } else {
+        menuBtn.classList.add('bnav-active');
+      }
+    };
+    var origClose = window.closeMenu;
+    window.closeMenu = function() {
+      origClose();
+      menuBtn.classList.remove('bnav-active');
+    };
+  }
+})();
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  menu.addEventListener('transitionend', function handler() {
+    if (!menu.classList.contains('open')) {
+      menu.style.display = '';
+    }
+    menu.removeEventListener('transitionend', handler);
+  });
+}
+</script>
+<!-- Walidacja i wysylka formularza siedza w main.js (ten sam kod co na stronie
+     glownej) – kazdy blok tam sprawdza, czy jego elementy istnieja, wiec na tej
+     podstronie odpala sie tylko obsluga #booking-form. -->
+<script src="/assets/js/main.js?v=20260831a" defer></script>
+</body>
+</html>

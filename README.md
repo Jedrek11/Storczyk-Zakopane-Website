@@ -114,7 +114,7 @@ npm run watch
   <a href="https://www.facebook.com/profile.php?id=61576000020623">Facebook</a> ·
   <a href="https://www.instagram.com/storczykzakopane">Instagram</a> ·
   <a href="https://www.tiktok.com/@storczykzakopane">TikTok</a> ·
-  <a href="https://maps.app.goo.gl/RG8Byvs9u7my1c5TV">Google Maps</a>
+  <a href="https://maps.google.com/?cid=15771214070129548552">Google Maps</a>
 </p>
 
 ---

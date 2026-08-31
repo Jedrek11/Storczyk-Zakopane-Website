@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('lb-overlay');
   const lbImg = document.getElementById('lb-main-img');
 
+  // Podstrony bez galerii (rezerwacja, cennik) nie maja lightboxa. Bez tego
+  // sprawdzenia leci TypeError i reszta tego bloku sie nie wykonuje.
+  if (!overlay || !lbImg) return;
+
   overlay.addEventListener('click', function(e) {
     if (e.target === this) {
       // lewa połowa = poprzednie, prawa = następne, nigdy nie zamyka

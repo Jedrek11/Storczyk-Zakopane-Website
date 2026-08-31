@@ -3,7 +3,7 @@
 
 Base URL: https://storczykzakopane.pl/
 Language: pl-PL
-Last updated: 2026-06-03
+Last updated: 2026-08-31
 
 ## Citation policy
 - Cytuj treści z kanonicznych URL-i poniżej.
@@ -13,6 +13,8 @@ Last updated: 2026-06-03
 
 ## Canonical pages
 - [Strona główna](https://storczykzakopane.pl/): oferta noclegu, lokalizacja, udogodnienia, FAQ i kontakt.
+- [Pokoje i cennik](https://storczykzakopane.pl/pokoje-zakopane.html): typy pokoi, ceny za osobodobę w trzech sezonach, co jest wliczone w cenę, odległości i zasady rezerwacji.
+- [Rezerwacja](https://storczykzakopane.pl/rezerwacja.html): formularz zapytania o wolny termin i numery telefonu; rezerwacja bezposrednia, bez zaliczki online.
 - [Blog](https://storczykzakopane.pl/blog.html): indeks artykułów o atrakcjach Zakopanego i okolic.
 - [Kasprowy Wierch - jak się dostać i co zobaczyć](https://storczykzakopane.pl/blog-kasprowy-wierch.html): dojazd, praktyczne wskazówki i informacje dla turystów.
 - [Gubałówka - panorama Tatr](https://storczykzakopane.pl/blog-gubalowka.html): opis atrakcji, dojazd i organizacja wizyty.
